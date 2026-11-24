@@ -452,8 +452,8 @@ tbody td {
       <div class="jukebox-controls">
         <button class="jb-btn primary" id="jbStartBtn" onclick="startOrToggleJukebox()">▶ 연속 재생 시작</button>
         <button class="jb-btn" onclick="playPrevTrack()">⏮ 이전 곡</button>
-        <button class="jb-btn" onclick="playNextTrack(false)">⏭ 다음 곡</button>
-        <button class="jb-btn" id="jbShuffleBtn" onclick="toggleShuffle()">🔀 랜덤 셔플: 꺼짐</button>
+        <button class="jb-btn" onclick="playNextTrack(false)">⏭ 다음 랜덤 곡</button>
+        <button class="jb-btn active-mode" id="jbShuffleBtn" onclick="toggleShuffle()">🔀 랜덤 셔플: 켜짐</button>
         <button class="jb-btn screen-btn" id="jbFullscreenBtn" onclick="toggleFullscreenMode()">⛶ 꽉 찬 전체화면 (연속재생 유지)</button>
         <button class="jb-btn screen-btn" id="jbTheaterBtn" onclick="toggleTheaterMode()">📺 크게 보기 (극장 모드)</button>
         <button class="jb-btn" id="jbAudioModeBtn" onclick="toggleAudioCompactMode()">🎧 미니 오디오 모드</button>
@@ -601,17 +601,36 @@ let currentFiltered = RAW_ROWS;
 let currentIndex = -1;
 let currentVideoId = '';
 let lastHighlightedEl = null;
-let isShuffle = false;
+let isShuffle = true;
+let hasStartedPlayback = false;
 let playHistory = [];
 let skipTimer = null;
 let consecutiveErrors = 0;
 
+function selectInitialRandomTrack() {
+  if (!currentFiltered.length) return 'kJQP7kiw5Fk';
+  const randIdx = Math.floor(Math.random() * currentFiltered.length);
+  currentIndex = randIdx;
+  const r = currentFiltered[randIdx];
+  currentVideoId = r[1];
+  playHistory.push(randIdx);
+
+  document.getElementById('jbTitle').textContent = `🎲 첫 랜덤 선곡: #${nf.format(r[0])} ${r[2]}`;
+  document.getElementById('jbMeta').innerHTML =
+    `채널: <strong style="color:#fff">${esc(r[3])}</strong> · 조회수: <strong style="color:var(--green)">${nf.format(r[5])} (${fmtKorEok(r[5])})</strong> · 게시일: ${r[8]} · 길이: ${fmtDur(r[9])} · <a href="#" onclick="openYouTubeQueueStartingAt('${r[1]}'); return false;">↗ 유튜브 새 탭 열기(이 곡+랜덤 50곡 대기열)</a>`;
+  document.getElementById('jbQueuePos').textContent =
+    `${nf.format(randIdx + 1)} / ${nf.format(currentFiltered.length)}번째 곡 (랜덤 셔플 켜짐)`;
+
+  return currentVideoId;
+}
+
+const INITIAL_RANDOM_VID = selectInitialRandomTrack();
+
 function onYouTubeIframeAPIReady() {
-  const firstVid = currentFiltered.length ? currentFiltered[0][1] : 'kJQP7kiw5Fk';
   ytPlayer = new YT.Player('ytPlayerContainer', {
     width: '100%',
     height: '100%',
-    videoId: firstVid,
+    videoId: INITIAL_RANDOM_VID,
     playerVars: {
       autoplay: 0,
       rel: 0,
@@ -633,10 +652,11 @@ function onPlayerReady() {
   if (pendingPlayVideoId) {
     const vidToLoad = pendingPlayVideoId;
     pendingPlayVideoId = '';
+    hasStartedPlayback = true;
     ytPlayer.loadVideoById(vidToLoad);
     try { ytPlayer.playVideo(); } catch (e) {}
   } else {
-    badge.textContent = '✅ 재생 준비 완료 (버튼 클릭 시 즉시 시작)';
+    badge.textContent = '🎲 랜덤 첫 곡 준비 완료 ([▶ 연속 재생 시작]을 누르세요)';
     badge.style.color = 'var(--green)';
   }
 }
@@ -645,10 +665,16 @@ function onPlayerStateChange(event) {
   const badge = document.getElementById('jbStateBadge');
   const startBtn = document.getElementById('jbStartBtn');
   if (event.data === YT.PlayerState.PLAYING) {
+    hasStartedPlayback = true;
     consecutiveErrors = 0;
     badge.textContent = '▶ 실시간 연속 재생 중';
     badge.style.color = 'var(--green)';
     startBtn.textContent = '⏸ 일시정지';
+    if (currentIndex >= 0 && currentFiltered[currentIndex]) {
+      const r = currentFiltered[currentIndex];
+      document.getElementById('jbTitle').textContent = `#${nf.format(r[0])} ${r[2]}`;
+      setupMediaSession(r);
+    }
     updateMediaSessionState('playing');
   } else if (event.data === YT.PlayerState.PAUSED) {
     badge.textContent = '⏸ 일시정지됨';
@@ -659,7 +685,9 @@ function onPlayerStateChange(event) {
     badge.textContent = '⏳ 불러오는 중...';
     badge.style.color = 'var(--accent)';
   } else if (event.data === YT.PlayerState.CUED) {
-    try { ytPlayer.playVideo(); } catch (e) {}
+    if (hasStartedPlayback) {
+      try { ytPlayer.playVideo(); } catch (e) {}
+    }
   } else if (event.data === YT.PlayerState.ENDED) {
     badge.textContent = '⏭ 다음 곡 자동 전환 중...';
     playNextTrack(true);
@@ -702,6 +730,7 @@ function playTrackAtIndex(idx) {
   currentIndex = idx;
   const r = currentFiltered[idx];
   currentVideoId = r[1];
+  hasStartedPlayback = true;
   playHistory.push(idx);
   if (playHistory.length > 500) playHistory.shift();
 
