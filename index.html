@@ -386,6 +386,95 @@ tbody td {
   background: var(--panel);
   border-top: 1px solid var(--border);
 }
+/* Fisher Deck Mini Popup Window */
+.deck-popup {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 100000;
+  width: 280px;
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.97) 0%, rgba(30, 41, 59, 0.98) 100%);
+  border: 2px solid var(--green);
+  border-radius: 14px;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.65);
+  padding: 14px 16px;
+  color: var(--text);
+  backdrop-filter: blur(10px);
+  animation: deckPopIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes deckPopIn {
+  from { transform: translateY(16px) scale(0.92); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+.deck-popup.pulse {
+  border-color: var(--accent);
+}
+.deck-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--green);
+  margin-bottom: 8px;
+}
+.deck-popup-close {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 15px;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+}
+.deck-popup-close:hover { color: #fff; }
+.deck-popup-body {
+  text-align: center;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+}
+.deck-popup-label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+.deck-popup-count {
+  font-size: 28px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+.deck-popup-count span {
+  font-size: 15px;
+  color: var(--green);
+  font-weight: 700;
+  margin-left: 3px;
+}
+.deck-popup-sub {
+  font-size: 11px;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+.deck-progress-track {
+  width: 100%;
+  height: 6px;
+  background: #0f172a;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.deck-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--green), var(--accent));
+  width: 0%;
+  transition: width 0.25s ease;
+}
 .schema-box {
   background: #0b1120;
   border: 1px solid var(--border);
@@ -465,7 +554,7 @@ tbody td {
 </style>
 </head>
 <body>
-<nav class="top-nav"><span class="brand">🎬 YouTube 100M+ Census</span><a class="nav-link active" href="index.html?v=7">🏠 통합 홈</a><a class="nav-link" href="youtube_100m_mv_verified.html?v=7">1. 음악 카테고리 1억+ (11,512)</a><a class="nav-link" href="youtube_100m_official_mv_only.html?v=7">2. 순수 공식 MV (10,202)</a><a class="nav-link" href="youtube_100m_all_categories.html?v=7">3. 전 카테고리 1억+ (12,101)</a><a class="nav-link" href="utubeinfo_db_viewer.html?v=7">4. 원본 DB 전체 (29,537)</a><a class="nav-link" href="video_sources.html?v=7">🔗 수집 출처 사전 (29,537)</a></nav>
+<nav class="top-nav"><span class="brand">🎬 YouTube 100M+ Census</span><a class="nav-link active" href="index.html?v=8">🏠 통합 홈</a><a class="nav-link" href="youtube_100m_mv_verified.html?v=8">1. 음악 카테고리 1억+ (11,512)</a><a class="nav-link" href="youtube_100m_official_mv_only.html?v=8">2. 순수 공식 MV (10,202)</a><a class="nav-link" href="youtube_100m_all_categories.html?v=8">3. 전 카테고리 1억+ (12,101)</a><a class="nav-link" href="utubeinfo_db_viewer.html?v=8">4. 원본 DB 전체 (29,537)</a><a class="nav-link" href="video_sources.html?v=8">🔗 수집 출처 사전 (29,537)</a></nav>
 <div class="container">
   <div class="page-header">
     <h1>🎬 유튜브 조회수 1억 회 이상 뮤직비디오 전수조사 통합 리포트 (주크박스 내장)</h1>
@@ -473,7 +562,7 @@ tbody td {
   </div>
 
   <div class="cards">
-    <a class="report-card" href="youtube_100m_official_mv_only.html?v=7">
+    <a class="report-card" href="youtube_100m_official_mv_only.html?v=8">
       <div>
         <h2>2. 순수 공식 뮤직비디오 (주크박스 추천)</h2>
         <div class="count-big" style="color:var(--accent)">10,202곡 연속 재생</div>
@@ -482,7 +571,7 @@ tbody td {
       <span class="open-btn">순수 공식 MV 10,202곡 주크박스 열기 →</span>
     </a>
 
-    <a class="report-card" href="youtube_100m_mv_verified.html?v=7">
+    <a class="report-card" href="youtube_100m_mv_verified.html?v=8">
       <div>
         <h2>1. 음악 카테고리 1억 뷰+ 전체</h2>
         <div class="count-big">11,512곡 연속 재생</div>
@@ -491,7 +580,7 @@ tbody td {
       <span class="open-btn">전체 11,512곡 주크박스 열기 →</span>
     </a>
 
-    <a class="report-card" href="youtube_100m_all_categories.html?v=7">
+    <a class="report-card" href="youtube_100m_all_categories.html?v=8">
       <div>
         <h2>3. 카테고리 무관 1억 뷰+ 전체</h2>
         <div class="count-big" style="color:var(--gold)">12,101곡 연속 재생</div>
