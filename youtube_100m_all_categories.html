@@ -429,7 +429,7 @@ tbody td {
 </style>
 </head>
 <body>
-<nav class="top-nav"><span class="brand">🎬 YouTube 100M+ Census</span><a class="nav-link" href="index.html?v=5">🏠 통합 홈</a><a class="nav-link" href="youtube_100m_mv_verified.html?v=5">1. 음악 카테고리 1억+ (11,512)</a><a class="nav-link" href="youtube_100m_official_mv_only.html?v=5">2. 순수 공식 MV (10,202)</a><a class="nav-link active" href="youtube_100m_all_categories.html?v=5">3. 전 카테고리 1억+ (12,101)</a><a class="nav-link" href="utubeinfo_db_viewer.html?v=5">4. 원본 DB 전체 (29,537)</a><a class="nav-link" href="video_sources.html?v=5">🔗 수집 출처 사전 (29,537)</a></nav>
+<nav class="top-nav"><span class="brand">🎬 YouTube 100M+ Census</span><a class="nav-link" href="index.html?v=6">🏠 통합 홈</a><a class="nav-link" href="youtube_100m_mv_verified.html?v=6">1. 음악 카테고리 1억+ (11,512)</a><a class="nav-link" href="youtube_100m_official_mv_only.html?v=6">2. 순수 공식 MV (10,202)</a><a class="nav-link active" href="youtube_100m_all_categories.html?v=6">3. 전 카테고리 1억+ (12,101)</a><a class="nav-link" href="utubeinfo_db_viewer.html?v=6">4. 원본 DB 전체 (29,537)</a><a class="nav-link" href="video_sources.html?v=6">🔗 수집 출처 사전 (29,537)</a></nav>
 <div class="container">
   <div class="page-header">
     <h1>3. 카테고리 무관 1억 뷰+ 전체 목록 & 연속 주크박스</h1>
@@ -451,14 +451,15 @@ tbody td {
       <div class="jukebox-meta" id="jbMeta">💡 큰 화면으로 보면서 무한 랜덤 셔플을 유지하려면 새 탭 대신 아래 보라색 <strong>[⛶ 꽉 찬 전체화면]</strong> 또는 <strong>[📺 크게 보기]</strong>를 누르세요!</div>
       <div class="jukebox-controls">
         <button class="jb-btn primary" id="jbStartBtn" onclick="startOrToggleJukebox()">▶ 연속 재생 시작</button>
-        <button class="jb-btn" onclick="playPrevTrack()">⏮ 이전 곡</button>
-        <button class="jb-btn" onclick="playNextTrack(false)">⏭ 다음 랜덤 곡</button>
-        <button class="jb-btn active-mode" id="jbShuffleBtn" onclick="toggleShuffle()">🔀 랜덤 셔플: 켜짐</button>
+        <button class="jb-btn" onclick="playPrevTrack()">⏮ 이전 카드</button>
+        <button class="jb-btn" onclick="playNextTrack(false)">⏭ 다음 카드</button>
+        <button class="jb-btn active-mode" id="jbShuffleBtn" onclick="toggleShuffle()">🃏 피셔-예이츠 덱 셔플: 켜짐</button>
+        <button class="jb-btn" id="jbReshuffleBtn" onclick="reshuffleNewDeck(true)" title="10,202장 카드를 처음부터 새로 섞고 진행 기록을 1번 카드로 초기화합니다">🔄 새 덱 섞기(초기화)</button>
         <button class="jb-btn screen-btn" id="jbFullscreenBtn" onclick="toggleFullscreenMode()">⛶ 꽉 찬 전체화면 (연속재생 유지)</button>
         <button class="jb-btn screen-btn" id="jbTheaterBtn" onclick="toggleTheaterMode()">📺 크게 보기 (극장 모드)</button>
         <button class="jb-btn" id="jbAudioModeBtn" onclick="toggleAudioCompactMode()">🎧 미니 오디오 모드</button>
         <button class="jb-btn" onclick="scrollToCurrentPlaying()">🎯 현재 곡 위치</button>
-        <button class="jb-btn" onclick="openYouTube50Queue()" title="현재 곡부터 셔플/순차 50곡을 묶어 유튜브 새 탭/앱 연속 재생목록으로 엽니다">📱 유튜브 앱 50곡 연속 열기 ↗</button>
+        <button class="jb-btn" onclick="openYouTube50Queue()" title="현재 덱 순서부터 50곡을 묶어 유튜브 새 탭/앱 연속 재생목록으로 엽니다">📱 유튜브 앱 50곡 연속 열기 ↗</button>
       </div>
       <div class="file-warn" id="fileProtocolWarn">
         💡 <strong>안내:</strong> 탐색기에서 <code>file://</code>로 직접 열면 VEVO 등 일부 공식 뮤직비디오가 보안 정책(오류 153)으로 차단될 수 있습니다. 웹 주소(<code>https://ilbbang.com/utubeinfo/</code>) 또는 폴더 안의 <strong><code>play_jukebox.bat</code></strong>로 여시면 모든 곡이 차단 없이 연속 재생됩니다!
@@ -592,7 +593,8 @@ function fmtKorEok(n) {
   return (n / 100000000).toFixed(2) + '억';
 }
 
-// ================= ZERO-LAG JUKEBOX PLAYER ENGINE =================
+// ================= ZERO-LAG FISHER-YATES DECK JUKEBOX ENGINE =================
+const PAGE_STORAGE_KEY = 'utubeinfo_fy_deck_v1_all_cat';
 let ytPlayer = null;
 let ytPlayerReady = false;
 let pendingPlayVideoId = '';
@@ -602,9 +604,98 @@ let currentVideoId = '';
 let lastHighlightedEl = null;
 let isShuffle = true;
 let hasStartedPlayback = false;
-let playHistory = [];
 let skipTimer = null;
 let consecutiveErrors = 0;
+
+// Persistent Fisher-Yates Deck State (for full unfiltered dataset)
+let mainDeck = [];
+let mainDeckPos = 0;
+let restoredFromStorage = false;
+
+// Temporary Fisher-Yates Deck State (when search/filter is active)
+let filterDeck = [];
+let filterDeckPos = 0;
+let isFilterActive = false;
+
+function buildFisherYatesDeck(size) {
+  const deck = new Array(size);
+  for (let i = 0; i < size; i++) deck[i] = i;
+  for (let i = size - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const tmp = deck[i];
+    deck[i] = deck[j];
+    deck[j] = tmp;
+  }
+  return deck;
+}
+
+function saveMainDeckToStorage() {
+  try {
+    localStorage.setItem(PAGE_STORAGE_KEY + '_deck', JSON.stringify(mainDeck));
+    localStorage.setItem(PAGE_STORAGE_KEY + '_pos', String(mainDeckPos));
+  } catch (e) {}
+}
+
+function saveMainPosToStorage() {
+  try {
+    localStorage.setItem(PAGE_STORAGE_KEY + '_pos', String(mainDeckPos));
+  } catch (e) {}
+}
+
+function loadOrInitMainDeck() {
+  const total = RAW_ROWS.length;
+  try {
+    const rawDeck = localStorage.getItem(PAGE_STORAGE_KEY + '_deck');
+    const rawPos = localStorage.getItem(PAGE_STORAGE_KEY + '_pos');
+    if (rawDeck) {
+      const parsed = JSON.parse(rawDeck);
+      if (Array.isArray(parsed) && parsed.length === total) {
+        mainDeck = parsed;
+        const p = parseInt(rawPos || '0', 10);
+        mainDeckPos = (!isNaN(p) && p >= 0 && p < total) ? p : 0;
+        restoredFromStorage = true;
+        return;
+      }
+    }
+  } catch (e) {}
+  mainDeck = buildFisherYatesDeck(total);
+  mainDeckPos = 0;
+  restoredFromStorage = false;
+  saveMainDeckToStorage();
+}
+
+function reshuffleNewDeck(autoPlayNow) {
+  if (isFilterActive) {
+    filterDeck = buildFisherYatesDeck(currentFiltered.length);
+    filterDeckPos = 0;
+    playTrackAtIndex(filterDeck[0]);
+    return;
+  }
+  mainDeck = buildFisherYatesDeck(RAW_ROWS.length);
+  mainDeckPos = 0;
+  restoredFromStorage = false;
+  saveMainDeckToStorage();
+  if (autoPlayNow) {
+    playTrackAtIndex(mainDeck[0]);
+  } else {
+    cueInitialDeckTrack();
+  }
+  const badge = document.getElementById('jbStateBadge');
+  badge.textContent = '🃏 10,202장 카드 새 덱 셔플 완료 (1번 카드부터 시작)';
+  badge.style.color = 'var(--green)';
+}
+
+function formatQueueStatusText() {
+  const total = currentFiltered.length;
+  if (!total) return '대기열 0곡';
+  if (isShuffle) {
+    const pos = isFilterActive ? filterDeckPos : mainDeckPos;
+    const remain = Math.max(0, total - pos - 1);
+    const saveTag = (!isFilterActive && restoredFromStorage) ? ' · 💾 자동저장 이어듣기' : ' · 💾 위치 자동저장 중';
+    return `🃏 카드 덱 ${nf.format(pos + 1)} / ${nf.format(total)}번째 (남은 미재생 ${nf.format(remain)}곡${saveTag})`;
+  }
+  return `순차 ${nf.format(currentIndex + 1)} / ${nf.format(total)}번째 곡 (순차 재생 모드)`;
+}
 
 function buildEmbedUrl(vid, autoplay) {
   const originParam = (location.protocol === 'http:' || location.protocol === 'https:')
@@ -613,21 +704,30 @@ function buildEmbedUrl(vid, autoplay) {
   return `https://www.youtube.com/embed/${vid}?enablejsapi=1&playsinline=1&rel=0&modestbranding=1&fs=1&autoplay=${autoplay ? 1 : 0}${originParam}`;
 }
 
-function selectInitialRandomTrack() {
-  if (!currentFiltered.length) return 'kJQP7kiw5Fk';
-  const randIdx = Math.floor(Math.random() * currentFiltered.length);
-  currentIndex = randIdx;
-  const r = currentFiltered[randIdx];
+function cueInitialDeckTrack() {
+  loadOrInitMainDeck();
+  if (! currentFiltered.length) return 'kJQP7kiw5Fk';
+  const targetRowIdx = mainDeck[mainDeckPos] || 0;
+  currentIndex = targetRowIdx;
+  const r = currentFiltered[targetRowIdx];
   currentVideoId = r[1];
-  playHistory.push(randIdx);
 
-  document.getElementById('jbTitle').textContent = `🎲 첫 랜덤 선곡: #${nf.format(r[0])} ${r[2]}`;
+  const prefix = restoredFromStorage && mainDeckPos > 0
+    ? `💾 이어듣기 (${nf.format(mainDeckPos + 1)}번째 카드): `
+    : `🃏 첫 카드 선곡 (${nf.format(mainDeckPos + 1)}번째 카드): `;
+
+  document.getElementById('jbTitle').textContent = `${prefix}#${nf.format(r[0])} ${r[2]}`;
   document.getElementById('jbMeta').innerHTML =
-    `채널: <strong style="color:#fff">${esc(r[3])}</strong> · 조회수: <strong style="color:var(--green)">${nf.format(r[5])} (${fmtKorEok(r[5])})</strong> · 게시일: ${r[8]} · 길이: ${fmtDur(r[9])} · <a href="#" onclick="openYouTubeQueueStartingAt('${r[1]}'); return false;">↗ 유튜브 새 탭 열기(이 곡+랜덤 50곡 대기열)</a>`;
-  document.getElementById('jbQueuePos').textContent =
-    `${nf.format(randIdx + 1)} / ${nf.format(currentFiltered.length)}번째 곡 (랜덤 셔플 켜짐)`;
+    `채널: <strong style="color:#fff">${esc(r[3])}</strong> · 조회수: <strong style="color:var(--green)">${nf.format(r[5])} (${fmtKorEok(r[5])})</strong> · 게시일: ${r[8]} · 길이: ${fmtDur(r[9])} · <a href="#" onclick="openYouTubeQueueStartingAt('${r[1]}'); return false;">↗ 유튜브 새 탭 열기(이 곡+덱 순서 50곡 대기열)</a>`;
+  document.getElementById('jbQueuePos').textContent = formatQueueStatusText();
 
-  // Set iframe src immediately so video appears in 0.1s even before YT API script loads
+  const badge = document.getElementById('jbStateBadge');
+  if (restoredFromStorage && mainDeckPos > 0) {
+    badge.textContent = `💾 이전 종료 위치(${nf.format(mainDeckPos + 1)}번째 카드) 복원 완료`;
+  } else {
+    badge.textContent = '🃏 피셔-예이츠 카드 덱 준비 완료';
+  }
+
   const iframeEl = document.getElementById('ytPlayerContainer');
   if (iframeEl) {
     iframeEl.src = buildEmbedUrl(currentVideoId, false);
@@ -635,7 +735,7 @@ function selectInitialRandomTrack() {
   return currentVideoId;
 }
 
-const INITIAL_RANDOM_VID = selectInitialRandomTrack();
+const INITIAL_RANDOM_VID = cueInitialDeckTrack();
 
 function initYouTubePlayerInstance() {
   if (ytPlayer || !(window.YT && window.YT.Player)) return;
@@ -759,19 +859,29 @@ function playTrackAtIndex(idx) {
   const r = currentFiltered[idx];
   currentVideoId = r[1];
   hasStartedPlayback = true;
-  playHistory.push(idx);
-  if (playHistory.length > 500) playHistory.shift();
 
-  // Instant UI feedback (0ms delay)
+  // Sync deck cursor if user clicked a specific row or moved through deck
+  if (isShuffle) {
+    if (isFilterActive) {
+      const foundPos = filterDeck.indexOf(idx);
+      if (foundPos !== -1) filterDeckPos = foundPos;
+    } else {
+      if (mainDeck[mainDeckPos] !== idx) {
+        const foundPos = mainDeck.indexOf(idx);
+        if (foundPos !== -1) mainDeckPos = foundPos;
+      }
+      saveMainPosToStorage();
+    }
+  }
+
   const badge = document.getElementById('jbStateBadge');
   badge.textContent = '⏳ 곡 불러오는 중...';
   badge.style.color = 'var(--accent)';
   document.getElementById('jbStartBtn').textContent = '⏸ 일시정지';
   document.getElementById('jbTitle').textContent = `#${nf.format(r[0])} ${r[2]}`;
   document.getElementById('jbMeta').innerHTML =
-    `채널: <strong style="color:#fff">${esc(r[3])}</strong> · 조회수: <strong style="color:var(--green)">${nf.format(r[5])} (${fmtKorEok(r[5])})</strong> · 게시일: ${r[8]} · 길이: ${fmtDur(r[9])} · <a href="#" onclick="openYouTubeQueueStartingAt('${r[1]}'); return false;">↗ 유튜브 새 탭 열기(이 곡+랜덤/순차 50곡 대기열)</a>`;
-  document.getElementById('jbQueuePos').textContent =
-    `${nf.format(idx + 1)} / ${nf.format(currentFiltered.length)}번째 곡 ${isShuffle ? '(랜덤 셔플 켜짐)' : '(순차 재생)'}`;
+    `채널: <strong style="color:#fff">${esc(r[3])}</strong> · 조회수: <strong style="color:var(--green)">${nf.format(r[5])} (${fmtKorEok(r[5])})</strong> · 게시일: ${r[8]} · 길이: ${fmtDur(r[9])} · <a href="#" onclick="openYouTubeQueueStartingAt('${r[1]}'); return false;">↗ 유튜브 새 탭 열기(이 곡+덱 순서 50곡 대기열)</a>`;
+  document.getElementById('jbQueuePos').textContent = formatQueueStatusText();
 
   highlightPlayingRow(currentVideoId);
 
@@ -779,7 +889,6 @@ function playTrackAtIndex(idx) {
     ytPlayer.loadVideoById(currentVideoId);
     try { ytPlayer.playVideo(); } catch (e) {}
   } else {
-    // Direct iframe load fallback so playback starts immediately even if widgetapi is delayed
     const iframeEl = document.getElementById('ytPlayerContainer');
     if (iframeEl) {
       iframeEl.src = buildEmbedUrl(currentVideoId, true);
@@ -807,8 +916,8 @@ function playByVideoId(vid) {
 function startOrToggleJukebox() {
   if (!currentFiltered.length) return;
   if (currentIndex === -1) {
-    const startIdx = isShuffle ? Math.floor(Math.random() * currentFiltered.length) : 0;
-    playTrackAtIndex(startIdx);
+    const firstIdx = isShuffle ? (isFilterActive ? filterDeck[filterDeckPos] : mainDeck[mainDeckPos]) : 0;
+    playTrackAtIndex(firstIdx);
     return;
   }
   if (!hasStartedPlayback) {
@@ -840,13 +949,26 @@ function startOrToggleJukebox() {
 function playNextTrack(fromAutoAdvance) {
   if (!currentFiltered.length) return;
   if (!fromAutoAdvance) consecutiveErrors = 0;
-  if (isShuffle && currentFiltered.length > 1) {
-    let nextIdx = currentIndex;
-    for (let tries = 0; tries < 5; tries++) {
-      nextIdx = Math.floor(Math.random() * currentFiltered.length);
-      if (nextIdx !== currentIndex) break;
+  if (isShuffle) {
+    if (isFilterActive) {
+      filterDeckPos++;
+      if (filterDeckPos >= filterDeck.length) {
+        filterDeck = buildFisherYatesDeck(currentFiltered.length);
+        filterDeckPos = 0;
+      }
+      playTrackAtIndex(filterDeck[filterDeckPos]);
+    } else {
+      mainDeckPos++;
+      if (mainDeckPos >= mainDeck.length) {
+        // All 10,202 cards completed! Automatically deal a brand new shuffled deck
+        mainDeck = buildFisherYatesDeck(RAW_ROWS.length);
+        mainDeckPos = 0;
+        saveMainDeckToStorage();
+      } else {
+        saveMainPosToStorage();
+      }
+      playTrackAtIndex(mainDeck[mainDeckPos]);
     }
-    playTrackAtIndex(nextIdx);
   } else {
     playTrackAtIndex(currentIndex + 1);
   }
@@ -855,10 +977,15 @@ function playNextTrack(fromAutoAdvance) {
 function playPrevTrack() {
   if (!currentFiltered.length) return;
   consecutiveErrors = 0;
-  if (playHistory.length >= 2) {
-    playHistory.pop();
-    const prevIdx = playHistory.pop();
-    playTrackAtIndex(prevIdx);
+  if (isShuffle) {
+    if (isFilterActive) {
+      filterDeckPos = filterDeckPos > 0 ? filterDeckPos - 1 : 0;
+      playTrackAtIndex(filterDeck[filterDeckPos]);
+    } else {
+      mainDeckPos = mainDeckPos > 0 ? mainDeckPos - 1 : 0;
+      saveMainPosToStorage();
+      playTrackAtIndex(mainDeck[mainDeckPos]);
+    }
   } else {
     playTrackAtIndex(currentIndex > 0 ? currentIndex - 1 : 0);
   }
@@ -867,15 +994,9 @@ function playPrevTrack() {
 function toggleShuffle() {
   isShuffle = !isShuffle;
   const btn = document.getElementById('jbShuffleBtn');
-  btn.textContent = isShuffle ? '🔀 랜덤 셔플: 켜짐' : '🔀 랜덤 셔플: 꺼짐';
+  btn.textContent = isShuffle ? '🃏 피셔-예이츠 덱 셔플: 켜짐' : '🃏 피셔-예이츠 덱 셔플: 꺼짐(순차)';
   btn.classList.toggle('active-mode', isShuffle);
-  if (currentIndex >= 0) {
-    document.getElementById('jbQueuePos').textContent =
-      `${nf.format(currentIndex + 1)} / ${nf.format(currentFiltered.length)}번째 곡 ${isShuffle ? '(랜덤 셔플 켜짐)' : '(순차 재생)'}`;
-  } else {
-    document.getElementById('jbQueuePos').textContent =
-      `전체 ${nf.format(currentFiltered.length)}곡 대기열 ${isShuffle ? '(랜덤 셔플 켜짐)' : ''}`;
-  }
+  document.getElementById('jbQueuePos').textContent = formatQueueStatusText();
 }
 
 function toggleTheaterMode() {
@@ -977,31 +1098,27 @@ function scrollToCurrentPlaying() {
 function build50QueueIds(startVideoId) {
   if (!currentFiltered.length) return [];
   const ids = [];
-  let startIdx = 0;
-  if (startVideoId) {
-    const found = currentFiltered.findIndex(r => r[1] === startVideoId);
-    if (found !== -1) startIdx = found;
-    ids.push(startVideoId);
-  } else if (currentIndex >= 0) {
-    startIdx = currentIndex;
-  }
-
   if (isShuffle) {
-    const used = new Set(ids);
-    const maxTarget = Math.min(50, currentFiltered.length);
-    let guard = 0;
-    while (ids.length < maxTarget && guard < 500) {
-      guard++;
-      const rIdx = Math.floor(Math.random() * currentFiltered.length);
-      const vid = currentFiltered[rIdx][1];
-      if (!used.has(vid)) {
-        used.add(vid);
-        ids.push(vid);
+    const deck = isFilterActive ? filterDeck : mainDeck;
+    let startPos = isFilterActive ? filterDeckPos : mainDeckPos;
+    if (startVideoId) {
+      const rowIdx = currentFiltered.findIndex(r => r[1] === startVideoId);
+      if (rowIdx !== -1) {
+        const foundPos = deck.indexOf(rowIdx);
+        if (foundPos !== -1) startPos = foundPos;
       }
     }
+    for (let i = 0; i < deck.length && ids.length < 50; i++) {
+      const rIdx = deck[(startPos + i) % deck.length];
+      if (currentFiltered[rIdx]) ids.push(currentFiltered[rIdx][1]);
+    }
   } else {
-    const offset = startVideoId ? 1 : 0;
-    for (let i = offset; i < currentFiltered.length && ids.length < 50; i++) {
+    let startIdx = currentIndex >= 0 ? currentIndex : 0;
+    if (startVideoId) {
+      const found = currentFiltered.findIndex(r => r[1] === startVideoId);
+      if (found !== -1) startIdx = found;
+    }
+    for (let i = 0; i < currentFiltered.length && ids.length < 50; i++) {
       ids.push(currentFiltered[(startIdx + i) % currentFiltered.length][1]);
     }
   }
@@ -1164,13 +1281,15 @@ function applyFiltersAndRender() {
   else if (sortKey === 'dur_desc') list.sort((a,b) => b[9] - a[9]);
 
   currentFiltered = list;
+  isFilterActive = Boolean(q || sub || minV > 0 || sortKey !== 'views_desc');
+  if (isFilterActive) {
+    filterDeck = buildFisherYatesDeck(currentFiltered.length);
+    filterDeckPos = 0;
+  }
   if (currentVideoId) {
     currentIndex = currentFiltered.findIndex(r => r[1] === currentVideoId);
   }
-  document.getElementById('jbQueuePos').textContent =
-    currentIndex >= 0
-      ? `${nf.format(currentIndex + 1)} / ${nf.format(currentFiltered.length)}번째 곡`
-      : `전체 ${nf.format(currentFiltered.length)}곡 대기열`;
+  document.getElementById('jbQueuePos').textContent = formatQueueStatusText();
 
   document.getElementById('tableBody').innerHTML = '';
   renderedCount = 0;
