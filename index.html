@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>유튜브 1억 뷰+ 뮤직비디오 전수조사 통합 리포트</title>
+<style>
+
+:root {
+  --bg: #0f172a;
+  --panel: #1e293b;
+  --panel-hover: #263449;
+  --border: #334155;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+  --green: #34d399;
+  --gold: #fbbf24;
+  --rose: #fb7185;
+  --purple: #c084fc;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Malgun Gothic', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.45;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.top-nav .brand {
+  font-weight: 800;
+  color: #fff;
+  margin-right: 12px;
+  font-size: 15px;
+}
+.nav-link {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  transition: all 0.15s;
+}
+.nav-link:hover { color: #fff; border-color: var(--accent); text-decoration: none; }
+.nav-link.active {
+  background: #0284c7;
+  color: #fff;
+  border-color: #38bdf8;
+}
+.container {
+  max-width: 1680px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.page-header h1 {
+  margin: 0 0 6px 0;
+  font-size: 24px;
+}
+.page-header p {
+  margin: 0 0 18px 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.stat-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.stat-card .label { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+.stat-card .value { font-size: 22px; font-weight: 800; color: #fff; }
+.stat-card .sub { font-size: 12px; color: var(--green); margin-top: 2px; }
+
+/* Jukebox Sticky Player Panel */
+.jukebox-panel {
+  position: sticky;
+  top: 52px;
+  z-index: 95;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.98) 0%, rgba(30, 41, 59, 0.98) 100%);
+  backdrop-filter: blur(12px);
+  border: 1px solid #0284c7;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+.jukebox-video-box {
+  width: 280px;
+  height: 158px;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
+}
+.jukebox-video-box.audio-mode {
+  width: 120px;
+  height: 68px;
+  opacity: 0.85;
+}
+.jukebox-info {
+  flex: 1;
+  min-width: 260px;
+}
+.jukebox-status-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.jukebox-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 4px 0;
+  line-height: 1.3;
+}
+.jukebox-meta {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.jukebox-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.jb-btn {
+  background: var(--panel);
+  color: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 13px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.jb-btn:hover { border-color: var(--accent); background: #0369a1; }
+.jb-btn.primary { background: #0284c7; border-color: var(--accent); }
+.jb-btn.active-mode { background: rgba(52, 211, 153, 0.2); border-color: var(--green); color: var(--green); }
+.file-warn {
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: rgba(251, 191, 36, 0.14);
+  border: 1px solid rgba(251, 191, 36, 0.35);
+  color: #fde68a;
+  font-size: 12px;
+  display: none;
+}
+
+.toolbar {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.toolbar input[type="search"], .toolbar select {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 13px;
+}
+.toolbar input[type="search"] { min-width: 260px; flex: 1; }
+.btn {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 7px 11px;
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn:hover { border-color: var(--accent); color: #fff; }
+.btn.active { background: #0369a1; border-color: var(--accent); color: #fff; }
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.table-wrap {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+thead th {
+  position: sticky;
+  top: 0;
+  background: #0f172a;
+  color: var(--muted);
+  text-align: left;
+  padding: 10px 10px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+  font-weight: 700;
+}
+thead th.num, tbody td.num { text-align: right; font-variant-numeric: tabular-nums; }
+tbody tr {
+  border-bottom: 1px solid rgba(51, 65, 85, 0.55);
+  content-visibility: auto;
+  contain-intrinsic-size: auto 42px;
+}
+tbody tr:hover { background: var(--panel-hover); }
+tbody tr.now-playing {
+  background: rgba(2, 132, 199, 0.28) !important;
+  outline: 1px solid var(--accent);
+}
+tbody td {
+  padding: 8px 10px;
+  vertical-align: middle;
+}
+.rank-cell { font-weight: 700; color: var(--muted); width: 58px; }
+.vid-code {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 12px;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.play-inline-btn {
+  background: #0284c7;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-right: 6px;
+}
+.play-inline-btn:hover { background: #38bdf8; color: #0f172a; }
+.thumb-img {
+  width: 72px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+  background: #0f172a;
+}
+.title-main { font-weight: 600; color: #fff; word-break: break-word; cursor: pointer; }
+.title-main:hover { color: var(--accent); }
+.views-strong { font-weight: 800; color: var(--green); white-space: nowrap; }
+.views-billion { font-weight: 800; color: var(--gold); white-space: nowrap; }
+.kor-unit { display: block; font-size: 11px; color: var(--muted); font-weight: 400; }
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.b-official_mv { background: rgba(52, 211, 153, 0.16); color: #6ee7b7; }
+.b-lyric_or_audio { background: rgba(56, 189, 248, 0.16); color: #7dd3fc; }
+.b-live_stage { background: rgba(192, 132, 252, 0.16); color: #d8b4fe; }
+.b-art_track_audio { background: rgba(148, 163, 184, 0.2); color: #cbd5e1; }
+.b-performance_or_dance { background: rgba(251, 191, 36, 0.16); color: #fde68a; }
+.b-shorts { background: rgba(251, 113, 133, 0.18); color: #fda4af; }
+.b-non_music { background: rgba(249, 115, 22, 0.18); color: #fdba74; }
+.b-active { background: rgba(52, 211, 153, 0.16); color: #6ee7b7; }
+.b-unavailable { background: rgba(251, 113, 133, 0.2); color: #fda4af; }
+.src-link-btn {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(56, 189, 248, 0.14);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #7dd3fc;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.src-link-btn:hover {
+  background: #0284c7;
+  color: #fff;
+  text-decoration: none;
+}
+.schema-box {
+  background: #0b1120;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 12px;
+  color: #93c5fd;
+  white-space: pre-wrap;
+  margin-bottom: 14px;
+}
+@media (max-width: 768px) {
+  .top-nav {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 8px 12px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .top-nav .brand, .nav-link { white-space: nowrap; flex-shrink: 0; }
+  .container { padding: 12px; }
+  .jukebox-panel {
+    top: 46px;
+    padding: 10px 12px;
+    gap: 10px;
+  }
+  .jukebox-video-box {
+    width: 144px;
+    height: 81px;
+  }
+  .jukebox-video-box.audio-mode {
+    width: 64px;
+    height: 36px;
+  }
+  .jukebox-title { font-size: 14px; }
+  .jukebox-meta { font-size: 11px; margin-bottom: 8px; }
+  .jb-btn { padding: 6px 9px; font-size: 11px; }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+.report-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.15s, border-color 0.15s;
+}
+.report-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  text-decoration: none;
+}
+.report-card h2 { margin: 0 0 8px 0; font-size: 18px; color: #fff; }
+.report-card p { margin: 0 0 16px 0; color: var(--muted); font-size: 13px; }
+.report-card .count-big { font-size: 28px; font-weight: 800; color: var(--green); margin-bottom: 10px; }
+.open-btn {
+  display: inline-block;
+  text-align: center;
+  background: #0284c7;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 13px;
+}
+</style>
+</head>
+<body>
+<nav class="top-nav"><span class="brand">🎬 YouTube 100M+ Census</span><a class="nav-link active" href="index.html">🏠 통합 홈</a><a class="nav-link" href="youtube_100m_mv_verified.html">1. 음악 카테고리 1억+ (11,512)</a><a class="nav-link" href="youtube_100m_official_mv_only.html">2. 순수 공식 MV (10,202)</a><a class="nav-link" href="youtube_100m_all_categories.html">3. 전 카테고리 1억+ (12,101)</a><a class="nav-link" href="utubeinfo_db_viewer.html">4. 원본 DB 전체 (29,537)</a><a class="nav-link" href="video_sources.html">🔗 수집 출처 사전 (29,537)</a></nav>
+<div class="container">
+  <div class="page-header">
+    <h1>🎬 유튜브 조회수 1억 회 이상 뮤직비디오 전수조사 통합 리포트 (주크박스 내장)</h1>
+    <p>외부 집계 DB(Kworb 1,794페이지 + 위키백과 + Wikidata + 주요 레이블 재생목록) 시드 <strong>29,537개</strong>를 YouTube Data API v3(<code>videos.list</code>, 총 854 유닛 사용)로 교차 검증한 전체 결과입니다.</p>
+  </div>
+
+  <div class="cards">
+    <a class="report-card" href="youtube_100m_official_mv_only.html">
+      <div>
+        <h2>2. 순수 공식 뮤직비디오 (주크박스 추천)</h2>
+        <div class="count-big" style="color:var(--accent)">10,202곡 연속 재생</div>
+        <p>가사 비디오·오피셜 오디오·자동 생성 음원(<code>- Topic</code>)·안무 영상·라이브 무대·쇼츠를 모두 제외한 순수 공식 MV + 자동 다음 곡/셔플 주크박스 플레이어입니다.</p>
+      </div>
+      <span class="open-btn">순수 공식 MV 10,202곡 주크박스 열기 →</span>
+    </a>
+
+    <a class="report-card" href="youtube_100m_mv_verified.html">
+      <div>
+        <h2>1. 음악 카테고리 1억 뷰+ 전체</h2>
+        <div class="count-big">11,512곡 연속 재생</div>
+        <p>유튜브 공식 음악 카테고리(<code>categoryId=10</code>) 소속 영상 중 실시간 조회수 1억 회 이상이 확정된 모든 영상 + 주크박스 플레이어입니다.</p>
+      </div>
+      <span class="open-btn">전체 11,512곡 주크박스 열기 →</span>
+    </a>
+
+    <a class="report-card" href="youtube_100m_all_categories.html">
+      <div>
+        <h2>3. 카테고리 무관 1억 뷰+ 전체</h2>
+        <div class="count-big" style="color:var(--gold)">12,101곡 연속 재생</div>
+        <p>핑크퐁 아기상어(교육 카테고리)처럼 업로더가 음악 외 카테고리로 등록한 곡까지 모두 포함한 1억 뷰 이상 전체 목록 + 주크박스입니다.</p>
+      </div>
+      <span class="open-btn">전체 12,101곡 주크박스 열기 →</span>
+    </a>
+
+    <a class="report-card" href="utubeinfo_db_viewer.html">
+      <div>
+        <h2>4. 원본 SQLite 데이터베이스 뷰어</h2>
+        <div class="count-big" style="color:var(--purple)">29,537행 × 4개 테이블</div>
+        <p><code>data/utubeinfo.db</code> 내부의 <code>youtube_videos</code>, <code>seed_videos</code>, <code>quota_log</code>, <code>crawl_pages</code> 전체 행을 조회합니다.</p>
+      </div>
+      <span class="open-btn">원본 DB 전체 열기 →</span>
+    </a>
+
+    <a class="report-card" href="video_sources.html">
+      <div>
+        <h2>🔗 수집 출처 통합 사전</h2>
+        <div class="count-big" style="color:#7dd3fc">29,537개 출처 매핑</div>
+        <p>각 표의 짧은 <code>🔗 N곳</code> 링크 클릭 시 연결되는 별도 출처 전용 파일입니다. 실제 원본 페이지 링크까지 바로 이동할 수 있습니다.</p>
+      </div>
+      <span class="open-btn">출처 통합 사전 열기 →</span>
+    </a>
+  </div>
+</div>
+</body>
+</html>
