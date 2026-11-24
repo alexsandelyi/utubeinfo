@@ -111,20 +111,66 @@ a:hover { text-decoration: underline; }
   align-items: center;
 }
 .jukebox-video-box {
-  width: 280px;
-  height: 158px;
+  width: 300px;
+  height: 169px;
   background: #000;
   border-radius: 8px;
   overflow: hidden;
   flex-shrink: 0;
   border: 1px solid var(--border);
-  transition: all 0.2s ease;
+  transition: width 0.2s ease, height 0.2s ease;
 }
 .jukebox-video-box.audio-mode {
-  width: 120px;
-  height: 68px;
+  width: 112px;
+  height: 63px;
   opacity: 0.85;
 }
+/* Theater Mode: large 16:9 wide player right inside the page */
+.jukebox-panel.theater-mode {
+  position: relative;
+  top: 0;
+  flex-direction: column;
+  align-items: stretch;
+}
+.jukebox-panel.theater-mode .jukebox-video-box {
+  width: 100%;
+  height: min(68vh, 660px);
+}
+/* Fullscreen Cinema Mode: fills 100% of screen while keeping auto-next & shuffle alive */
+.jukebox-panel.fullscreen-mode {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 99999 !important;
+  width: 100vw !important;
+  height: 100dvh !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  border: none !important;
+  background: #000 !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: space-between !important;
+  padding: 8px 12px !important;
+  gap: 8px !important;
+}
+.jukebox-panel.fullscreen-mode .jukebox-video-box {
+  width: 100% !important;
+  flex: 1 1 auto !important;
+  height: calc(100dvh - 125px) !important;
+  border: none !important;
+  border-radius: 6px !important;
+}
+.jukebox-panel.fullscreen-mode .jukebox-info {
+  flex: 0 0 auto !important;
+  background: rgba(15, 23, 42, 0.92);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+.jukebox-panel.fullscreen-mode .jukebox-meta {
+  display: none;
+}
+
 .jukebox-info {
   flex: 1;
   min-width: 260px;
@@ -139,7 +185,7 @@ a:hover { text-decoration: underline; }
   margin-bottom: 4px;
 }
 .jukebox-title {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 800;
   color: #fff;
   margin: 0 0 4px 0;
@@ -148,12 +194,12 @@ a:hover { text-decoration: underline; }
 .jukebox-meta {
   font-size: 13px;
   color: var(--muted);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 .jukebox-controls {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 7px;
   align-items: center;
 }
 .jb-btn {
@@ -161,15 +207,17 @@ a:hover { text-decoration: underline; }
   color: #fff;
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 8px 13px;
-  font-size: 13px;
+  padding: 7px 12px;
+  font-size: 12px;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.15s;
 }
 .jb-btn:hover { border-color: var(--accent); background: #0369a1; }
 .jb-btn.primary { background: #0284c7; border-color: var(--accent); }
-.jb-btn.active-mode { background: rgba(52, 211, 153, 0.2); border-color: var(--green); color: var(--green); }
+.jb-btn.active-mode { background: rgba(52, 211, 153, 0.22); border-color: var(--green); color: var(--green); }
+.jb-btn.screen-btn { background: rgba(192, 132, 252, 0.18); border-color: var(--purple); color: #e9d5ff; }
+.jb-btn.screen-btn.active-mode { background: #7e22ce; border-color: #d8b4fe; color: #fff; }
 .file-warn {
   margin-top: 8px;
   padding: 6px 10px;
@@ -266,6 +314,7 @@ tbody td {
   font-size: 12px;
   color: var(--accent);
   white-space: nowrap;
+  cursor: pointer;
 }
 .play-inline-btn {
   background: #0284c7;
@@ -345,23 +394,27 @@ tbody td {
     -webkit-overflow-scrolling: touch;
   }
   .top-nav .brand, .nav-link { white-space: nowrap; flex-shrink: 0; }
-  .container { padding: 12px; }
+  .container { padding: 10px; }
   .jukebox-panel {
     top: 46px;
-    padding: 10px 12px;
+    padding: 10px;
     gap: 10px;
   }
   .jukebox-video-box {
     width: 144px;
     height: 81px;
   }
+  .jukebox-panel.theater-mode .jukebox-video-box {
+    width: 100%;
+    height: 240px;
+  }
   .jukebox-video-box.audio-mode {
     width: 64px;
     height: 36px;
   }
-  .jukebox-title { font-size: 14px; }
-  .jukebox-meta { font-size: 11px; margin-bottom: 8px; }
-  .jb-btn { padding: 6px 9px; font-size: 11px; }
+  .jukebox-title { font-size: 13px; }
+  .jukebox-meta { font-size: 11px; margin-bottom: 6px; }
+  .jb-btn { padding: 6px 8px; font-size: 11px; }
 }
 </style>
 </head>
