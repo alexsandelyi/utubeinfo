@@ -429,7 +429,7 @@ tbody td {
 </style>
 </head>
 <body>
-<nav class="top-nav"><span class="brand">🎬 YouTube 100M+ Census</span><a class="nav-link" href="index.html?v=6">🏠 통합 홈</a><a class="nav-link active" href="youtube_100m_mv_verified.html?v=6">1. 음악 카테고리 1억+ (11,512)</a><a class="nav-link" href="youtube_100m_official_mv_only.html?v=6">2. 순수 공식 MV (10,202)</a><a class="nav-link" href="youtube_100m_all_categories.html?v=6">3. 전 카테고리 1억+ (12,101)</a><a class="nav-link" href="utubeinfo_db_viewer.html?v=6">4. 원본 DB 전체 (29,537)</a><a class="nav-link" href="video_sources.html?v=6">🔗 수집 출처 사전 (29,537)</a></nav>
+<nav class="top-nav"><span class="brand">🎬 YouTube 100M+ Census</span><a class="nav-link" href="index.html?v=7">🏠 통합 홈</a><a class="nav-link active" href="youtube_100m_mv_verified.html?v=7">1. 음악 카테고리 1억+ (11,512)</a><a class="nav-link" href="youtube_100m_official_mv_only.html?v=7">2. 순수 공식 MV (10,202)</a><a class="nav-link" href="youtube_100m_all_categories.html?v=7">3. 전 카테고리 1억+ (12,101)</a><a class="nav-link" href="utubeinfo_db_viewer.html?v=7">4. 원본 DB 전체 (29,537)</a><a class="nav-link" href="video_sources.html?v=7">🔗 수집 출처 사전 (29,537)</a></nav>
 <div class="container">
   <div class="page-header">
     <h1>1. 음악 카테고리(categoryId=10) 1억 뷰+ 전체 목록 & 연속 주크박스</h1>
@@ -451,15 +451,16 @@ tbody td {
       <div class="jukebox-meta" id="jbMeta">💡 큰 화면으로 보면서 무한 랜덤 셔플을 유지하려면 새 탭 대신 아래 보라색 <strong>[⛶ 꽉 찬 전체화면]</strong> 또는 <strong>[📺 크게 보기]</strong>를 누르세요!</div>
       <div class="jukebox-controls">
         <button class="jb-btn primary" id="jbStartBtn" onclick="startOrToggleJukebox()">▶ 연속 재생 시작</button>
-        <button class="jb-btn" onclick="playPrevTrack()">⏮ 이전 카드</button>
-        <button class="jb-btn" onclick="playNextTrack(false)">⏭ 다음 카드</button>
-        <button class="jb-btn active-mode" id="jbShuffleBtn" onclick="toggleShuffle()">🃏 피셔-예이츠 덱 셔플: 켜짐</button>
-        <button class="jb-btn" id="jbReshuffleBtn" onclick="reshuffleNewDeck(true)" title="10,202장 카드를 처음부터 새로 섞고 진행 기록을 1번 카드로 초기화합니다">🔄 새 덱 섞기(초기화)</button>
+        <button class="jb-btn" onclick="playPrevTrack()">⏮ 이전 곡</button>
+        <button class="jb-btn" onclick="playNextTrack(false)">⏭ 다음 곡</button>
+        <button class="jb-btn active-mode" id="jbDeckBtn" onclick="toggleDeckShuffle()" title="중복 없이 카드를 한 장씩 뽑고 진행 위치를 브라우저에 자동 저장합니다">🃏 피셔 덱 셔플: 켜짐</button>
+        <button class="jb-btn" id="jbDiceBtn" onclick="toggleDiceShuffle()" title="저장 없이 매 곡마다 주사위를 새로 던져 완전 무작위로 뽑습니다">🎲 주사위 랜덤(무저장): 꺼짐</button>
+        <button class="jb-btn" id="jbReshuffleBtn" onclick="reshuffleNewDeck(true)" title="피셔 덱 카드를 처음부터 새로 섞고 진행 기록을 1번 카드로 초기화합니다">🔄 새 덱 섞기</button>
         <button class="jb-btn screen-btn" id="jbFullscreenBtn" onclick="toggleFullscreenMode()">⛶ 꽉 찬 전체화면 (연속재생 유지)</button>
         <button class="jb-btn screen-btn" id="jbTheaterBtn" onclick="toggleTheaterMode()">📺 크게 보기 (극장 모드)</button>
         <button class="jb-btn" id="jbAudioModeBtn" onclick="toggleAudioCompactMode()">🎧 미니 오디오 모드</button>
         <button class="jb-btn" onclick="scrollToCurrentPlaying()">🎯 현재 곡 위치</button>
-        <button class="jb-btn" onclick="openYouTube50Queue()" title="현재 덱 순서부터 50곡을 묶어 유튜브 새 탭/앱 연속 재생목록으로 엽니다">📱 유튜브 앱 50곡 연속 열기 ↗</button>
+        <button class="jb-btn" onclick="openYouTube50Queue()" title="현재 모드 기준으로 50곡을 묶어 유튜브 새 탭/앱 연속 재생목록으로 엽니다">📱 유튜브 앱 50곡 연속 열기 ↗</button>
       </div>
       <div class="file-warn" id="fileProtocolWarn">
         💡 <strong>안내:</strong> 탐색기에서 <code>file://</code>로 직접 열면 VEVO 등 일부 공식 뮤직비디오가 보안 정책(오류 153)으로 차단될 수 있습니다. 웹 주소(<code>https://ilbbang.com/utubeinfo/</code>) 또는 폴더 안의 <strong><code>play_jukebox.bat</code></strong>로 여시면 모든 곡이 차단 없이 연속 재생됩니다!
@@ -602,7 +603,9 @@ let currentFiltered = RAW_ROWS;
 let currentIndex = -1;
 let currentVideoId = '';
 let lastHighlightedEl = null;
-let isShuffle = true;
+// shuffleMode: 'deck' (Fisher-Yates + localStorage) | 'dice' (Independent random, no save) | 'seq' (1->2->3)
+let shuffleMode = 'deck';
+let diceHistory = [];
 let hasStartedPlayback = false;
 let skipTimer = null;
 let consecutiveErrors = 0;
@@ -665,6 +668,10 @@ function loadOrInitMainDeck() {
 }
 
 function reshuffleNewDeck(autoPlayNow) {
+  if (shuffleMode !== 'deck') {
+    shuffleMode = 'deck';
+    syncShuffleModeButtons();
+  }
   if (isFilterActive) {
     filterDeck = buildFisherYatesDeck(currentFiltered.length);
     filterDeckPos = 0;
@@ -681,18 +688,21 @@ function reshuffleNewDeck(autoPlayNow) {
     cueInitialDeckTrack();
   }
   const badge = document.getElementById('jbStateBadge');
-  badge.textContent = '🃏 10,202장 카드 새 덱 셔플 완료 (1번 카드부터 시작)';
+  badge.textContent = '🃏 카드 새 덱 셔플 완료 (1번 카드부터 시작)';
   badge.style.color = 'var(--green)';
 }
 
 function formatQueueStatusText() {
   const total = currentFiltered.length;
   if (!total) return '대기열 0곡';
-  if (isShuffle) {
+  if (shuffleMode === 'deck') {
     const pos = isFilterActive ? filterDeckPos : mainDeckPos;
     const remain = Math.max(0, total - pos - 1);
     const saveTag = (!isFilterActive && restoredFromStorage) ? ' · 💾 자동저장 이어듣기' : ' · 💾 위치 자동저장 중';
-    return `🃏 카드 덱 ${nf.format(pos + 1)} / ${nf.format(total)}번째 (남은 미재생 ${nf.format(remain)}곡${saveTag})`;
+    return `🃏 피셔 덱 ${nf.format(pos + 1)} / ${nf.format(total)}번째 (남은 미재생 ${nf.format(remain)}곡${saveTag})`;
+  }
+  if (shuffleMode === 'dice') {
+    return `🎲 주사위 랜덤(독립 추출) 모드 · 전체 ${nf.format(total)}곡 중 무작위 추첨 (기록 저장 안 함)`;
   }
   return `순차 ${nf.format(currentIndex + 1)} / ${nf.format(total)}번째 곡 (순차 재생 모드)`;
 }
@@ -860,8 +870,8 @@ function playTrackAtIndex(idx) {
   currentVideoId = r[1];
   hasStartedPlayback = true;
 
-  // Sync deck cursor if user clicked a specific row or moved through deck
-  if (isShuffle) {
+  // Sync deck cursor ONLY when in 'deck' mode; 'dice' mode saves nothing to localStorage
+  if (shuffleMode === 'deck') {
     if (isFilterActive) {
       const foundPos = filterDeck.indexOf(idx);
       if (foundPos !== -1) filterDeckPos = foundPos;
@@ -872,6 +882,9 @@ function playTrackAtIndex(idx) {
       }
       saveMainPosToStorage();
     }
+  } else if (shuffleMode === 'dice') {
+    diceHistory.push(idx);
+    if (diceHistory.length > 300) diceHistory.shift();
   }
 
   const badge = document.getElementById('jbStateBadge');
@@ -916,7 +929,12 @@ function playByVideoId(vid) {
 function startOrToggleJukebox() {
   if (!currentFiltered.length) return;
   if (currentIndex === -1) {
-    const firstIdx = isShuffle ? (isFilterActive ? filterDeck[filterDeckPos] : mainDeck[mainDeckPos]) : 0;
+    let firstIdx = 0;
+    if (shuffleMode === 'deck') {
+      firstIdx = isFilterActive ? filterDeck[filterDeckPos] : mainDeck[mainDeckPos];
+    } else if (shuffleMode === 'dice') {
+      firstIdx = Math.floor(Math.random() * currentFiltered.length);
+    }
     playTrackAtIndex(firstIdx);
     return;
   }
@@ -949,7 +967,7 @@ function startOrToggleJukebox() {
 function playNextTrack(fromAutoAdvance) {
   if (!currentFiltered.length) return;
   if (!fromAutoAdvance) consecutiveErrors = 0;
-  if (isShuffle) {
+  if (shuffleMode === 'deck') {
     if (isFilterActive) {
       filterDeckPos++;
       if (filterDeckPos >= filterDeck.length) {
@@ -960,7 +978,6 @@ function playNextTrack(fromAutoAdvance) {
     } else {
       mainDeckPos++;
       if (mainDeckPos >= mainDeck.length) {
-        // All 10,202 cards completed! Automatically deal a brand new shuffled deck
         mainDeck = buildFisherYatesDeck(RAW_ROWS.length);
         mainDeckPos = 0;
         saveMainDeckToStorage();
@@ -969,6 +986,18 @@ function playNextTrack(fromAutoAdvance) {
       }
       playTrackAtIndex(mainDeck[mainDeckPos]);
     }
+  } else if (shuffleMode === 'dice') {
+    // Pure independent dice roll (no storage write!)
+    let nextIdx = currentIndex;
+    if (currentFiltered.length > 1) {
+      for (let tries = 0; tries < 5; tries++) {
+        nextIdx = Math.floor(Math.random() * currentFiltered.length);
+        if (nextIdx !== currentIndex) break;
+      }
+    } else {
+      nextIdx = 0;
+    }
+    playTrackAtIndex(nextIdx);
   } else {
     playTrackAtIndex(currentIndex + 1);
   }
@@ -977,7 +1006,7 @@ function playNextTrack(fromAutoAdvance) {
 function playPrevTrack() {
   if (!currentFiltered.length) return;
   consecutiveErrors = 0;
-  if (isShuffle) {
+  if (shuffleMode === 'deck') {
     if (isFilterActive) {
       filterDeckPos = filterDeckPos > 0 ? filterDeckPos - 1 : 0;
       playTrackAtIndex(filterDeck[filterDeckPos]);
@@ -986,17 +1015,66 @@ function playPrevTrack() {
       saveMainPosToStorage();
       playTrackAtIndex(mainDeck[mainDeckPos]);
     }
+  } else if (shuffleMode === 'dice') {
+    if (diceHistory.length >= 2) {
+      diceHistory.pop();
+      const prevIdx = diceHistory.pop();
+      playTrackAtIndex(prevIdx);
+    } else {
+      playNextTrack(false);
+    }
   } else {
     playTrackAtIndex(currentIndex > 0 ? currentIndex - 1 : 0);
   }
 }
 
-function toggleShuffle() {
-  isShuffle = !isShuffle;
-  const btn = document.getElementById('jbShuffleBtn');
-  btn.textContent = isShuffle ? '🃏 피셔-예이츠 덱 셔플: 켜짐' : '🃏 피셔-예이츠 덱 셔플: 꺼짐(순차)';
-  btn.classList.toggle('active-mode', isShuffle);
+function syncShuffleModeButtons() {
+  const deckBtn = document.getElementById('jbDeckBtn');
+  const diceBtn = document.getElementById('jbDiceBtn');
+  const reshuffleBtn = document.getElementById('jbReshuffleBtn');
+
+  const isDeck = (shuffleMode === 'deck');
+  const isDice = (shuffleMode === 'dice');
+
+  deckBtn.textContent = isDeck ? '🃏 피셔 덱 셔플: 켜짐' : '🃏 피셔 덱 셔플: 꺼짐';
+  deckBtn.classList.toggle('active-mode', isDeck);
+
+  diceBtn.textContent = isDice ? '🎲 주사위 랜덤(무저장): 켜짐' : '🎲 주사위 랜덤(무저장): 꺼짐';
+  diceBtn.classList.toggle('active-mode', isDice);
+
+  if (reshuffleBtn) {
+    reshuffleBtn.style.opacity = isDeck ? '1' : '0.55';
+  }
   document.getElementById('jbQueuePos').textContent = formatQueueStatusText();
+}
+
+function toggleDeckShuffle() {
+  if (shuffleMode === 'deck') {
+    shuffleMode = 'seq';
+  } else {
+    shuffleMode = 'deck';
+    // Jump back to saved deck position
+    const targetIdx = isFilterActive ? filterDeck[filterDeckPos] : mainDeck[mainDeckPos];
+    syncShuffleModeButtons();
+    if (hasStartedPlayback && targetIdx !== undefined) {
+      playTrackAtIndex(targetIdx);
+      return;
+    }
+  }
+  syncShuffleModeButtons();
+}
+
+function toggleDiceShuffle() {
+  if (shuffleMode === 'dice') {
+    shuffleMode = 'seq';
+    syncShuffleModeButtons();
+  } else {
+    // Automatically turns OFF Fisher-Yates deck shuffle and switches to stateless dice roll
+    shuffleMode = 'dice';
+    syncShuffleModeButtons();
+    const randIdx = Math.floor(Math.random() * currentFiltered.length);
+    playTrackAtIndex(randIdx);
+  }
 }
 
 function toggleTheaterMode() {
@@ -1098,7 +1176,7 @@ function scrollToCurrentPlaying() {
 function build50QueueIds(startVideoId) {
   if (!currentFiltered.length) return [];
   const ids = [];
-  if (isShuffle) {
+  if (shuffleMode === 'deck') {
     const deck = isFilterActive ? filterDeck : mainDeck;
     let startPos = isFilterActive ? filterDeckPos : mainDeckPos;
     if (startVideoId) {
@@ -1111,6 +1189,23 @@ function build50QueueIds(startVideoId) {
     for (let i = 0; i < deck.length && ids.length < 50; i++) {
       const rIdx = deck[(startPos + i) % deck.length];
       if (currentFiltered[rIdx]) ids.push(currentFiltered[rIdx][1]);
+    }
+  } else if (shuffleMode === 'dice') {
+    const used = new Set();
+    if (startVideoId) {
+      used.add(startVideoId);
+      ids.push(startVideoId);
+    }
+    const maxTarget = Math.min(50, currentFiltered.length);
+    let guard = 0;
+    while (ids.length < maxTarget && guard < 500) {
+      guard++;
+      const rIdx = Math.floor(Math.random() * currentFiltered.length);
+      const vid = currentFiltered[rIdx][1];
+      if (!used.has(vid)) {
+        used.add(vid);
+        ids.push(vid);
+      }
     }
   } else {
     let startIdx = currentIndex >= 0 ? currentIndex : 0;
