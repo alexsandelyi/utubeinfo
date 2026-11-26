@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🇰🇷 한국어권 1억 뷰+ 순수 공식 MV 목록 &amp; 연속 주크박스</title>
+<style>
+:root {
+  --bg: #0f172a;
+  --panel: #1e293b;
+  --panel-hover: #263449;
+  --border: #334155;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+  --green: #34d399;
+  --gold: #fbbf24;
+  --rose: #fb7185;
+  --purple: #c084fc;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Malgun Gothic', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.45;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(15, 23, 42, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 8px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.nav-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+.nav-row-regions {
+  padding-top: 6px;
+  border-top: 1px solid rgba(51, 65, 85, 0.55);
+}
+.top-nav .brand {
+  font-weight: 800;
+  color: #fff;
+  margin-right: 10px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.nav-group-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+  margin-right: 4px;
+  white-space: nowrap;
+}
+.nav-link {
+  padding: 5px 11px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.nav-link:hover { color: #fff; border-color: var(--accent); text-decoration: none; }
+.nav-link.active {
+  background: #0284c7;
+  color: #fff;
+  border-color: #38bdf8;
+}
+.nav-link.reg-ko:hover, .nav-link.reg-ko.active { border-color: #a78bfa; }
+.nav-link.reg-ko.active { background: #6d28d9; color: #fff; }
+.nav-link.reg-en:hover, .nav-link.reg-en.active { border-color: #38bdf8; }
+.nav-link.reg-en.active { background: #0284c7; color: #fff; }
+.nav-link.reg-ja:hover, .nav-link.reg-ja.active { border-color: #fb7185; }
+.nav-link.reg-ja.active { background: #be123c; color: #fff; }
+.nav-link.reg-es:hover, .nav-link.reg-es.active { border-color: #fbbf24; }
+.nav-link.reg-es.active { background: #b45309; color: #fff; }
+.nav-link.reg-other:hover, .nav-link.reg-other.active { border-color: #34d399; }
+.nav-link.reg-other.active { background: #047857; color: #fff; }
+
+.container {
+  max-width: 1680px;
+  margin: 0 auto;
+  padding: 18px 20px;
+}
+.page-header h1 {
+  margin: 0 0 6px 0;
+  font-size: 23px;
+}
+.page-header p {
+  margin: 0 0 16px 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Clickable Hub Tabs in Combined index.html */
+.hub-tab-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+}
+.hub-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  background: var(--bg);
+  color: var(--muted);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  transition: all 0.14s;
+}
+.hub-tab-btn:hover { color: #fff; border-color: var(--accent); transform: translateY(-1px); }
+.hub-tab-btn .tab-cnt {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.16);
+  color: var(--text);
+}
+.hub-tab-btn.active { background: #0284c7; color: #fff; border-color: #38bdf8; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35); }
+.hub-tab-btn.active .tab-cnt { background: rgba(255, 255, 255, 0.22); color: #fff; }
+.hub-tab-btn.tab-ko.active { background: #6d28d9; border-color: #a78bfa; box-shadow: 0 4px 12px rgba(109, 40, 217, 0.35); }
+.hub-tab-btn.tab-en.active { background: #0284c7; border-color: #38bdf8; }
+.hub-tab-btn.tab-ja.active { background: #be123c; border-color: #fb7185; box-shadow: 0 4px 12px rgba(190, 18, 60, 0.35); }
+.hub-tab-btn.tab-es.active { background: #b45309; border-color: #fbbf24; box-shadow: 0 4px 12px rgba(180, 83, 9, 0.35); }
+.hub-tab-btn.tab-other.active { background: #047857; border-color: #34d399; box-shadow: 0 4px 12px rgba(4, 120, 87, 0.35); }
+.hub-standalone-link {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  background: rgba(56, 189, 248, 0.14);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: #7dd3fc;
+}
+.hub-standalone-link:hover { background: #0284c7; color: #fff; text-decoration: none; }
+
+/* Region Share Bar */
+.share-bar-wrap {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+}
+.share-bar-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.share-bar {
+  display: flex;
+  height: 26px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.share-seg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #0f172a;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: filter 0.12s;
+}
+.share-seg:hover { filter: brightness(1.12); }
+.share-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.share-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+.share-legend-item:hover { color: #fff; }
+.share-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.stat-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.stat-card .label { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+.stat-card .value { font-size: 22px; font-weight: 800; color: #fff; }
+.stat-card .sub { font-size: 12px; color: var(--green); margin-top: 2px; }
+
+/* Jukebox Sticky Player Panel - isolated layout containment for 0ms button response */
+.jukebox-panel {
+  position: sticky;
+  top: 84px;
+  z-index: 95;
+  contain: layout style;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.98) 0%, rgba(30, 41, 59, 0.98) 100%);
+  backdrop-filter: blur(12px);
+  border: 1px solid #0284c7;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+.jukebox-video-box {
+  width: 300px;
+  height: 169px;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+}
+.jukebox-video-box.audio-mode {
+  width: 112px;
+  height: 63px;
+  opacity: 0.85;
+}
+.jukebox-panel.theater-mode {
+  position: relative;
+  top: 0;
+  flex-direction: column;
+  align-items: stretch;
+}
+.jukebox-panel.theater-mode .jukebox-video-box {
+  width: 100%;
+  height: min(68vh, 660px);
+}
+.jukebox-panel.fullscreen-mode {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 99999 !important;
+  width: 100vw !important;
+  height: 100dvh !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  border: none !important;
+  background: #000 !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: space-between !important;
+  padding: 8px 12px !important;
+  gap: 8px !important;
+}
+.jukebox-panel.fullscreen-mode .jukebox-video-box {
+  width: 100% !important;
+  flex: 1 1 auto !important;
+  height: calc(100dvh - 125px) !important;
+  border: none !important;
+  border-radius: 6px !important;
+}
+.jukebox-panel.fullscreen-mode .jukebox-info {
+  flex: 0 0 auto !important;
+  background: rgba(15, 23, 42, 0.92);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+.jukebox-panel.fullscreen-mode .jukebox-meta {
+  display: none;
+}
+
+.jukebox-info {
+  flex: 1;
+  min-width: 260px;
+}
+.jukebox-status-line {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.jukebox-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 4px 0;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.jukebox-meta {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.jukebox-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  align-items: center;
+}
+.jb-btn {
+  background: var(--panel);
+  color: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 13px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  transition: transform 0.06s, background 0.12s;
+}
+.jb-btn:active { transform: scale(0.95); }
+.jb-btn:hover { border-color: var(--accent); background: #0369a1; }
+.jb-btn.primary { background: #0284c7; border-color: var(--accent); }
+.jb-btn.active-mode { background: rgba(52, 211, 153, 0.22); border-color: var(--green); color: var(--green); }
+.jb-btn.screen-btn { background: rgba(192, 132, 252, 0.18); border-color: var(--purple); color: #e9d5ff; }
+.jb-btn.screen-btn.active-mode { background: #7e22ce; border-color: #d8b4fe; color: #fff; }
+.file-warn {
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: rgba(251, 191, 36, 0.14);
+  border: 1px solid rgba(251, 191, 36, 0.35);
+  color: #fde68a;
+  font-size: 12px;
+  display: none;
+}
+
+.toolbar {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.toolbar input[type="search"], .toolbar select {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 13px;
+}
+.toolbar input[type="search"] { min-width: 240px; flex: 1; }
+.btn {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 7px 11px;
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  touch-action: manipulation;
+}
+.btn:hover { border-color: var(--accent); color: #fff; }
+.btn.active { background: #0369a1; border-color: var(--accent); color: #fff; }
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.table-wrap {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+thead th {
+  position: sticky;
+  top: 0;
+  background: #0f172a;
+  color: var(--muted);
+  text-align: left;
+  padding: 10px 10px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+  font-weight: 700;
+}
+thead th.num, tbody td.num { text-align: right; font-variant-numeric: tabular-nums; }
+tbody tr {
+  border-bottom: 1px solid rgba(51, 65, 85, 0.55);
+}
+tbody tr:hover { background: var(--panel-hover); }
+tbody tr.now-playing {
+  background: rgba(2, 132, 199, 0.28) !important;
+  outline: 1px solid var(--accent);
+}
+tbody td {
+  padding: 8px 10px;
+  vertical-align: middle;
+}
+.rank-cell { font-weight: 700; color: var(--muted); width: 58px; }
+.vid-code {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 12px;
+  color: var(--accent);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.play-inline-btn {
+  background: #0284c7;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 9px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-right: 6px;
+  touch-action: manipulation;
+}
+.play-inline-btn:hover { background: #38bdf8; color: #0f172a; }
+.thumb-img {
+  width: 72px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+  background: #0f172a;
+}
+.title-main { font-weight: 600; color: #fff; word-break: break-word; cursor: pointer; }
+.title-main:hover { color: var(--accent); }
+.views-strong { font-weight: 800; color: var(--green); white-space: nowrap; }
+.views-billion { font-weight: 800; color: var(--gold); white-space: nowrap; }
+.kor-unit { display: block; font-size: 11px; color: var(--muted); font-weight: 400; }
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.b-official_mv { background: rgba(52, 211, 153, 0.16); color: #6ee7b7; }
+.b-lyric_or_audio { background: rgba(56, 189, 248, 0.16); color: #7dd3fc; }
+.b-live_stage { background: rgba(192, 132, 252, 0.16); color: #d8b4fe; }
+.b-art_track_audio { background: rgba(148, 163, 184, 0.2); color: #cbd5e1; }
+.b-performance_or_dance { background: rgba(251, 191, 36, 0.16); color: #fde68a; }
+.b-shorts { background: rgba(251, 113, 133, 0.18); color: #fda4af; }
+.b-non_music { background: rgba(249, 115, 22, 0.18); color: #fdba74; }
+.b-active { background: rgba(52, 211, 153, 0.16); color: #6ee7b7; }
+.b-unavailable { background: rgba(251, 113, 133, 0.2); color: #fda4af; }
+.b-reg-ko { background: rgba(167, 139, 250, 0.18); color: #c4b5fd; }
+.b-reg-en { background: rgba(56, 189, 248, 0.16); color: #7dd3fc; }
+.b-reg-ja { background: rgba(251, 113, 133, 0.18); color: #fda4af; }
+.b-reg-es { background: rgba(251, 191, 36, 0.18); color: #fde68a; }
+.b-reg-other { background: rgba(52, 211, 153, 0.16); color: #6ee7b7; }
+
+.src-link-btn {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(56, 189, 248, 0.14);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #7dd3fc;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.src-link-btn:hover {
+  background: #0284c7;
+  color: #fff;
+  text-decoration: none;
+}
+.load-more-bar {
+  text-align: center;
+  padding: 16px;
+  background: var(--panel);
+  border-top: 1px solid var(--border);
+}
+.schema-box {
+  background: #0b1120;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 12px;
+  color: #93c5fd;
+  white-space: pre-wrap;
+  margin-bottom: 14px;
+}
+@media (max-width: 768px) {
+  .top-nav { padding: 6px 10px; gap: 5px; }
+  .nav-row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .top-nav .brand, .nav-link, .nav-group-label { flex-shrink: 0; }
+  .hub-tab-bar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 8px;
+  }
+  .hub-tab-btn, .hub-standalone-link { flex-shrink: 0; white-space: nowrap; }
+  .container { padding: 10px; }
+  .jukebox-panel {
+    top: 78px;
+    padding: 10px;
+    gap: 10px;
+  }
+  .jukebox-video-box {
+    width: 144px;
+    height: 81px;
+  }
+  .jukebox-panel.theater-mode .jukebox-video-box {
+    width: 100%;
+    height: 240px;
+  }
+  .jukebox-video-box.audio-mode {
+    width: 64px;
+    height: 36px;
+  }
+  .jukebox-title { font-size: 13px; white-space: normal; }
+  .jukebox-meta { font-size: 11px; margin-bottom: 6px; }
+  .jb-btn { padding: 7px 9px; font-size: 11px; }
+}
+</style>
+</head>
+<body>
+<nav class="top-nav"><div class="nav-row"><span class="brand">🎬 YouTube 100M+ Census</span><a class="nav-link" href="index.html?v=11">🏠 종합 홈 & 탭</a><a class="nav-link" href="youtube_100m_official_mv_only.html?v=11">순수 공식 MV (10,202)</a><a class="nav-link" href="youtube_100m_mv_verified.html?v=11">음악 카테고리 1억+ (11,512)</a><a class="nav-link" href="youtube_100m_all_categories.html?v=11">전 카테고리 1억+ (12,101)</a><a class="nav-link" href="utubeinfo_db_viewer.html?v=11">원본 DB 전체 (29,537)</a><a class="nav-link" href="video_sources.html?v=11">🔗 출처 사전 (29,537)</a></div><div class="nav-row nav-row-regions"><span class="nav-group-label">🌐 언어권별 순수 공식 MV:</span><a class="nav-link" href="index.html?v=11#tab=all" title="종합 HTML에서 5개 언어권을 탭으로 전환">🗂️ 5개 언어권 탭 통합</a><a class="nav-link reg-ko active" href="youtube_100m_region_ko.html?v=11">🇰🇷 한국어권 (391)</a><a class="nav-link reg-en" href="youtube_100m_region_en.html?v=11">🇺🇸 영어권 (4,244)</a><a class="nav-link reg-ja" href="youtube_100m_region_ja.html?v=11">🇯🇵 일본어권 (128)</a><a class="nav-link reg-es" href="youtube_100m_region_es.html?v=11">🇪🇸 스페인어권 (2,228)</a><a class="nav-link reg-other" href="youtube_100m_region_other.html?v=11">🌍 기타권 (3,211)</a></div></nav>
+<div class="container">
+  <div class="page-header">
+    <h1>🇰🇷 한국어권 1억 뷰+ 순수 공식 MV 목록 &amp; 연속 주크박스</h1>
+    <p>한국어 가창 기준 공식 뮤직비디오 (K-POP·한국 아티스트 1억 뷰+) — <strong>총 391개 전량 내장 · 초고속 즉시 반응 주크박스</strong></p>
+  </div>
+
+  
+  <!-- Built-in YouTube IFrame Player API Jukebox -->
+  <div class="jukebox-panel" id="jukeboxPanel">
+    <div class="jukebox-video-box" id="jbVideoBox">
+      <iframe id="ytPlayerContainer" width="100%" height="100%" src="about:blank" frameborder="0" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="jukebox-info">
+      <div class="jukebox-status-line">
+        <span id="jbStateBadge" style="color:var(--green)">🎲 랜덤 첫 곡 준비 완료</span>
+        <span>·</span>
+        <span id="jbQueuePos">전체 391곡 대기열</span>
+      </div>
+      <div class="jukebox-title" id="jbTitle">[▶ 연속 재생 시작] 또는 [⏭ 다음 곡]을 누르면 즉시 재생됩니다</div>
+      <div class="jukebox-meta" id="jbMeta">💡 큰 화면으로 보면서 무한 랜덤 셔플을 유지하려면 새 탭 대신 아래 보라색 <strong>[⛶ 꽉 찬 전체화면]</strong> 또는 <strong>[📺 크게 보기]</strong>를 누르세요!</div>
+      <div class="jukebox-controls">
+        <button class="jb-btn primary" id="jbStartBtn" onclick="startOrToggleJukebox()">▶ 연속 재생 시작</button>
+        <button class="jb-btn" onclick="playPrevTrack()">⏮ 이전 곡</button>
+        <button class="jb-btn" onclick="playNextTrack(false)">⏭ 다음 곡</button>
+        <button class="jb-btn active-mode" id="jbDeckBtn" onclick="toggleDeckShuffle()" title="중복 없이 카드를 한 장씩 뽑고 진행 위치를 브라우저에 자동 저장합니다">🃏 피셔 덱 셔플: 켜짐</button>
+        <button class="jb-btn" id="jbDiceBtn" onclick="toggleDiceShuffle()" title="저장 없이 매 곡마다 주사위를 새로 던져 완전 무작위로 뽑습니다">🎲 주사위 랜덤(무저장): 꺼짐</button>
+        <button class="jb-btn" id="jbReshuffleBtn" onclick="reshuffleNewDeck(true)" title="피셔 덱 카드를 처음부터 새로 섞고 진행 기록을 1번 카드로 초기화합니다">🔄 새 덱 섞기</button>
+        <button class="jb-btn screen-btn" id="jbFullscreenBtn" onclick="toggleFullscreenMode()">⛶ 꽉 찬 전체화면 (연속재생 유지)</button>
+        <button class="jb-btn screen-btn" id="jbTheaterBtn" onclick="toggleTheaterMode()">📺 크게 보기 (극장 모드)</button>
+        <button class="jb-btn" id="jbAudioModeBtn" onclick="toggleAudioCompactMode()">🎧 미니 오디오 모드</button>
+        <button class="jb-btn" onclick="scrollToCurrentPlaying()">🎯 현재 곡 위치</button>
+        <button class="jb-btn" onclick="openYouTube50Queue()" title="현재 모드 기준으로 50곡을 묶어 유튜브 새 탭/앱 연속 재생목록으로 엽니다">📱 유튜브 앱 50곡 연속 열기 ↗</button>
+      </div>
+      <div class="file-warn" id="fileProtocolWarn">
+        💡 <strong>안내:</strong> 탐색기에서 <code>file://</code>로 직접 열면 VEVO 등 일부 공식 뮤직비디오가 보안 정책(오류 153)으로 차단될 수 있습니다. 웹 주소(<code>https://ilbbang.com/utubeinfo/</code>) 또는 폴더 안의 <strong><code>play_jukebox.bat</code></strong>로 여시면 모든 곡이 차단 없이 연속 재생됩니다!
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="label">내장 전체 영상 수 (누락 0건)</div>
+      <div class="value">391개</div>
+      <div class="sub">셔플·검색 시 391곡 전체 대상 작동</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">10억 뷰(Billion Club) 이상</div>
+      <div class="value" style="color:var(--gold)">14개</div>
+      <div class="sub">실시간 API 조회수 기준</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">합산 누적 조회수</div>
+      <div class="value" style="color:var(--green)">117,964,769,064</div>
+      <div class="sub">약 1,179.6억 회</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">합산 누적 좋아요</div>
+      <div class="value">1,600,576,455</div>
+      <div class="sub">YouTube Data API v3 검증</div>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <input type="search" id="searchInput" placeholder="제목, 채널명, Video ID 검색 (391곡 전체에서 0.01초 즉시 검색)...">
+    
+    
+    <select id="tierFilter">
+      <option value="0">전체 조회수 (1억+)</option>
+      <option value="1000000000">10억 뷰 이상만</option>
+      <option value="500000000">5억 뷰 이상만</option>
+      <option value="300000000">3억 뷰 이상만</option>
+      <option value="200000000">2억 뷰 이상만</option>
+    </select>
+    <select id="sortSelect">
+      <option value="views_desc">조회수 높은순</option>
+      <option value="views_asc">조회수 낮은순</option>
+      <option value="likes_desc">좋아요 많은순</option>
+      <option value="comments_desc">댓글 많은순</option>
+      <option value="pub_desc">최신 게시일순</option>
+      <option value="pub_asc">오래된 게시일순</option>
+      <option value="dur_desc">길이 긴순</option>
+    </select>
+    <label class="btn" style="display:inline-flex;align-items:center;gap:6px;">
+      <input type="checkbox" id="thumbToggle"> 썸네일 표시
+    </label>
+    <button class="btn" onclick="renderAllRemainingRows()">📋 표 전체 391행 한 번에 다 펼치기</button>
+  </div>
+
+  <div class="status-bar">
+    <div id="renderStatus">데이터 준비 중...</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;" id="jumpBar">
+      <button class="btn" onclick="jumpToRow(1)">1위</button><button class="btn" onclick="jumpToRow(200)">200위</button><button class="btn" onclick="jumpToRow(391)">마지막(391위)</button>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th class="num">순위</th>
+          <th id="thumbHeader" style="display:none;">썸네일</th>
+          <th>주크박스 / 유튜브 연속열기</th>
+          <th>제목 (클릭 시 상단 주크박스 즉시 재생)</th>
+          <th>채널</th>
+          <th>언어권</th>
+          <th class="num">실시간 조회수</th>
+          <th class="num">좋아요</th>
+          <th class="num">댓글</th>
+          <th>게시일</th>
+          <th class="num">길이</th>
+          <th>카테고리</th>
+          <th>세부 유형</th>
+          <th class="num">시드 조회수</th>
+          <th class="num">출처</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+    <div class="load-more-bar" id="loadMoreSentinel">
+      <button class="jb-btn primary" onclick="appendNextTableBatch(500)">⬇ 아래로 스크롤하면 자동 로드됩니다 (클릭 시 +500곡 더 펼치기)</button>
+      <button class="jb-btn" onclick="renderAllRemainingRows()">📋 끝까지(391위) 전부 한 번에 펼치기</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const INITIAL_ROWS = [[1,"9bZkp7q19f0","PSY - GANGNAM STYLE(강남스타일) M/V","officialpsy","UCrDkAvwZum-UTjHmzDI2iIw",6140121562,32431148,5467520,"2012-07-15",253,"10","official_mv",6137629877,23,"ko","ko"],[2,"IHNzOHi8sJs","BLACKPINK - ‘뚜두뚜두 (DDU-DU DDU-DU)’ M/V","BLACKPINK","UCOmHUn--16B90oW2L6FRR3A",2421133057,24908409,3249207,"2018-06-15",216,"10","official_mv",2421065743,15,"ko","ko"],[3,"2S24-y0Ij3Y","BLACKPINK - 'Kill This Love' M/V","BLACKPINK","UCOmHUn--16B90oW2L6FRR3A",2254859731,26766992,2499656,"2019-04-04",194,"10","official_mv",2254766684,14,"ko","ko"],[4,"XsX3ATc3FbA","BTS (방탄소년단) '작은 것들을 위한 시 (Boy With Luv) (feat. Halsey)' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",1975676719,29747228,6453763,"2019-04-12",253,"10","official_mv",1975384568,14,"ko","ko"],[5,"ASO_zypdnsQ","PSY - GENTLEMAN M/V","officialpsy","UCrDkAvwZum-UTjHmzDI2iIw",1771316015,9193044,984168,"2013-04-13",234,"10","official_mv",1770825517,12,"ko","ko"],[6,"MBdVXkSdhwU","BTS (방탄소년단) 'DNA' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",1676096974,23662703,6181369,"2017-09-18",256,"10","official_mv",1675990764,13,"ko","ko"],[7,"kTlv5_Bs8aw","BTS (방탄소년단) 'MIC Drop (Steve Aoki Remix)' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",1620001730,21964255,3093563,"2017-11-24",274,"10","official_mv",1619640687,13,"ko","ko"],[8,"pBuZEGYXA6E","BTS (방탄소년단) 'IDOL' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",1419041591,21683103,3162855,"2018-08-24",232,"10","official_mv",1418792667,12,"ko","ko"],[9,"7C2z4GqqS5E","BTS (방탄소년단) 'FAKE LOVE' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",1417994490,22523202,4441228,"2018-05-18",319,"10","official_mv",1417778025,12,"ko","ko"],[10,"ioNng23DkIM","BLACKPINK - 'How You Like That' M/V","BLACKPINK","UCOmHUn--16B90oW2L6FRR3A",1384604630,25300222,4976999,"2020-06-26",184,"10","official_mv",1384578538,12,"ko","ko"],[11,"gQlMMD8auMs","BLACKPINK - ‘Pink Venom’ M/V","BLACKPINK","UCOmHUn--16B90oW2L6FRR3A",1116092481,17670981,3444050,"2022-08-19",194,"10","official_mv",1116003558,11,"ko","ko"],[12,"b73BI9eUkjM","JENNIE - 'SOLO' M/V","BLACKPINK","UCOmHUn--16B90oW2L6FRR3A",1093391637,15328035,3296345,"2018-11-12",177,"10","official_mv",1093371688,10,"ko","ko"],[13,"hmE9f-TEutc","BTS (방탄소년단) '피 땀 눈물 (Blood Sweat & Tears)' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",1052662021,15633138,2442799,"2016-10-09",364,"10","official_mv",1052557063,10,"ko","ko"],[14,"vRXZj0DzXIA","BLACKPINK - 'Ice Cream (with Selena Gomez)' M/V","BLACKPINK","UCOmHUn--16B90oW2L6FRR3A",1018754382,20609782,3023111,"2020-08-28",183,"10","official_mv",1018724309,13,"ko","ko"],[15,"i0p1bmr0EmE","TWICE \"What is Love?\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",957730446,8465758,744738,"2018-04-09",224,"10","official_mv",957294685,8,"ko","ko"],[16,"dyRsYk0LyA8","BLACKPINK - 'Lovesick Girls' M/V","BLACKPINK","UCOmHUn--16B90oW2L6FRR3A",873457718,16248463,2016786,"2020-10-02",202,"10","official_mv",873408302,10,"ko","ko"],[17,"2ips2mM7Zqw","BIGBANG - 뱅뱅뱅 (BANG BANG BANG) M/V","BIGBANG","UCzw-C7fNfs018R1FzIKnlaA",862355606,8166282,422829,"2015-06-01",230,"10","official_mv",862300713,9,"ko","ko"],[18,"BVwAVbKYYeM","[MV] BTS(방탄소년단) _ DOPE(쩔어)","1theK (원더케이)","UCweOkPb1wVVH0Q0Tlj4a5Pw",861722730,9770881,542078,"2015-06-23",257,"10","official_mv",861614754,7,"ko","ko"],[19,"wcLNteez3c4","PSY (ft. HYUNA) - 오빤 딱 내 스타일 M/V","officialpsy","UCrDkAvwZum-UTjHmzDI2iIw",856521664,3188082,364589,"2012-08-14",227,"10","official_mv",856506419,10,"ko","ko"],[20,"POe9SOEKotk","BLACKPINK - ‘Shut Down’ M/V","BLACKPINK","UCOmHUn--16B90oW2L6FRR3A",834627916,12296524,2061862,"2022-09-16",181,"10","official_mv",834557860,9,"ko","ko"],[21,"GZjt_sA2eso","BTS (방탄소년단) 'Save ME' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",833374197,11507136,635763,"2016-05-15",217,"10","official_mv",833237053,7,"ko","ko"],[22,"FrG4TEcSuRg","PSY - DADDY(feat. CL of 2NE1) M/V","officialpsy","UCrDkAvwZum-UTjHmzDI2iIw",790070740,5587161,200410,"2015-11-30",245,"10","official_mv",789919774,7,"ko","ko"],[23,"awkkyBH2zEo","LISA - 'LALISA' M/V","BLACKPINK","UCOmHUn--16B90oW2L6FRR3A",786909030,17755339,2758416,"2021-09-10",207,"10","official_mv",786885529,10,"ko","ko"],[24,"ALj5MKjy2BU","[MV] BTS(방탄소년단) _ FIRE (불타오르네)","1theK (원더케이)","UCweOkPb1wVVH0Q0Tlj4a5Pw",780996374,9319903,794202,"2016-05-01",295,"10","official_mv",780978476,9,"ko","ko"],[25,"vecSVX1QYbQ","iKON - ‘사랑을 했다(LOVE SCENARIO)’ M/V","iKON","UCWxCyZibDIWIrGIgP25mbfw",766827234,8174758,455038,"2018-01-25",212,"10","official_mv",766511409,7,"ko","ko"],[26,"ePpPVE-GGJw","TWICE \"TT\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",722254799,5692394,954524,"2016-10-23",254,"10","official_mv",722181060,8,"ko","ko"],[27,"kOHB85vDuow","TWICE \"FANCY\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",707807962,6641517,772151,"2019-04-22",219,"10","official_mv",707660692,7,"ko","ko"],[28,"JQGRg8XBnB4","[MV] MOMOLAND (모모랜드) _ BBoom BBoom (뿜뿜)","1theK (원더케이)","UCweOkPb1wVVH0Q0Tlj4a5Pw",697423764,5230167,373887,"2018-01-03",211,"10","official_mv",697252471,7,"ko","ko"],[29,"gwMa6gpoE9I","BTS (방탄소년단) 'ON' Kinetic Manifesto Film : Come Prima","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",694300999,14989160,1775442,"2020-02-21",299,"10","official_mv",694203119,8,"ko","ko"],[30,"8dJyRm2jJ-U","PSY - 'That That (prod. & feat. SUGA of BTS)' MV","officialpsy","UCrDkAvwZum-UTjHmzDI2iIw",689485081,11480138,469556,"2022-04-29",217,"10","official_mv",689281912,7,"ko","ko"],[31,"pSudEWBAYRE","EXO 엑소 'Love Shot' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",681597280,9312948,1199721,"2018-12-13",210,"10","official_mv",681475913,7,"ko","ko"],[32,"AAbokV76tkU","BIGBANG - FANTASTIC BABY M/V","BIGBANG","UCzw-C7fNfs018R1FzIKnlaA",681043567,5442244,421852,"2012-03-06",240,"10","official_mv",681014570,7,"ko","ko"],[33,"V2hlQkVJZhE","TWICE \"LIKEY\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",667889313,5618650,547106,"2017-10-30",222,"10","official_mv",667815905,8,"ko","ko"],[34,"YudHcBIxlYw","JISOO - ‘꽃(FLOWER)’ M/V","BLACKPINK","UCOmHUn--16B90oW2L6FRR3A",666072394,11453237,1396868,"2023-03-31",185,"10","official_mv",666040251,8,"ko","ko"],[35,"9DwzBICPhdM","BTS (방탄소년단) 'Not Today' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",632929309,10194267,854568,"2017-02-19",291,"10","official_mv",632874665,8,"ko","ko"],[36,"0lapF4DQPKQ","BTS (방탄소년단) 'Black Swan' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",620582137,13881034,1226604,"2020-03-04",218,"10","official_mv",620427537,9,"ko","ko"],[37,"-5q5mZbe3V8","BTS (방탄소년단) 'Life Goes On' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",611897765,18632232,5056906,"2020-11-20",231,"10","official_mv",611769386,10,"ko","ko"],[38,"c7rCyll5AeY","TWICE \"CHEER UP\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",608166482,4716564,317793,"2016-04-24",241,"10","official_mv",608071683,7,"ko","ko"],[39,"pcKR0LPwoYs","[도깨비 OST Part 1] 찬열, 펀치 (CHANYEOL, PUNCH) - Stay With Me MV","STONE MUSIC","UC_pwIXKXNm5KGhdEVzmY60A",597965797,4650261,140042,"2016-12-02",192,"10","official_mv",597724523,6,"ko","ko"],[40,"fE2h3lGlOsk","ITZY \"WANNABE\" M/V @ITZY","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",593526088,6836832,352721,"2020-03-09",219,"10","official_mv",593521602,8,"ko","ko"],[41,"TQTlCHxyuu8","Stray Kids \"神메뉴(God's Menu)\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",583157542,8512464,2239130,"2020-06-17",187,"10","official_mv",583067989,6,"ko","ko"],[42,"xEeFrLSkMm8","BTS (방탄소년단) '봄날 (Spring Day)' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",580517995,10474689,1148553,"2017-02-12",329,"10","official_mv",580428692,6,"ko","ko"],[43,"CM4CkVFmTds","TWICE \"I CAN'T STOP ME\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",578056434,6764776,2253916,"2020-10-26",221,"10","official_mv",577949715,8,"ko","ko"],[44,"3ymwOvzhwHs","TWICE \"Feel Special\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",559450196,5416458,588512,"2019-09-23",221,"10","official_mv",559381608,8,"ko","ko"],[45,"0rtV5esQT6I","TWICE \"Like OOH-AHH(OOH-AHH하게)\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",539764823,4025293,285977,"2015-10-19",272,"10","official_mv",539699230,6,"ko","ko"],[46,"f5_wn8mexmM","TWICE \"The Feels\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",537576451,7009460,748406,"2021-10-01",232,"10","official_mv",537434582,9,"ko","ko"],[47,"rRzxEiBLQCA","TWICE \"Heart Shaker\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",496976143,3655665,313248,"2017-12-11",193,"10","official_mv",496910735,7,"ko","ko"],[48,"qGjAWJ2zWWI","Agust D '대취타' MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",495907780,15359436,1378632,"2020-05-22",269,"10","official_mv",495858260,6,"ko","ko"],[49,"m8MfJg68oCs","[MV] BTS(방탄소년단) _ Boy In Luv(상남자)","1theK (원더케이)","UCweOkPb1wVVH0Q0Tlj4a5Pw",481755930,6917714,306793,"2014-02-11",283,"10","official_mv",481704126,4,"ko","ko"],[50,"KSH-FVVtTf0","EXO 엑소 'Monster' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",481737319,6054869,992283,"2016-06-08",226,"10","official_mv",481685583,5,"ko","ko"],[51,"4ujQOR2DMFM","BTS (방탄소년단) '불타오르네 (FIRE)' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",479476463,9294932,313587,"2016-05-01",295,"10","official_mv",479397122,5,"ko","ko"],[52,"KhTeiaCezwM","[MV] 마마무(MAMAMOO) - HIP","MAMAMOO","UCuhAUMLzJxlP1W7mEk0_6lA",470450933,5481206,181608,"2019-11-14",211,"10","official_mv",470409479,7,"ko","ko"],[53,"7HDeem-JaSY","(여자)아이들((G)I-DLE) - '퀸카 (Queencard)' Official Music Video","i-dle (아이들)","UCritGVo7pLJLUS8wEu32vow",464032406,4056184,115173,"2023-05-15",211,"10","official_mv",463770051,7,"ko","ko"],[54,"vrdk3IGcau8","GOT7 \"Just right(딱 좋아)\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",460171918,5337525,250217,"2015-07-12",242,"10","official_mv",460109395,4,"ko","ko"],[55,"EaswWiwMVs8","Stray Kids \"소리꾼(Thunderous)\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",459707511,6820121,1566961,"2021-08-23",199,"10","official_mv",459640642,6,"ko","ko"],[56,"J_CFBjAyPWE","Red Velvet 레드벨벳 'Bad Boy' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",452892177,4345698,317287,"2018-01-29",221,"10","official_mv",452752428,7,"ko","ko"],[57,"CgCVZdcKcqY","BLACKPINK - ‘뛰어(JUMP)’ M/V","BLACKPINK","UCOmHUn--16B90oW2L6FRR3A",452053439,6904271,484044,"2025-07-11",194,"10","official_mv",451919304,7,"ko","ko"],[58,"mAKsZ26SabQ","TWICE \"YES or YES\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",447246637,4368335,499619,"2018-11-05",269,"10","official_mv",447200555,6,"ko","ko"],[59,"j7_lSP8Vc3o","2NE1 - 내가 제일 잘 나가(I AM THE BEST) M/V","2NE1","UCnsQjCVzmEd-YvlQZbo6zCg",441268071,4216290,271521,"2011-06-28",215,"10","official_mv",441051428,7,"ko","ko"],[60,"uR8Mrt1IpXg","Red Velvet 레드벨벳 'Psycho' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",441040060,6632426,626565,"2019-12-23",216,"10","official_mv",440929034,7,"ko","ko"],[61,"sVTy_wmn5SU","NewJeans (뉴진스) 'OMG' Official MV (Performance ver.1)","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",436772557,2629597,55565,"2023-01-03",220,"10","official_mv",436359075,7,"ko","ko"],[62,"i23NEQEFpgQ","j-hope 'Chicken Noodle Soup (feat. Becky G)' MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",428677846,12208678,792729,"2019-09-27",269,"10","official_mv",428652168,5,"ko","ko"],[63,"cxNIewNXpcg","BLACKPINK - 'SOLO' + '뚜두뚜두(DDU-DU DDU-DU)' + 'FOREVER YOUNG' in 2018 SBS Gayodaejun","BLACKPINK","UCOmHUn--16B90oW2L6FRR3A",426491524,6484667,214720,"2018-12-26",464,"10","official_mv",426476154,7,"ko","ko"],[64,"1ZRb1we80kM","GD X TAEYANG - GOOD BOY M/V","BIGBANG","UCzw-C7fNfs018R1FzIKnlaA",424092370,3364271,105234,"2014-11-20",251,"10","official_mv",424073915,4,"ko","ko"],[65,"fCO7f0SmrDc","(여자)아이들((G)I-DLE) - 'Nxde' Official Music Video","i-dle (아이들)","UCritGVo7pLJLUS8wEu32vow",416722342,4535989,122574,"2022-10-17",184,"10","official_mv",416431257,7,"ko","ko"],[66,"X-uJtV8ScYk","Stray Kids \"Back Door\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",415810293,6552222,2730010,"2020-09-14",218,"10","official_mv",415753934,3,"ko","ko"],[67,"6ZUIwj3FgUY","IVE 아이브 'I AM' MV","STARSHIP","UCYDmx2Sfpnaxg488yBpZIGg",413002908,2801483,138759,"2023-04-10",185,"10","official_mv",412951818,6,"ko","ko"],[68,"Fm5iP0S1z9w","TWICE \"Dance The Night Away\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",407263956,4350162,433829,"2018-07-09",249,"10","official_mv",407226095,5,"ko","ko"],[69,"Jh4QFaPmdss","(여자)아이들((G)I-DLE) - 'TOMBOY' Official Music Video","i-dle (아이들)","UCritGVo7pLJLUS8wEu32vow",407212106,4159466,184935,"2022-03-14",198,"10","official_mv",407088010,6,"ko","ko"],[70,"6GC8JF2FOgA","[달의 연인 - 보보경심 려 OST Part 2] 로꼬, 펀치 (Loco, Punch) - Say Yes MV","STONE MUSIC","UC_pwIXKXNm5KGhdEVzmY60A",386436417,1649572,30857,"2016-08-29",226,"10","official_mv",386380745,2,"ko","ko"],[71,"mH0_XpSHkZo","TWICE \"MORE & MORE\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",379565657,5605450,1381155,"2020-06-01",241,"10","official_mv",379533693,7,"ko","ko"],[72,"Vk5-c_v4gMU","ILLIT (아일릿) ‘Magnetic’ Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",375347877,2870584,95656,"2024-03-25",189,"10","official_mv",374828124,1,"ko","ko"],[73,"F0B7HDiY-10","IVE 아이브 'After LIKE' MV","STARSHIP","UCYDmx2Sfpnaxg488yBpZIGg",375231055,3211015,195958,"2022-08-22",181,"10","official_mv",375197068,6,"ko","ko"],[74,"IdssuxDdqKk","EXO 엑소 'Ko Ko Bop' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",375190609,5298811,1029064,"2017-07-18",196,"10","official_mv",375159229,4,"ko","ko"],[75,"HkMNOlYcpHg","PSY - HANGOVER (feat. Snoop Dogg) M/V","officialpsy","UCrDkAvwZum-UTjHmzDI2iIw",373378791,2477375,165175,"2014-06-08",309,"10","official_mv",373363936,5,"ko","ko"],[76,"dBDkYofMUs4","Stray Kids \"락 (樂) (LALALALA)\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",369646995,4107684,429932,"2023-11-10",200,"10","official_mv",369467806,4,"ko","ko"],[77,"U7mPqycQ0tQ","Girls' Generation 소녀시대 'Gee' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",366834909,2840621,256087,"2009-06-08",241,"10","official_mv",366697603,6,"ko","ko"],[78,"OvioeS1ZZ7o","Stray Kids \"MANIAC\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",361391295,5520532,1155957,"2022-03-18",203,"10","official_mv",361287886,4,"ko","ko"],[79,"XQmpVHUi-0A","[MV] BTS(방탄소년단) _ War of Hormone(호르몬 전쟁)","1theK (원더케이)","UCweOkPb1wVVH0Q0Tlj4a5Pw",358345924,5426728,220364,"2014-10-21",299,"10","official_mv",358317240,3,"ko","ko"],[80,"mPVDGOVjRQ0","BTS (방탄소년단) 'ON' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",355785022,12915351,2676025,"2020-02-27",355,"10","official_mv",355758499,5,"ko","ko"],[81,"I3dezFzsNss","EXO 엑소 '으르렁 (Growl)' MV (Korean Ver.)","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",354782061,3283628,262973,"2013-07-31",208,"10","official_mv",354672389,3,"ko","ko"],[82,"rBG5L7UsUxA","BTS (방탄소년단) 'No More Dream' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",354673058,8988186,778432,"2013-06-12",290,"10","official_mv",354590394,3,"ko","ko"],[83,"VQtonf1fv_s","TWICE \"SIGNAL\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",352728239,3276433,253875,"2017-05-15",259,"10","official_mv",352692874,6,"ko","ko"],[84,"yWfsla_Uh80","EXO 엑소 'CALL ME BABY' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",350720168,3918253,335825,"2015-03-31",237,"10","official_mv",350695320,3,"ko","ko"],[85,"K9_VFxzCuQ0","ROSÉ - 'Gone' M/V","BLACKPINK","UCOmHUn--16B90oW2L6FRR3A",350473113,7871154,1248869,"2021-04-04",221,"10","official_mv",350459253,7,"ko","ko"],[86,"Y8JFxS1HlDo","IVE 아이브 'LOVE DIVE' MV","STARSHIP","UCYDmx2Sfpnaxg488yBpZIGg",343414068,2940692,125580,"2022-04-05",179,"10","official_mv",343390031,6,"ko","ko"],[87,"8A2t_tAjMz8","TWICE \"KNOCK KNOCK\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",343325535,2777681,272582,"2017-02-19",241,"10","official_mv",343290026,7,"ko","ko"],[88,"pNfTK39k55U","ITZY \"달라달라(DALLA DALLA)\" M/V @ITZY","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",338233162,4346442,336833,"2019-02-10",227,"10","official_mv",338232006,6,"ko","ko"],[89,"XA2YEHn-A8Q","TWICE \"Alcohol-Free\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",333635977,4788596,1279571,"2021-06-09",214,"10","official_mv",333596073,7,"ko","ko"],[90,"UwuAPyOImoI","TAEYANG - 눈,코,입 (EYES, NOSE, LIPS) M/V","BIGBANG","UCzw-C7fNfs018R1FzIKnlaA",331092577,2917907,104425,"2014-06-02",276,"10","official_mv",331068987,3,"ko","ko"],[91,"jWQx2f-CErU","aespa 에스파 'Whiplash' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",330170198,2686768,99535,"2024-10-21",191,"10","official_mv",329846721,2,"ko","ko"],[92,"4TWR90KJl84","aespa 에스파 'Next Level' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",328129774,4097509,487721,"2021-05-17",236,"10","official_mv",328100624,5,"ko","ko"],[93,"6pA_Tou-DPI","Girls' Generation 소녀시대 'The Boys' MV (KOR Ver.)","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",326935885,2418539,276119,"2011-10-18",320,"10","official_mv",326867002,6,"ko","ko"],[94,"JsOOis4bBFg","Stray Kids \"특(S-Class)\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",325222322,4126526,993071,"2023-06-02",211,"10","official_mv",325134202,4,"ko","ko"],[95,"D8VEhcPeSlc","aespa 에스파 'Drama' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",319413356,2557540,145986,"2023-11-10",228,"10","official_mv",319250343,3,"ko","ko"],[96,"OwJPPaEyqhI","PSY - ‘New Face’ M/V","officialpsy","UCrDkAvwZum-UTjHmzDI2iIw",319054698,2296781,79220,"2017-05-10",202,"10","official_mv",319012729,3,"ko","ko"],[97,"vdDuCvCrcKg","JENNIE - 'SOLO' CHOREOGRAPHY UNEDITED VERSION","BLACKPINK","UCOmHUn--16B90oW2L6FRR3A",317742379,4574101,210185,"2018-11-16",178,"10","official_mv",317736349,5,"ko","ko"],[98,"fTc5tuEn6_U","[MV] CHEN(첸)XPunch(펀치) - Everytime l Descendants of the Sun 태양의 후예 OST","MUSIC&NEW 뮤직앤뉴","UCyLHKUjX_fy8akafmRMr-PA",316213224,1811319,41714,"2016-02-24",190,"10","official_mv",316105487,3,"ko","ko"],[99,"l9CZykYZkOQ","KATSEYE (캣츠아이) \"Touch\" Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",314950786,2142165,49960,"2024-07-26",139,"10","official_mv",314625505,1,"ko","ko"],[100,"NoYKBAajoyo","EVERGLOW (에버글로우) - DUN DUN MV","STONE MUSIC","UC_pwIXKXNm5KGhdEVzmY60A",312360521,4372788,244475,"2020-02-03",209,"10","official_mv",312352160,3,"ko","ko"],[101,"zEkg4GBQumc","[M/V] SEVENTEEN(세븐틴) - 울고 싶지 않아 (Don't Wanna Cry)","SEVENTEEN","UCfkXDY7vwkcJ8ddFGz8KusA",309619770,3944848,210937,"2017-05-22",207,"10","official_mv",309605082,3,"ko","ko"],[102,"1CTced9CMMk","BIGBANG - LOSER M/V","BIGBANG","UCzw-C7fNfs018R1FzIKnlaA",309269299,2258840,116401,"2015-04-30",227,"10","official_mv",309248122,4,"ko","ko"],[103,"-GQg25oP0S4","SEVENTEEN (세븐틴) '손오공' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",309136734,3357207,271733,"2023-04-24",213,"10","official_mv",309104039,4,"ko","ko"],[104,"ArmDp-zijuc","NewJeans (뉴진스) 'Super Shy' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",304858381,3200906,71247,"2023-07-07",201,"10","official_mv",304671082,7,"ko","ko"],[105,"mHNCM-YALSA","정국 (Jung Kook) '3D (feat. Jack Harlow)' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",304363264,5350259,309670,"2023-09-29",231,"10","official_mv",304216105,3,"ko","ko"],[106,"tyrVtwE8Gv0","NCT U 엔시티 유 'Make A Wish (Birthday Song)' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",304055306,4683022,813666,"2020-10-12",249,"10","official_mv",304038018,4,"ko","ko"],[107,"QslJYDX3o8s","Red Velvet 레드벨벳 '러시안 룰렛 (Russian Roulette)' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",301772030,2966447,135757,"2016-09-06",212,"10","official_mv",301647835,5,"ko","ko"],[108,"RKhsHGfrFmY","G-DRAGON - 삐딱하게(CROOKED) M/V","BIGBANG","UCzw-C7fNfs018R1FzIKnlaA",296752999,1945130,106190,"2013-09-05",226,"10","official_mv",296731950,3,"ko","ko"],[109,"ZeerrnuLi5E","aespa 에스파 'Black Mamba' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",293922738,4419990,697348,"2020-11-17",230,"10","official_mv",293897197,4,"ko","ko"],[110,"9jTo6hTZmiQ","BIGBANG - 우리 사랑하지 말아요(LET'S NOT FALL IN LOVE) M/V","BIGBANG","UCzw-C7fNfs018R1FzIKnlaA",292226445,2117859,97161,"2015-08-04",229,"10","official_mv",292206442,3,"ko","ko"],[111,"pyf8cbqyfPs","LE SSERAFIM (르세라핌) 'ANTIFRAGILE' OFFICIAL M/V","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",288795226,3572944,98196,"2022-10-16",232,"10","official_mv",288689397,5,"ko","ko"],[112,"nM0xDI5R50E","[MV] IU(아이유) _ BBIBBI(삐삐)","1theK (원더케이)","UCweOkPb1wVVH0Q0Tlj4a5Pw",288098784,3605502,96052,"2018-10-10",209,"10","official_mv",288078383,4,"ko","ko"],[113,"4OrCA1OInoo","TAEYEON 태연 'I (feat. Verbal Jint)' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",285099176,2407650,128693,"2015-10-07",300,"10","official_mv",285057718,4,"ko","ko"],[114,"WPdWvnAAurg","aespa 에스파 'Savage' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",284617761,3869788,362082,"2021-10-05",259,"10","official_mv",284597411,4,"ko","ko"],[115,"wq7ftOZBy0E","Girls' Generation 소녀시대 'I GOT A BOY' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",281220282,2211316,512571,"2013-01-01",305,"10","official_mv",281190781,6,"ko","ko"],[116,"DTcKkcyS410","[MV] BTS(방탄소년단) _ Just One Day(하루만)","1theK (원더케이)","UCweOkPb1wVVH0Q0Tlj4a5Pw",277793070,4357892,153453,"2014-04-06",249,"10","official_mv",277712583,3,"ko","ko"],[117,"eXBu09fwe3I","BTS (방탄소년단) 'Make It Right (feat. Lauv)' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",277439484,7562986,325062,"2019-10-18",258,"10","official_mv",277397340,5,"ko","ko"],[118,"MjCZfZfucEc","ITZY “LOCO” M/V @ITZY","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",275458234,4239105,305366,"2021-09-24",233,"10","official_mv",275456703,5,"ko","ko"],[119,"zndvqTc4P9I","ITZY \"ICY\" M/V @ITZY","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",275287261,3773457,204811,"2019-07-28",200,"10","official_mv",275286665,5,"ko","ko"],[120,"TI0DGvqKZTI","EXO-K 엑소케이 '중독(Overdose)' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",272407381,2871378,225626,"2014-05-06",261,"10","official_mv",272383281,4,"ko","ko"],[121,"--FmExEAsM8","IVE 아이브 'ELEVEN' MV","STARSHIP","UCYDmx2Sfpnaxg488yBpZIGg",268861380,2973734,136223,"2021-12-01",184,"10","official_mv",268849342,6,"ko","ko"],[122,"_ysomCGaZLw","ITZY \"마.피.아. In the morning\" M/V @ITZY","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",266527008,4519618,500614,"2021-04-30",185,"10","official_mv",266526142,7,"ko","ko"],[123,"Nu2yQ1zYDYU","[MV] PENTAGON(펜타곤) _ Shine(빛나리)","1theK (원더케이)","UCweOkPb1wVVH0Q0Tlj4a5Pw",266405922,3382484,124454,"2018-04-02",203,"10","official_mv",266382061,2,"ko","ko"],[124,"f6YDKF0LVWw","NAYEON \"POP!\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",263510107,4346945,966628,"2022-06-24",171,"10","official_mv",263471037,3,"ko","ko"],[125,"r6TwzSGYycM","SUPER JUNIOR 슈퍼주니어 'Mr. Simple' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",261205375,2071279,990838,"2011-08-04",293,"10","official_mv",261191477,3,"ko","ko"],[126,"6j928wBZ_Bo","Jessi (제시) - 'ZOOM' MV","Jessi","UCN2bQLTTvNPZWCWU5TYghKA",260676864,3893791,51835,"2022-04-13",183,"10","official_mv",260657900,5,"ko","ko"],[127,"6uJf2IT2Zh8","Red Velvet 레드벨벳 '피카부 (Peek-A-Boo)' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",260185244,3184471,145283,"2017-11-17",230,"10","official_mv",260157317,5,"ko","ko"],[128,"phuiiNCxRMg","aespa 에스파 'Supernova' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",260118860,2353690,112675,"2024-05-13",194,"10","official_mv",260007520,3,"ko","ko"],[129,"T0iPB_JyS5g","GOT7 \"If You Do(니가 하면)\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",259593336,2536437,148934,"2015-09-28",217,"10","official_mv",259515262,3,"ko","ko"],[130,"11cta61wi0g","NewJeans (뉴진스) 'Hype Boy' Official MV (Performance ver.1)","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",257766434,1823068,28428,"2022-08-18",178,"10","official_mv",257698961,4,"ko","ko"],[131,"iwd8N6K-sLk","EXO 엑소 'Tempo' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",255707488,4894564,1076980,"2018-11-02",242,"10","official_mv",255678803,2,"ko","ko"],[132,"NMdTd9e-LEI","[MV] BTS(방탄소년단) _ I NEED U","1theK (원더케이)","UCweOkPb1wVVH0Q0Tlj4a5Pw",255153970,3507403,128983,"2015-04-29",220,"10","official_mv",255135039,4,"ko","ko"],[133,"jYSlpC6Ud2A","Stray Kids \"CASE 143\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",254375978,3940355,584075,"2022-10-07",221,"10","official_mv",254302915,3,"ko","ko"],[134,"RyVS7R9PN6U","iKON - '죽겠다(KILLING ME)' M/V","iKON","UCWxCyZibDIWIrGIgP25mbfw",251213851,3777235,257731,"2018-08-02",202,"10","official_mv",251178604,2,"ko","ko"],[135,"tJQaUW36pMw","Jessi (제시) - '눈누난나 (NUNU NANA)' MV","Jessi","UCN2bQLTTvNPZWCWU5TYghKA",250148926,3756040,72750,"2020-07-30",199,"10","official_mv",250141281,3,"ko","ko"],[136,"R2-yomhYAj4","KATSEYE (캣츠아이) \"Gnarly\" Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",249286794,2113137,115396,"2025-04-30",142,"10","official_mv",248921848,1,"ko","ko"],[137,"2GRP1rkE4O0","BIGBANG - BLUE M/V","BIGBANG","UCzw-C7fNfs018R1FzIKnlaA",243547403,1320799,159015,"2012-02-21",243,"10","official_mv",243521262,3,"ko","ko"],[138,"iIPH8LFYFRk","BIGBANG - ‘에라 모르겠다(FXXK IT)’ M/V","BIGBANG","UCzw-C7fNfs018R1FzIKnlaA",243084482,2608667,163226,"2016-12-12",244,"10","official_mv",243078727,3,"ko","ko"],[139,"n6B5gQXlB-0","LE SSERAFIM (르세라핌) 'CRAZY' OFFICIAL MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",242264523,2011850,74085,"2024-08-30",170,"10","official_mv",241888761,2,"ko","ko"],[140,"jEdfjuG0Fx4","정국 (Jung Kook) 'Dreamers' @ FIFA World Cup Qatar 2022 Opening Ceremony","BANGTANTV","UCLkAepWjdylmXSltofFvsYQ",241788717,5395211,199882,"2022-11-21",305,"10","official_mv",241771924,1,"ko","ko"],[141,"om3n2ni8luE","(여자)아이들((G)I-DLE) - 'Oh my god' Official Music Video","i-dle (아이들)","UCritGVo7pLJLUS8wEu32vow",241374419,3511654,208577,"2020-04-06",201,"10","official_mv",241340260,3,"ko","ko"],[142,"yd_uG3TtREs","BABYMONSTER - ‘PSYCHO’ M/V","BABYMONSTER","UCqwUnggBBct-AY2lAdI88jQ",236770269,1668257,68872,"2025-11-18",204,"10","official_mv",0,1,"ko","ko"],[143,"H8lYMWZD5P8","BTS (방탄소년단) '쩔어' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",234014823,4680142,120278,"2015-06-23",257,"10","official_mv",233984478,3,"ko","ko"],[144,"kXpOEzNZ8hQ","BTS (방탄소년단) 'Yet To Come (The Most Beautiful Moment)' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",232822278,10907533,2813257,"2022-06-10",281,"10","official_mv",232790748,5,"ko","ko"],[145,"-bC4iak3kxg","KATSEYE (캣츠아이) \"Gameboy” Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",228012305,1635823,54861,"2025-06-27",200,"10","official_mv",227195607,2,"ko","ko"],[146,"4vbDFu0PUew","LE SSERAFIM FEARLESS OFFICIAL M/V","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",226325351,2683886,132463,"2022-05-02",183,"10","official_mv",226256723,4,"ko","ko"],[147,"4tBnF46ybZk","WINNER - 'REALLY REALLY' M/V","WINNER","UCayQxFAoFCvGariuQCtHRGQ",223612053,2435746,103530,"2017-04-04",221,"10","official_mv",223601685,2,"ko","ko"],[148,"bMhDJ0S0OBA","ILLIT (아일릿) ‘It’s Me’ Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",223471648,1706642,53848,"2026-04-30",147,"10","official_mv",222116513,3,"ko","ko"],[149,"1nCLBTmjJBY","4MINUTE - 미쳐(Crazy)","4Minute 포미닛(Official YouTube Channel)","UC_Dm4o5UrbPr2uvM7VPUR6g",223359765,2161184,66547,"2015-02-09",193,"10","official_mv",223341808,3,"ko","ko"],[150,"k6jqx9kZgPM","TWICE \"Talk that Talk\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",222818826,3289166,1268793,"2022-08-26",175,"10","official_mv",222773205,4,"ko","ko"],[151,"_gyultVTesk","BTS (방탄소년단) '2.0' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",221164299,5031456,304249,"2026-04-01",235,"10","official_mv",220170771,2,"ko","ko"],[152,"0P0aQreFs8w","Stray Kids \"Chk Chk Boom\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",221037216,3811960,392477,"2024-07-19",206,"10","official_mv",220953502,3,"ko","ko"],[153,"wTowEKjDGkU","ITZY “Not Shy” M/V @ITZY","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",217717406,4188669,282163,"2020-08-17",243,"10","official_mv",217716790,3,"ko","ko"],[154,"wXFLzODIdUI","ENHYPEN (엔하이픈) 'Bite Me' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",217585349,3483016,235967,"2023-05-22",189,"10","official_mv",217285758,3,"ko","ko"],[155,"WyiIGEHQP8o","Red Velvet 레드벨벳 '빨간 맛 (Red Flavor)' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",216016983,2577530,141654,"2017-07-09",206,"10","official_mv",215995577,2,"ko","ko"],[156,"gRnuFC4Ualw","SEVENTEEN (세븐틴) 'HOT' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",215197218,2676510,278209,"2022-05-27",200,"10","official_mv",215184361,3,"ko","ko"],[157,"Vd9QkWsd5p4","TXT (투모로우바이투게더) '5시 53분의 하늘에서 발견한 너와 나' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",214495135,5586478,786496,"2020-10-26",304,"10","official_mv",214457186,3,"ko","ko"],[158,"d9IxdwEFk1c","[MV] IU(아이유) _ Palette(팔레트) (Feat. G-DRAGON)","1theK (원더케이)","UCweOkPb1wVVH0Q0Tlj4a5Pw",213614884,1796268,57062,"2017-04-21",219,"10","official_mv",213596821,2,"ko","ko"],[159,"tbe3pe2BtwA","EXO 엑소 'Lotto' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",213481548,3142513,233977,"2016-08-18",202,"10","official_mv",213456543,4,"ko","ko"],[160,"x3eqqoZPV_E","BABYMONSTER - '춤 (CHOOM)' M/V","BABYMONSTER","UCqwUnggBBct-AY2lAdI88jQ",213215131,1677378,111288,"2026-05-04",205,"10","official_mv",0,1,"ko","ko"],[161,"27C4pfRsf9g","LE SSERAFIM (르세라핌) x ILLIT (아일릿) x KATSEYE (캣츠아이) 'ICONIC BY MISTAKE' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",210821262,2634001,136948,"2026-06-10",200,"10","official_mv",209824118,2,"ko","ko"],[162,"bagj78IQ3l0","[MV] BTS(방탄소년단) _ Danger","1theK (원더케이)","UCweOkPb1wVVH0Q0Tlj4a5Pw",210532426,3464288,129703,"2014-08-19",292,"10","official_mv",210510251,3,"ko","ko"],[163,"IZ1t7CwfvEc","GOT7 \"Never Ever\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",208644767,2938679,211032,"2017-03-13",211,"10","official_mv",208630759,2,"ko","ko"],[164,"WZwr2a_lFWY","IZ*ONE (아이즈원) - 라비앙로즈 (La Vie en Rose) MV","STONE MUSIC","UC_pwIXKXNm5KGhdEVzmY60A",207643606,2133595,214573,"2018-10-29",220,"10","official_mv",207606921,2,"ko","ko"],[165,"jjskoRh8GTE","BTS (방탄소년단) 'I NEED U' Official MV (Original ver.)","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",207633944,5344798,169708,"2015-05-10",333,"10","official_mv",207571360,3,"ko","ko"],[166,"KNexS61fjus","LE SSERAFIM (르세라핌) 'Smart' OFFICIAL MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",205981052,1931119,35731,"2024-03-05",194,"10","official_mv",205779973,2,"ko","ko"],[167,"Dab4EENTW5I","Stray Kids \"MIROH\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",205093966,4553680,448791,"2019-03-24",258,"10","official_mv",205060506,2,"ko","ko"],[168,"p8npDG2ulKQ","BTS (방탄소년단) LOVE YOURSELF 轉 Tear 'Singularity' Comeback Trailer","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",204641113,6600922,660918,"2018-05-06",213,"10","official_mv",204631228,2,"ko","ko"],[169,"0AUFyFEt35g","NCT U 엔시티 유 'BOSS' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",203847611,3083402,170286,"2018-02-18",215,"10","official_mv",203833178,2,"ko","ko"],[170,"1qnV55LUFVM","BIGBANG - BAD BOY M/V","BIGBANG","UCzw-C7fNfs018R1FzIKnlaA",203574908,1267217,114564,"2012-02-28",237,"10","official_mv",203558942,3,"ko","ko"],[171,"2OvyA2__Eas","NCT 127 엔시티 127 '영웅 (英雄; Kick It)' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",201752436,4163984,436123,"2020-03-04",239,"10","official_mv",201734325,3,"ko","ko"],[172,"57n4dZAPxNY","Stray Kids \"Christmas EveL\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",200386056,5329177,201583,"2021-11-29",234,"10","official_mv",200299560,3,"ko","ko"],[173,"UaywgAqcLxI","지민 (Jimin) 'Set Me Free Pt.2' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",197545313,5514750,612138,"2023-03-17",225,"10","official_mv",197493923,4,"ko","ko"],[174,"roughtzsCDI","SHINee 샤이니 'Ring Ding Dong' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",196608701,2049749,131591,"2009-10-16",240,"10","official_mv",196549605,2,"ko","ko"],[175,"PkKnp4SdE-w","NCT DREAM 엔시티 드림 '맛 (Hot Sauce)' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",194740613,4026861,1155026,"2021-05-10",212,"10","official_mv",194731084,5,"ko","ko"],[176,"Os_heh8vPfs","aespa 에스파 'Spicy' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",193546037,1614734,166216,"2023-05-08",205,"10","official_mv",193507423,4,"ko","ko"],[177,"nOI67IDlNMQ","지민 (Jimin) 'Like Crazy' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",192757625,4580385,465455,"2023-03-24",225,"10","official_mv",192694070,4,"ko","ko"],[178,"7WyHtSlvHD4","BLACKPINK X PUBG MOBILE - ‘Ready For Love’ M/V","BLACKPINK","UCOmHUn--16B90oW2L6FRR3A",192330983,5532860,608440,"2022-07-29",187,"10","official_mv",192323560,5,"ko","ko"],[179,"MBNQgq56egk","BIGBANG - 맨정신(SOBER) M/V","BIGBANG","UCzw-C7fNfs018R1FzIKnlaA",192136091,1532681,78133,"2015-06-30",245,"10","official_mv",192123023,3,"ko","ko"],[180,"RvcP6V4h_q4","BTS (방탄소년단) 'Life Goes On' Official MV : in the forest","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",192063993,5244286,123452,"2020-11-25",217,"10","official_mv",192029763,4,"ko","ko"],[181,"BEMaH9Sm3lQ","BTS (방탄소년단) LOVE YOURSELF 承 Her 'Serendipity' Comeback Trailer","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",191870782,5978327,475092,"2017-09-04",152,"10","official_mv",191849979,2,"ko","ko"],[182,"ur0hCdne2-s","[MV] SUNMI(선미) _ Gashina(가시나)","1theK (원더케이)","UCweOkPb1wVVH0Q0Tlj4a5Pw",187349331,2536861,42228,"2017-08-22",251,"10","official_mv",187333977,3,"ko","ko"],[183,"nFYwcndNuOY","aespa 에스파 'Armageddon' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",186844967,1961024,89784,"2024-05-27",213,"10","official_mv",186742005,2,"ko","ko"],[184,"Av9DvtlJ9_M","지민 (Jimin) 'Who' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",185083101,3273436,381379,"2024-07-19",208,"10","official_mv",184890956,2,"ko","ko"],[185,"4gX_p1VkgA4","EVERGLOW (에버글로우) - Adios MV","STONE MUSIC","UC_pwIXKXNm5KGhdEVzmY60A",183194071,2706059,156881,"2019-08-19",205,"10","official_mv",183190065,1,"ko","ko"],[186,"Sz_wWzgh-vQ","TWICE “Strategy (feat. Megan Thee Stallion)” M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",183130215,2170837,211532,"2024-12-06",231,"10","official_mv",182904435,3,"ko","ko"],[187,"gqhWHy0rrtM","[MV] BTS(방탄소년단)_ We Are Bulletproof Pt2(위 아 불렛프루프 Pt.2)","1theK (원더케이)","UCweOkPb1wVVH0Q0Tlj4a5Pw",180141688,3121455,111887,"2013-07-16",233,"10","official_mv",180112342,3,"ko","ko"],[188,"uxmP4b2a0uY","EXO 엑소 'Obsession' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",180101249,4803424,1681335,"2019-11-27",220,"10","official_mv",180083924,2,"ko","ko"],[189,"EVaV7AwqBWg","Wanna One (워너원) - 에너제틱 (Energetic) MV","STONE MUSIC","UC_pwIXKXNm5KGhdEVzmY60A",180080951,2716659,194427,"2017-08-07",228,"10","official_mv",180058675,2,"ko","ko"],[190,"X-iJZ0gfKPo","NCT DREAM 엔시티 드림 'BOOM' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",179909821,3290858,222239,"2019-07-25",198,"10","official_mv",179893440,2,"ko","ko"],[191,"9kaCAbIXuyg","G-DRAGON - '무제(無題) (Untitled, 2014)' M/V","BIGBANG","UCzw-C7fNfs018R1FzIKnlaA",179513102,1937202,141622,"2017-06-08",229,"10","official_mv",179501400,2,"ko","ko"],[192,"Xvjnoagk6GU","PSY - ‘I LUV IT’ M/V","officialpsy","UCrDkAvwZum-UTjHmzDI2iIw",178706706,1779132,108694,"2017-05-10",200,"10","official_mv",178672189,2,"ko","ko"],[193,"SdHQkkRc-hc","[MV] K.will(케이윌) - Talk Love(말해! 뭐해?) l Descendants of the Sun 태양의 후예 OST","MUSIC&NEW 뮤직앤뉴","UCyLHKUjX_fy8akafmRMr-PA",178000323,731433,17770,"2016-03-18",217,"10","official_mv",177916108,2,"ko","ko"],[194,"b4iVv91Z6lY","BTS (방탄소년단) ‘SWIM’ Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",176840072,6882487,1165287,"2026-03-20",245,"10","official_mv",176521154,2,"ko","ko"],[195,"E0ZHXVp_wUE","씨스타(SISTAR) - 나혼자 Music Video (Alone)","STARSHIP","UCYDmx2Sfpnaxg488yBpZIGg",174866370,655426,31201,"2012-04-11",209,"10","official_mv",174818005,3,"ko","ko"],[196,"SdzLl-XpJt0","Girls' Generation-Oh!GG 소녀시대-Oh!GG '몰랐니 (Lil' Touch)' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",174806954,2886354,294725,"2018-09-05",211,"10","official_mv",174794892,2,"ko","ko"],[197,"cXCBiF67jLM","TAEYANG - 'VIBE (feat. Jimin of BTS)' M/V","THEBLACKLABEL","UCg8ZzloDPTrOiGztK0C9txQ",174773369,0,328293,"2023-01-13",179,"10","official_mv",174763761,2,"ko","ko"],[198,"W3iSnJ663II","TXT (투모로우바이투게더) '어느날 머리에서 뿔이 자랐다 (CROWN)' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",174346848,5789506,549073,"2019-03-04",240,"10","official_mv",174321739,2,"ko","ko"],[199,"tg2uF3R_Ozo","JEON SOMI (전소미) - 'DUMB DUMB' M/V","THEBLACKLABEL","UCg8ZzloDPTrOiGztK0C9txQ",173646704,3227079,91009,"2021-08-02",179,"10","official_mv",173644048,1,"ko","ko"],[200,"Fc7-Oe0tj5k","ENHYPEN (엔하이픈) 'Drunk-Dazed' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",173282175,4755549,467604,"2021-04-26",283,"10","official_mv",173195269,3,"ko","ko"],[201,"OK3GJ0WIQ8s","j-hope 'Daydream (백일몽)' MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",173071018,6896144,641378,"2018-03-01",229,"10","official_mv",173064520,2,"ko","ko"],[202,"m7k9UMcHbr0","KATSEYE (캣츠아이) \"Animal\" Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",172742878,1902235,141990,"2026-07-24",191,"10","official_mv",171452798,2,"ko","ko"],[203,"--zku6TB5NY","BIGBANG - ‘LAST DANCE’ M/V","BIGBANG","UCzw-C7fNfs018R1FzIKnlaA",172641595,1567036,101276,"2016-12-12",297,"10","official_mv",172625448,2,"ko","ko"],[204,"zugAhfd2r0g","ITZY “Cheshire” M/V @ITZY","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",172426798,1771482,107735,"2022-11-30",188,"10","official_mv",172426077,3,"ko","ko"],[205,"fhseD2tRLUY","少女時代 / ＭＲ．ＴＡＸＩ　（DANCE VER.）","UNIVERSAL MUSIC JAPAN","UCl2aT0nRejTCQO_LHZAftBw",172276441,0,0,"2011-04-25",218,"10","official_mv",172257521,3,"ko","ko"],[206,"WkuHLzMMTZM","NCT 127 엔시티 127 'Cherry Bomb' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",171628264,2882480,113754,"2017-06-14",270,"10","official_mv",171617079,2,"ko","ko"],[207,"gAal8xHfV0c","EXO 엑소 '늑대와 미녀 (Wolf)' MV (Korean Ver.)","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",171586845,2020594,243641,"2013-05-30",233,"10","official_mv",171572650,4,"ko","ko"],[208,"x6QA3m58DQw","SUPER JUNIOR 슈퍼주니어 '쏘리 쏘리 (SORRY, SORRY)' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",171227289,1502958,53141,"2009-06-08",258,"10","official_mv",171221678,3,"ko","ko"],[209,"ZAzWT8mRoR0","BEAST - 'FICTION' (Official Music Video)","BEAST 비스트 (Official YouTube Channel)","UCwpmEwAbLPUHH_9y8JazVnA",171128651,947769,65507,"2011-05-17",306,"10","official_mv",171105926,3,"ko","ko"],[210,"OKNXn2qCEws","(여자)아이들((G)I-DLE) - '한(一)(HANN(Alone))' Official Music Video","i-dle (아이들)","UCritGVo7pLJLUS8wEu32vow",171090940,2344019,120804,"2018-08-14",225,"10","official_mv",171064785,2,"ko","ko"],[211,"vPwaXytZcgI","TWICE “SCIENTIST” M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",170920674,3207461,288204,"2021-11-12",201,"10","official_mv",170899137,3,"ko","ko"],[212,"K1scjjbfNsk","BTS (방탄소년단) 'IDOL (Feat. Nicki Minaj)' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",168817399,6004842,305264,"2018-09-06",295,"10","official_mv",168817280,4,"ko","ko"],[213,"bw9CALKOvAI","HYUNA - 'Bubble Pop!' (Official Music Video)","4Minute 포미닛(Official YouTube Channel)","UC_Dm4o5UrbPr2uvM7VPUR6g",168440815,870870,107178,"2011-07-04",215,"10","official_mv",168437404,3,"ko","ko"],[214,"dYRITmpFbJ4","aespa 에스파 'Girls' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",167517106,2216948,391571,"2022-07-08",269,"10","official_mv",167500419,4,"ko","ko"],[215,"LjUXm0Zy_dk","[MV] 마마무(MAMAMOO) - 별이 빛나는 밤(Starry night)","MAMAMOO","UCuhAUMLzJxlP1W7mEk0_6lA",167475810,1987229,57605,"2018-03-07",262,"10","official_mv",167458364,2,"ko","ko"],[216,"U0G5OA6ZH5w","ATEEZ(에이티즈) - 'BOUNCY (K-HOT CHILLI PEPPERS)' Official MV","KQ ENTERTAINMENT","UCQdq-lqPEq_yZ_wP_kuVB9Q",167469975,1552411,183017,"2023-06-16",244,"10","official_mv",167451126,1,"ko","ko"],[217,"F7sGJVUrkjQ","Hearts2Hearts 하츠투하츠 'RUDE!' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",166634074,1522318,107120,"2026-02-20",216,"10","official_mv",0,1,"ko","ko"],[218,"tSOSxwEWFA4","SUPER JUNIOR 슈퍼주니어 '미인아 (Bonamana)' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",166077371,961114,119991,"2010-05-12",279,"10","official_mv",166071465,3,"ko","ko"],[219,"TKD03uPVD-Q","BIGBANG - BAE BAE M/V","BIGBANG","UCzw-C7fNfs018R1FzIKnlaA",165968775,1334413,63737,"2015-04-30",174,"10","official_mv",165960422,3,"ko","ko"],[220,"TGbwL8kSpEk","Girls' Generation 소녀시대 'Oh!' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",165003809,971262,96860,"2010-01-26",214,"10","official_mv",164961913,4,"ko","ko"],[221,"Fc-fa6cAe2c","KAI 카이 '음 (Mmmh)' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",163695396,3878174,1223794,"2020-11-30",207,"10","official_mv",163676408,2,"ko","ko"],[222,"W0cs6ciCt_k","[도깨비 OST Part 4] 크러쉬 (Crush) - Beautiful MV (ENG Sub)","STONE MUSIC","UC_pwIXKXNm5KGhdEVzmY60A",163183203,864082,17470,"2016-12-16",228,"10","official_mv",163169921,1,"ko","ko"],[223,"P9tKTxbgdkk","TXT (투모로우바이투게더) 'Sugar Rush Ride' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",162582287,2561144,360819,"2023-01-27",213,"10","official_mv",162544508,4,"ko","ko"],[224,"RuqaVryDRd0","EXO 엑소 'LOVE ME RIGHT' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",162202133,2185260,204372,"2015-06-02",211,"10","official_mv",162178124,3,"ko","ko"],[225,"xfqBQ2XhBCg","ZICO (지코) ‘SPOT! (feat. JENNIE)’ Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",161971992,2665510,134596,"2024-04-26",193,"10","official_mv",161936953,1,"ko","ko"],[226,"LmApDbvNCXg","BTS (방탄소년단) MAP OF THE SOUL : 7 'Outro : Ego' Comeback Trailer","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",161900989,7126938,765174,"2020-02-02",204,"10","official_mv",161888536,2,"ko","ko"],[227,"J-wFp43XOrA","[MV] SEVENTEEN(세븐틴) _ VERY NICE(아주 NICE)","1theK (원더케이)","UCweOkPb1wVVH0Q0Tlj4a5Pw",161773249,1945804,72847,"2016-07-03",196,"10","official_mv",161764754,2,"ko","ko"],[228,"is8UDe2PhKQ","KATSEYE (캣츠아이) 'Hootie Frutti' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",160435324,1387448,219090,"2026-08-14",154,"10","official_mv",159319872,2,"ko","ko"],[229,"wKysONrSmew","BTS (방탄소년단) 'RUN' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",159667538,4870683,147070,"2015-11-29",451,"10","official_mv",159623709,3,"ko","ko"],[230,"XGdbaEDVWp0","Red Velvet 레드벨벳 'Dumb Dumb' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",159393325,1566470,64308,"2015-09-08",203,"10","official_mv",159374956,2,"ko","ko"],[231,"UJfZ69MSlvY","TAEYANG - RINGA LINGA(링가 링가) M/V","BIGBANG","UCzw-C7fNfs018R1FzIKnlaA",159127577,1394499,55267,"2013-11-09",229,"10","official_mv",159121519,3,"ko","ko"],[232,"CxMvQkcdPl8","TAEYANG - '눈,코,입(EYES,NOSE,LIPS)' 0424 Fantastic Duo","BIGBANG","UCzw-C7fNfs018R1FzIKnlaA",157699659,1577908,67042,"2016-04-24",313,"10","official_mv",157695027,2,"ko","ko"],[233,"pG6iaOMV46I","IVE 아이브 'Kitsch' MV","STARSHIP","UCYDmx2Sfpnaxg488yBpZIGg",157516708,1387992,76818,"2023-03-27",202,"10","official_mv",157509596,3,"ko","ko"],[234,"Hbb5GPxXF1w","ITZY “SNEAKERS” M/V @ITZY","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",156844180,2430388,376889,"2022-07-15",185,"10","official_mv",156843608,4,"ko","ko"],[235,"6oanIo_2Z4Q","(여자)아이들((G)I-DLE) - 'LION' Official Music Video","i-dle (아이들)","UCritGVo7pLJLUS8wEu32vow",155872418,2287020,104754,"2019-11-03",218,"10","official_mv",155845821,2,"ko","ko"],[236,"eHHQaoEW30Q","TWICE \"THIS IS FOR\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",154638546,2028978,234851,"2025-07-11",134,"10","official_mv",154384728,3,"ko","ko"],[237,"UBURTj20HXI","LE SSERAFIM (르세라핌) 'UNFORGIVEN (feat. Nile Rodgers)' OFFICIAL M/V","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",154092654,2101756,70721,"2023-05-01",260,"10","official_mv",154054866,3,"ko","ko"],[238,"hLvWy2b857I","LE SSERAFIM (르세라핌) 'Perfect Night' OFFICIAL M/V with OVERWATCH 2","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",154029552,1394637,30902,"2023-10-27",183,"10","official_mv",153946994,3,"ko","ko"],[239,"naoGk-Zjc1s","BABYMONSTER - 'SUGAR HONEY ICE TEA' M/V","BABYMONSTER","UCqwUnggBBct-AY2lAdI88jQ",153723411,1251763,91676,"2026-06-07",187,"10","official_mv",0,1,"ko","ko"],[240,"Dww9UjJ4Dt8","SHINee 샤이니 'Lucifer' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",153674340,1122077,129638,"2010-07-20",239,"10","official_mv",153628356,3,"ko","ko"],[241,"A5H8zBb3iao","NCT U 엔시티 유 '90's Love' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",153390675,2768890,512203,"2020-11-23",227,"10","official_mv",153378039,3,"ko","ko"],[242,"n8I8QGFA1oM","f(x) 에프엑스 'Electric Shock' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",152758084,1122828,121164,"2012-06-12",198,"10","official_mv",152738726,3,"ko","ko"],[243,"IsXB5eRMRno","Henry 헨리 'TRAP' MV (with Kyuhyun & Taemin)","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",152411974,1208399,78103,"2013-06-07",259,"10","official_mv",152401330,2,"ko","ko"],[244,"hZmoMyFXDoI","[MV] BOL4(볼빨간사춘기) _ Some(썸 탈꺼야)","1theK (원더케이)","UCweOkPb1wVVH0Q0Tlj4a5Pw",152377837,2372167,41689,"2017-09-28",187,"10","official_mv",152372709,1,"ko","ko"],[245,"WpuatuzSDK4","SEVENTEEN (세븐틴) 'Rock with you' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",151526844,2283661,313289,"2021-10-22",184,"10","official_mv",151517340,2,"ko","ko"],[246,"TvVtYaqCni8","LE SSERAFIM (르세라핌) 'SPAGHETTI (feat. j-hope of BTS)' OFFICIAL MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",151271406,2084357,81972,"2025-10-24",199,"10","official_mv",0,1,"ko","ko"],[247,"nVCubhQ454c","Girls' Generation 소녀시대 'Lion Heart' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",151054536,1291586,72116,"2015-08-18",337,"10","official_mv",151030846,1,"ko","ko"],[248,"VOmIplFAGeg","NewJeans (뉴진스) 'Cookie' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",150081140,1558019,43716,"2022-08-01",239,"10","official_mv",149950771,2,"ko","ko"],[249,"bkQw-F1QTq4","TWICE 'CRY FOR ME' Choreography - 2","TWICE","UCzgxx_DM2Dcb9Y1spb9mUJA",148965402,1980447,83240,"2020-12-21",210,"10","official_mv",148933155,1,"ko","ko"],[250,"9t57C7NcjWo","ATEEZ(에이티즈) - '미친 폼 (Crazy Form)' Official MV","KQ ENTERTAINMENT","UCQdq-lqPEq_yZ_wP_kuVB9Q",148749153,1110205,113836,"2023-12-01",230,"10","official_mv",148737591,1,"ko","ko"],[251,"0aaeUI1ucfQ","[HyunA&DAWN] 'PING PONG' MV","HyunA","UC0uTcuuOtUFwtn9aKUVGjXg",148275620,2503615,64044,"2021-09-09",161,"10","official_mv",148270244,1,"ko","ko"],[252,"gyXy0m-4bvE","[MV] NU'EST(뉴이스트) _ FACE(페이스)","1theK (원더케이)","UCweOkPb1wVVH0Q0Tlj4a5Pw",147054239,1524306,122110,"2012-03-14",224,"10","official_mv",147049025,2,"ko","ko"],[253,"NED7nev2ywQ","Stray Kids \"Do It\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",146666209,2165439,167915,"2025-11-21",181,"10","official_mv",0,1,"ko","ko"],[254,"Ujb-gvqsoi0","Red Velvet - IRENE & SEULGI 'Monster' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",146257689,3851778,265257,"2020-07-07",182,"10","official_mv",146245321,2,"ko","ko"],[255,"xQI9oZEY-B0","GOT7 \"니가 부르는 나의 이름(You Calling My Name)\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",145853907,2522668,510435,"2019-11-04",218,"10","official_mv",145829437,1,"ko","ko"],[256,"BA7fdSkp8ds","Wonder Girls \"NOBODY (Eng. Ver)\" M/V","wondergirls","UCTE8ueKNA54RcO6MgXif2Tg",144978461,860966,39853,"2009-07-27",375,"10","official_mv",144944977,1,"ko","ko"],[257,"dZs_cLHfnNA","LE SSERAFIM (르세라핌) ‘이브, 프시케 그리고 푸른 수염의 아내’ OFFICIAL M/V","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",144546898,1676470,26791,"2023-05-23",228,"10","official_mv",144490638,2,"ko","ko"],[258,"6f3RzjXPQwA","(여자)아이들((G)I-DLE) - 'Super Lady' Official Music Video","i-dle (아이들)","UCritGVo7pLJLUS8wEu32vow",143982933,2025548,72902,"2024-01-29",161,"10","official_mv",143934734,1,"ko","ko"],[259,"0IpbvXVbBYA","NCT 2020 엔시티 2020 'RESONANCE' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",143256341,3154181,644579,"2020-12-04",336,"10","official_mv",143249233,2,"ko","ko"],[260,"doFK7Eanm3I","G-DRAGON - 니가 뭔데(WHO YOU?) M/V","BIGBANG","UCzw-C7fNfs018R1FzIKnlaA",143203520,973930,37425,"2013-11-13",338,"10","official_mv",143201676,2,"ko","ko"],[261,"cSqOY5nktfg","BLACKPINK THE GAME - ‘THE GIRLS’ MV","BLACKPINK","UCOmHUn--16B90oW2L6FRR3A",142586170,2328911,251265,"2023-08-25",164,"10","official_mv",142561677,3,"ko","ko"],[262,"cKlEE_EYuNM","TWICE Pre-release english track \"MOONLIGHT SUNRISE\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",142556127,2277130,282822,"2023-01-20",204,"10","official_mv",142524536,2,"ko","ko"],[263,"glXgSSOKlls","Red Velvet 레드벨벳 'Ice Cream Cake' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",142202034,1556148,70973,"2015-03-16",207,"10","official_mv",142192110,1,"ko","ko"],[264,"z3szNvgQxHo","(여자)아이들((G)I-DLE) - '화(火花)(HWAA)' Official Music Video","i-dle (아이들)","UCritGVo7pLJLUS8wEu32vow",141572818,2064256,272901,"2021-01-11",199,"10","official_mv",141554643,2,"ko","ko"],[265,"X7d6Dt17yHk","ENHYPEN (엔하이픈) 'FEVER' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",141291206,4351314,224003,"2021-05-19",251,"10","official_mv",141240677,2,"ko","ko"],[266,"MCEcWcIww5k","[MV] Ailee(에일리) _ I will show you(보여줄게)","1theK (원더케이)","UCweOkPb1wVVH0Q0Tlj4a5Pw",141196234,914068,30607,"2012-10-16",233,"10","official_mv",141190877,2,"ko","ko"],[267,"zYoYoBtLqOY","KARA - STEP M/V","KARA Official","UCbxYZzVHUrv-AhR6KZzGo0A",141066135,0,58251,"2011-09-05",201,"10","official_mv",141061808,2,"ko","ko"],[268,"FZ9lJ5ctd0s","[Special Clip] 몬스타엑스 (MONSTAX) - 히어로 (HERO) Rooftop Ver.","STARSHIP","UCYDmx2Sfpnaxg488yBpZIGg",140448396,2043785,93024,"2015-10-01",255,"10","official_mv",140435971,1,"ko","ko"],[269,"X6XXia5B2Wg","SISTAR19(씨스타19) - Ma Boy Music Video","STARSHIP","UCYDmx2Sfpnaxg488yBpZIGg",140223159,684588,35042,"2011-05-02",208,"10","official_mv",140195708,2,"ko","ko"],[270,"HK3LjI2InOg","j-hope ‘Killin' It Girl (Solo Version)’ Official MV (Choreography ver.)","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",140084897,1590371,42717,"2025-06-15",159,"10","official_mv",139780961,2,"ko","ko"],[271,"SnMoDDbEccE","SUPER JUNIOR 슈퍼주니어 '너 같은 사람 또 없어 (No Other)' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",139432959,925034,115548,"2010-07-07",261,"10","official_mv",139426568,2,"ko","ko"],[272,"9RUeTYiJCyA","GOT7 \"Lullaby\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",139085006,2400752,328212,"2018-09-17",223,"10","official_mv",139071406,1,"ko","ko"],[273,"fIkZOLsnoqY","BTS (방탄소년단) LOVE YOURSELF 結 Answer 'Epiphany' Comeback Trailer","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",139043234,6742036,1161460,"2018-08-09",262,"10","official_mv",139021012,1,"ko","ko"],[274,"8d5QEWdHchk","BIGBANG - TONIGHT M/V","BIGBANG","UCzw-C7fNfs018R1FzIKnlaA",138181912,711943,67391,"2011-03-01",224,"10","official_mv",138169364,2,"ko","ko"],[275,"c6ASQOwKkhk","진 (Jin) 'The Astronaut' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",137988558,5725554,714572,"2022-10-28",320,"10","official_mv",137961388,2,"ko","ko"],[276,"u18be_kRmC0","RM '들꽃놀이 (with 조유진)' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",137608456,4908645,563856,"2022-12-02",289,"10","official_mv",137564967,2,"ko","ko"],[277,"q_gfD3nvh-8","Girls' Generation 소녀시대 'Run Devil Run' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",137222657,837443,78542,"2010-03-17",208,"10","official_mv",137190782,2,"ko","ko"],[278,"HdZdxocqzq4","SEVENTEEN (세븐틴) 'Left & Right' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",136907618,2796227,532428,"2020-06-22",251,"10","official_mv",136904222,1,"ko","ko"],[279,"CyzEtbG-sxY","[M/V] SEVENTEEN(세븐틴) - 박수(CLAP)","SEVENTEEN","UCfkXDY7vwkcJ8ddFGz8KusA",136859290,2210430,113988,"2017-11-06",211,"10","official_mv",136855606,1,"ko","ko"],[280,"6yWPfUz0z94","TXT (투모로우바이투게더) '9와 4분의 3 승강장에서 너를 기다려 (Run Away)' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",136677434,3996540,256182,"2019-10-21",317,"10","official_mv",136646662,1,"ko","ko"],[281,"43r6lXilbcQ","BTS (방탄소년단) 'Danger' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",136662762,4060744,107843,"2014-08-19",287,"10","official_mv",136642839,1,"ko","ko"],[282,"ib_1ATfr8wM","HYUNA(현아) - '잘나가서 그래 (Feat. 정일훈 Of BTOB)' (Roll Deep) M/V","4Minute 포미닛(Official YouTube Channel)","UC_Dm4o5UrbPr2uvM7VPUR6g",136553711,1233898,40679,"2015-08-21",209,"10","official_mv",136549840,2,"ko","ko"],[283,"HYzyRHAHJl8","V 'Love Me Again' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",135980381,4746613,706595,"2023-08-09",198,"10","official_mv",135907447,1,"ko","ko"],[284,"c9RzZpV460k","Red Velvet 레드벨벳 'Queendom' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",135089519,2867674,275723,"2021-08-16",190,"10","official_mv",135076812,2,"ko","ko"],[285,"P7vBoGWoReg","Stray Kids \"CEREMONY\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",134813231,2024469,204788,"2025-08-22",172,"10","official_mv",134715840,2,"ko","ko"],[286,"O57jr1oZDIw","GOT7 \"Hard Carry(하드캐리)\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",134651177,2034109,161876,"2016-09-26",201,"10","official_mv",134638171,1,"ko","ko"],[287,"9txzvu6eQuw","[MV] SISTAR(씨스타)_Touch my body(터치 마이 바디)","STARSHIP","UCYDmx2Sfpnaxg488yBpZIGg",134615074,798897,28650,"2014-07-21",213,"10","official_mv",134590647,1,"ko","ko"],[288,"e42AhJzYpVE","TXT (투모로우바이투게더), Anitta ‘Back for More’ Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",133404133,1798775,144161,"2023-09-15",207,"10","official_mv",133322601,2,"ko","ko"],[289,"d5bbqKYu51w","TXT (투모로우바이투게더) '0X1=LOVESONG (I Know I Love You) feat. Seori' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",133251004,3947643,505939,"2021-05-31",276,"10","official_mv",133199030,1,"ko","ko"],[290,"r5GaAEHvHj0","BTS (방탄소년단) 'N.O' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",132877065,3721597,100684,"2013-09-11",243,"10","official_mv",132857698,2,"ko","ko"],[291,"AdfIfFGCqgo","Stray Kids \"Hellevator\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",131917551,3054993,361792,"2017-10-07",252,"10","official_mv",131895313,1,"ko","ko"],[292,"p1bjnyDqI9k","NMIXX \"DICE\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",131827136,1786499,82871,"2022-09-19",199,"10","official_mv",131816898,1,"ko","ko"],[293,"BZ4UzthYTss","Stray Kids \"This & That\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",131659584,1790259,148826,"2026-08-07",194,"10","official_mv",0,1,"ko","ko"],[294,"eDEFolvLn0A","IZ*ONE (아이즈원) - 'FIESTA' MV","STONE MUSIC","UC_pwIXKXNm5KGhdEVzmY60A",131156910,1465587,127689,"2020-02-17",218,"10","official_mv",131101392,1,"ko","ko"],[295,"w4cTYnOPdNk","TWICE \"SET ME FREE\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",129437073,2107805,256872,"2023-03-10",212,"10","official_mv",129415585,2,"ko","ko"],[296,"PV1gCvzpSy0","BTS (방탄소년단) MAP OF THE SOUL : 7 'Interlude : Shadow' Comeback Trailer","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",128326269,7216155,711264,"2020-01-09",180,"10","official_mv",128320798,1,"ko","ko"],[297,"aiHSVQy9xN8","Red Velvet 레드벨벳 'Power Up' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",128281078,2076401,161421,"2018-08-06",208,"10","official_mv",128274347,1,"ko","ko"],[298,"H69tJmsgd9I","[STATION] aespa 에스파 'Dreams Come True' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",128007949,1936924,83866,"2021-12-20",221,"10","official_mv",0,1,"ko","ko"],[299,"UoI9riNffEU","[MV] 마마무 (MAMAMOO) - AYA","MAMAMOO","UCuhAUMLzJxlP1W7mEk0_6lA",127803125,2933742,187843,"2020-11-03",220,"10","official_mv",127793927,1,"ko","ko"],[300,"pok5yDw77uM","Stray Kids \"My Pace\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",127405201,2708205,417352,"2018-08-06",227,"10","official_mv",127391904,1,"ko","ko"],[301,"7UWBYJjuIL0","[2020 FESTA] BTS (방탄소년단) 'We are Bulletproof : the Eternal' MV #2020BTSFESTA","BANGTANTV","UCLkAepWjdylmXSltofFvsYQ",127298533,6797124,437009,"2020-06-11",273,"10","official_mv",127267246,1,"ko","ko"],[302,"LlQEKB2H7z4","X1 (엑스원) 'FLASH' MV","STONE MUSIC","UC_pwIXKXNm5KGhdEVzmY60A",126997422,1885714,255462,"2019-08-27",210,"10","official_mv",0,1,"ko","ko"],[303,"HQzu7NYlZNQ","Girls' Generation 소녀시대 'PARTY' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",125600411,1044697,100761,"2015-07-07",218,"10","official_mv",125592107,2,"ko","ko"],[304,"eN5mG_yMDiM","BIGBANG - '봄여름가을겨울 (Still Life)' M/V","BIGBANG","UCzw-C7fNfs018R1FzIKnlaA",125541794,3325426,314260,"2022-04-04",194,"10","official_mv",125531363,2,"ko","ko"],[305,"3UGMDJ9kZCA","NCT U 엔시티 유 '일곱 번째 감각 (The 7th Sense)' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",125156997,2081282,159850,"2016-04-09",219,"10","official_mv",125151330,1,"ko","ko"],[306,"QPUjV7epJqE","NCT DREAM 엔시티 드림 'Hello Future' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",124181427,2502414,473864,"2021-06-28",233,"10","official_mv",124171273,2,"ko","ko"],[307,"vLbfv-AAyvQ","2NE1 - COME BACK HOME M/V","2NE1","UCnsQjCVzmEd-YvlQZbo6zCg",123984371,1331395,126572,"2014-03-03",264,"10","official_mv",123958526,1,"ko","ko"],[308,"bNKXxwOQYB8","LE SSERAFIM (르세라핌) 'EASY' OFFICIAL MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",123577225,1517767,59035,"2024-02-19",190,"10","official_mv",123541129,1,"ko","ko"],[309,"JvjWy4saR08","[달의 연인 - 보보경심 려 OST Part 1] 첸, 백현, 시우민 (EXO) - 너를 위해 MV","STONE MUSIC","UC_pwIXKXNm5KGhdEVzmY60A",122935606,848910,30221,"2016-08-24",198,"10","official_mv",122895061,1,"ko","ko"],[310,"jOTfBlKSQYY","NewJeans (뉴진스) 'ETA' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",122917725,1598407,40254,"2023-07-21",217,"10","official_mv",122850428,1,"ko","ko"],[311,"K5H-GvnNz2Y","[MV] Apink(에이핑크) _ Mr. Chu(미스터 츄)","1theK (원더케이)","UCweOkPb1wVVH0Q0Tlj4a5Pw",122539818,636431,25774,"2014-03-31",206,"10","official_mv",122515751,1,"ko","ko"],[312,"kX0vO4vlJuU","BTS (방탄소년단) 'Euphoria : Theme of LOVE YOURSELF 起 Wonder'","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",122156259,7252063,417893,"2018-04-05",533,"10","official_mv",122145458,1,"ko","ko"],[313,"nJ31sMmytHU","Davichi & T-ara(다비치&티아라) _ We were in love(우리 사랑했잖아) MV","1theK (원더케이)","UCweOkPb1wVVH0Q0Tlj4a5Pw",121977978,627269,32491,"2011-12-22",213,"10","official_mv",121919743,1,"ko","ko"],[314,"JzODRUBBXpc","TXT (투모로우바이투게더) 'LO$ER=LO♡ER' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",121727128,4013090,333322,"2021-08-17",237,"10","official_mv",121684165,1,"ko","ko"],[315,"Si5pQHRRH5w","(여자)아이들((G)I-DLE) - 'MY BAG' (Choreography Practice Video)","i-dle (아이들)","UCritGVo7pLJLUS8wEu32vow",121208020,1338054,17786,"2022-03-28",167,"10","official_mv",121183062,1,"ko","ko"],[316,"gl2p4G3CUrI","Steve Aoki, Chris Lake & Tujamo - Boneless (Official Video)","Ultra Records","UC4rasfm9J-X4jNl9SvXp8xA",120839334,1038369,19285,"2013-08-27",234,"10","official_mv",120825654,1,"ko","ko"],[317,"nnVjsos40qk","IZ*ONE (아이즈원) - 환상동화 (Secret Story of the Swan) MV","STONE MUSIC","UC_pwIXKXNm5KGhdEVzmY60A",120429779,1558041,146178,"2020-06-16",202,"10","official_mv",120407962,1,"ko","ko"],[318,"Y-FhDScM_2w","소유(SoYou) X 정기고(JunggiGo) - 썸(Some) feat. 긱스 릴보이 (Lil Boi of Geeks) M/V","STARSHIP","UCYDmx2Sfpnaxg488yBpZIGg",120195460,911620,18483,"2014-02-07",275,"10","official_mv",120190817,1,"ko","ko"],[319,"JFgv8bKfxEs","Red Velvet 레드벨벳 '행복 (Happiness)' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",119875934,1428407,116932,"2014-08-03",229,"10","official_mv",119861109,1,"ko","ko"],[320,"G8GaQdW2wHc","IZ*ONE (아이즈원) 'Panorama' MV","STONE MUSIC","UC_pwIXKXNm5KGhdEVzmY60A",119489170,1329055,166718,"2020-12-07",232,"10","official_mv",119461468,1,"ko","ko"],[321,"q_krT35dgDM","SUPER JUNIOR 슈퍼주니어 'MAMACITA (아야야)' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",119289607,1464320,178989,"2014-08-28",246,"10","official_mv",119286709,1,"ko","ko"],[322,"2IkoKhr6Tss","EXO 엑소 'Don't fight the feeling' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",118982491,4735553,3582406,"2021-06-07",223,"10","official_mv",118975145,2,"ko","ko"],[323,"42wfEs7oIP8","CORTIS (코르티스) 'FaSHioN' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",118195346,1808006,44789,"2025-09-08",180,"10","official_mv",0,1,"ko","ko"],[324,"BzYnNdJhZQw","[MV] IU(아이유) _ Through the Night(밤편지)","1theK (원더케이)","UCweOkPb1wVVH0Q0Tlj4a5Pw",118097296,862888,30970,"2017-03-24",283,"10","official_mv",118088124,1,"ko","ko"],[325,"5n4V3lGEyG4","2NE1 - LONELY M/V","2NE1","UCnsQjCVzmEd-YvlQZbo6zCg",117628805,776062,62524,"2011-05-11",211,"10","official_mv",117599222,2,"ko","ko"],[326,"QlWZluzBNxM","HYUNA - 'Ice Cream' (Official Music Video)","4Minute 포미닛(Official YouTube Channel)","UC_Dm4o5UrbPr2uvM7VPUR6g",117296427,574522,69446,"2012-10-22",241,"10","official_mv",117294941,2,"ko","ko"],[327,"NaKrke1EL1A","TXT (투모로우바이투게더) 'Cat & Dog' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",116453472,4365699,193455,"2019-04-24",221,"10","official_mv",116438191,1,"ko","ko"],[328,"xRbPAVnqtcs","[MV] BOL4(볼빨간사춘기) _ Travel(여행)","1theK (원더케이)","UCweOkPb1wVVH0Q0Tlj4a5Pw",116365660,631888,26435,"2018-05-24",258,"10","official_mv",116364597,1,"ko","ko"],[329,"0bIRwBpBcZQ","ITZY “CAKE” M/V @ITZY","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",116137408,1517022,152874,"2023-07-31",204,"10","official_mv",116136433,1,"ko","ko"],[330,"ThI0pBAbFnk","SEVENTEEN (세븐틴) 'MAESTRO' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",115884647,2084502,221559,"2024-04-29",252,"10","official_mv",115875872,1,"ko","ko"],[331,"1JHOl9CSmXk","Jessi (제시) - Cold Blooded (with 스트릿 우먼 파이터 (SWF)) MV","Jessi","UCN2bQLTTvNPZWCWU5TYghKA",115483369,2382161,39892,"2021-10-12",176,"10","official_mv",115479397,1,"ko","ko"],[332,"bGZZxgixkew","BIGBANG - 'LOSER' + 'BAE BAE' + ‘뱅뱅뱅(BANG BANG BANG)' in 2015 MAMA","BIGBANG","UCzw-C7fNfs018R1FzIKnlaA",115263074,1226928,91655,"2015-12-02",758,"10","official_mv",115255788,1,"ko","ko"],[333,"XZaBkbvteBc","(여자)아이들((G)I-DLE) - 'Allergy' Official Music Video","i-dle (아이들)","UCritGVo7pLJLUS8wEu32vow",114907502,1432974,40832,"2023-05-09",181,"10","official_mv",114891267,1,"ko","ko"],[334,"iy9qZR_OGa0","Agust D '해금' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",114582005,4906978,423023,"2023-04-21",275,"10","official_mv",114543667,1,"ko","ko"],[335,"j57IzkTFnT8","G-DRAGON - THAT XX (그 XX) M/V","BIGBANG","UCzw-C7fNfs018R1FzIKnlaA",113534644,1422907,91887,"2012-08-31",215,"10","official_mv",113531922,2,"ko","ko"],[336,"ZbB4SYJNuTo","SUPER JUNIOR 슈퍼주니어 'Lo Siento (Feat. Leslie Grace)' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",113440104,2087954,200684,"2018-04-12",272,"10","official_mv",113436258,2,"ko","ko"],[337,"AKg_9dn_VmA","(여자)아이들((G)I-DLE) - '퀸카 (Queencard)' M/V (Performance Ver.)","i-dle (아이들)","UCritGVo7pLJLUS8wEu32vow",113181146,775066,7532,"2023-05-28",165,"10","official_mv",113089083,1,"ko","ko"],[338,"ovHoY8UBIu8","Stray Kids \"Walkin On Water\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",113067433,1756161,315853,"2024-12-13",172,"10","official_mv",112993341,2,"ko","ko"],[339,"zO9RzrhYR-I","miss A “Only You(다른 남자 말고 너)” M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",112947865,835872,40344,"2015-03-29",202,"10","official_mv",112935109,1,"ko","ko"],[340,"KH6ZwnqZ7Wo","EXO-K 엑소케이 'MAMA' MV (Korean ver.)","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",111410883,1694352,204029,"2012-04-07",374,"10","official_mv",111396175,3,"ko","ko"],[341,"zIRW_elc-rY","BIGBANG & 2NE1 - LOLLIPOP M/V","YG ENTERTAINMENT","UCQi67q4kGdmnJaRzX81uK5g",111029867,822320,69318,"2009-05-15",194,"10","official_mv",111026835,4,"ko","ko"],[342,"0IBSemQmno8","TAEYONG, JENO, HENDERY, YANGYANG, GISELLE 'ZOO' Stage Video","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",110761902,2195643,33122,"2022-01-14",189,"10","official_mv",0,1,"ko","ko"],[343,"7GqYSbc1tsM","SUPER JUNIOR (슈퍼주니어) X REIK 'One More Time (Otra Vez)' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",110224161,1944652,198363,"2018-10-08",208,"10","official_mv",110220943,2,"ko","ko"],[344,"lHTqUBIr5Gk","[MV] MOMOLAND(모모랜드) _ BANANA CHACHA(바나나차차) (MOMOLAND X PORORO(모모랜드X뽀로로))","1theK (원더케이)","UCweOkPb1wVVH0Q0Tlj4a5Pw",110057645,430432,14679,"2019-04-05",138,"10","official_mv",110018566,1,"ko","ko"],[345,"diBO0gMuTXo","BTS (방탄소년단) 'Hooligan' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",109601587,3474783,184864,"2026-04-07",244,"10","official_mv",0,1,"ko","ko"],[346,"btDd9rOlc2k","BIGBANG - MONSTER M/V","BIGBANG","UCzw-C7fNfs018R1FzIKnlaA",109487018,787681,144094,"2012-06-02",284,"10","official_mv",109483769,2,"ko","ko"],[347,"FRilMXZqNhA","NCT 127 엔시티 127 '질주 (2 Baddies)' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",109328683,1341473,184237,"2022-09-15",245,"10","official_mv",109324800,2,"ko","ko"],[348,"YBnGBb1wg98","Red Velvet 레드벨벳 '짐살라빔 (Zimzalabim)' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",108812706,2857397,224297,"2019-06-19",196,"10","official_mv",108806140,1,"ko","ko"],[349,"k0DqRstCgj4","NCT U 엔시티 유 'Baby Don't Stop' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",108602910,2152640,90299,"2018-02-26",189,"10","official_mv",108598037,1,"ko","ko"],[350,"ISnyONG1dEc","TXT (투모로우바이투게더) 'Chasing That Feeling' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",108427457,1182349,127794,"2023-10-13",222,"10","official_mv",108394102,1,"ko","ko"],[351,"zlTIextYnyQ","KAI 카이 'Rover' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",108217172,1939253,233968,"2023-03-13",183,"10","official_mv",0,1,"ko","ko"],[352,"9U8uA702xrE","[M/V] 우주를 줄게  - 볼빨간사춘기","SUPER SOUND Bugs!","UC9PVYlrwFSlqG7w8TDsqRvQ",108126255,745232,19697,"2016-08-28",217,"10","official_mv",108125695,1,"ko","ko"],[353,"Z8j_XEn9b_8","Girls' Generation 소녀시대 'Mr.Mr.' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",108025901,952571,165968,"2014-02-28",245,"10","official_mv",108009414,1,"ko","ko"],[354,"2sAoKmg7qPI","GOT7 \"Girls Girls Girls\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",107647983,1425882,109772,"2014-01-14",324,"10","official_mv",107640281,1,"ko","ko"],[355,"07EzMbVH3QE","IVE 아이브 '해야 (HEYA)' MV","STARSHIP","UCYDmx2Sfpnaxg488yBpZIGg",107572249,1075206,125952,"2024-04-29",190,"10","official_mv",107564280,1,"ko","ko"],[356,"rDolt3jJRsM","ENHYPEN (엔하이픈) 'No Doubt' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",107436171,1499756,78654,"2024-11-11",185,"10","official_mv",107218691,1,"ko","ko"],[357,"62E_xyj_oDA","BTS (방탄소년단) '작은 것들을 위한 시 (Boy With Luv) (feat. Halsey)' Official MV ('ARMY With Luv' ver.)","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",107349291,5174600,213032,"2019-04-26",244,"10","official_mv",107343707,3,"ko","ko"],[358,"VCDWg0ljbFQ","SEVENTEEN (세븐틴) '_WORLD' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",106968433,1523764,151953,"2022-07-18",217,"10","official_mv",106963797,1,"ko","ko"],[359,"ZncbtRo7RXs","NewJeans (뉴진스) ‘Supernatural’ Official MV (Part.1)","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",106628319,934384,46476,"2024-06-21",191,"10","official_mv",106436562,1,"ko","ko"],[360,"DiHUEWBRQEI","TXT (투모로우바이투게더) 'Deja Vu' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",106597938,1692779,241000,"2024-04-01",241,"10","official_mv",106481171,1,"ko","ko"],[361,"HlN2BXNJzxA","CHUNG HA 청하 'Gotta Go (벌써 12시)' Official Music Video","MNH Entertainment","UCDMqegj9gRka1diPqE6sdsA",106576285,1448714,27030,"2019-01-02",222,"10","official_mv",106572934,1,"ko","ko"],[362,"9cS2wv6AfHk","BABYMONSTER - 'I LIKE IT' M/V","BABYMONSTER","UCqwUnggBBct-AY2lAdI88jQ",106271165,940326,57959,"2026-07-05",219,"10","official_mv",0,1,"ko","ko"],[363,"9HPiBJBCOq8","PSY - 'GANGNAM STYLE(강남스타일)' M/V Making Film","officialpsy","UCrDkAvwZum-UTjHmzDI2iIw",105743304,298459,19814,"2012-07-25",522,"10","official_mv",105739031,2,"ko","ko"],[364,"sGRv8ZBLuW0","EXO 엑소 'Power' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",105075722,2789790,376604,"2017-09-05",306,"10","official_mv",105070840,2,"ko","ko"],[365,"GkG60kISnfc","ILLIT (아일릿) 'jellyous’ Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",105017769,974728,25087,"2025-07-07",189,"10","official_mv",0,1,"ko","ko"],[366,"LmBYPXGqtss","GFRIEND (여자친구) 'MAGO' Official M/V","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",104923178,1823198,537336,"2020-11-09",211,"10","official_mv",104909866,1,"ko","ko"],[367,"83C3TZ4Zm_o","aespa 에스파 'LEMONADE' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",103625921,1257005,84790,"2026-05-29",192,"10","official_mv",0,1,"ko","ko"],[368,"6eEZ7DJMzuk","IZ*ONE (아이즈원) - 비올레타 (Violeta) MV","STONE MUSIC","UC_pwIXKXNm5KGhdEVzmY60A",103576092,1344014,111402,"2019-04-01",205,"10","official_mv",103563171,1,"ko","ko"],[369,"42Gtm4-Ax2U","[MV] IU(아이유) _ Twenty-three(스물셋)","1theK (원더케이)","UCweOkPb1wVVH0Q0Tlj4a5Pw",103492607,872309,30833,"2015-10-22",235,"10","official_mv",103487803,1,"ko","ko"],[370,"NHXUM-6a3dU","TAEYEON 태연 'Fine' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",103478662,1739341,53229,"2017-02-28",249,"10","official_mv",103458501,1,"ko","ko"],[371,"M9Uy0opVF3s","BTS (방탄소년단) MAP OF THE SOUL : PERSONA 'Persona' Comeback Trailer","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",103328414,5602035,970956,"2019-03-27",179,"10","official_mv",103325504,1,"ko","ko"],[372,"XZSv3aMGg5Q","Stray Kids \"Easy\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",102835422,2402073,163128,"2020-07-05",197,"10","official_mv",102821107,1,"ko","ko"],[373,"ktc8XDBq93k","GOT7 \"You Are” M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",102477724,1954059,240646,"2017-10-10",211,"10","official_mv",102470539,1,"ko","ko"],[374,"2GJfWMYCWY0","BLACKPINK - ‘GO’ M/V","BLACKPINK","UCOmHUn--16B90oW2L6FRR3A",102352592,3873540,416687,"2026-02-27",202,"10","official_mv",102305493,2,"ko","ko"],[375,"ECqGCH1TfLY","j-hope ‘MONA LISA’ Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",102350024,2165973,148677,"2025-03-21",165,"10","official_mv",102238842,1,"ko","ko"],[376,"6SwiSpudKWI","Girls' Generation 소녀시대 '소원을 말해봐 (Genie)' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",101774429,719602,41961,"2010-02-25",241,"10","official_mv",101727801,3,"ko","ko"],[377,"Os_6c5j6YiQ","TXT (투모로우바이투게더) 'Good Boy Gone Bad' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",101627480,3247863,321048,"2022-05-09",216,"10","official_mv",101601143,1,"ko","ko"],[378,"41Dp7Q-SM1Y","K.A.R.D - Don`t Recall M/V","KARD","UC5OwlwvsVmf_lXHguB6OYFw",101312744,1622275,65010,"2017-02-15",210,"10","official_mv",101292957,1,"ko","ko"],[379,"1oYWnbTSang","NCT 127 엔시티 127 'Sticker' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",101291076,2336124,407983,"2021-09-17",235,"10","official_mv",101285348,2,"ko","ko"],[380,"M2WTUoy4y6E","aespa 에스파 'Dirty Work' MV","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",101256660,1386481,80960,"2025-06-27",190,"10","official_mv",0,1,"ko","ko"],[381,"8TeeJvcBdLA","miss A \"Bad Girl, Good Girl” M/V","missA","UCCSqiAQFvOjjVtXkZgtKZ-g",101144250,879075,36006,"2010-06-30",230,"10","official_mv",101125966,2,"ko","ko"],[382,"900X9fDFLc4","청하 (CHUNG HA) - Roller Coaster MV","STONE MUSIC","UC_pwIXKXNm5KGhdEVzmY60A",100930511,920567,19620,"2018-01-17",219,"10","official_mv",100910961,1,"ko","ko"],[383,"baaNwRAhHBo","(여자)아이들((G)I-DLE) - 'Wife' Official Music Video","i-dle (아이들)","UCritGVo7pLJLUS8wEu32vow",100899276,1493477,48683,"2024-01-21",137,"10","official_mv",100858035,1,"ko","ko"],[384,"CjnB56tSCQI","KATSEYE (캣츠아이) \"Gabriela\" Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",100780835,2133813,73710,"2025-06-20",294,"10","official_mv",0,1,"ko","ko"],[385,"08x_TcTyw8o","LISA - 'LALISA' SPECIAL STAGE","BLACKPINK","UCOmHUn--16B90oW2L6FRR3A",100629391,3546036,94640,"2021-09-12",201,"10","official_mv",0,1,"ko","ko"],[386,"Oao3j2hUVvE","[MV] 마마무(MAMAMOO) - 고고베베(gogobebe)","MAMAMOO","UCuhAUMLzJxlP1W7mEk0_6lA",100628047,1661989,37918,"2019-03-14",246,"10","official_mv",100622411,1,"ko","ko"],[387,"x8RIixqumUc","NewJeans (뉴진스) 'Attention' Official MV (Performance ver.)","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",100385517,782011,13339,"2022-07-22",178,"10","official_mv",100281551,1,"ko","ko"],[388,"vdejiaoEhFc","EXO-K 엑소케이 'History' MV (Korean Ver.)","SMTOWN","UCEf_Bc-KVd7onSeifS3py9g",100382785,996258,84664,"2012-03-08",229,"10","official_mv",100367247,2,"ko","ko"],[389,"y5MAgMVwfFs","[M/V] 좋다고 말해 - 볼빨간사춘기","SUPER SOUND Bugs!","UC9PVYlrwFSlqG7w8TDsqRvQ",100320365,717742,15445,"2016-12-20",208,"10","official_mv",100319363,1,"ko","ko"],[390,"oKBwWQI-IoI","LE SSERAFIM (르세라핌) 'Perfect Night' OFFICIAL M/V with OVERWATCH 2 (Choreography ver.)","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",100195126,614447,6387,"2023-11-01",163,"10","official_mv",100087427,1,"ko","ko"],[391,"ladClnnJhqg","GOT7 \"NOT BY THE MOON\" M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",100124670,2516601,599649,"2020-04-20",237,"10","official_mv",100116015,1,"ko","ko"]];
+const CAT_MAP = {"1":"영화/애니메이션","2":"자동차","10":"음악","15":"반려동물","17":"스포츠","19":"여행/이벤트","20":"게임","22":"인물/블로그","23":"코미디","24":"엔터테인먼트","25":"뉴스/정치","26":"노하우/스타일","27":"교육","28":"과학/기술","29":"비영리/사회운동"};
+const SUB_REG_MAP = {"en":"🇺🇸 영어","ja":"🇯🇵 일본어","es":"🇪🇸 스페인어","ko":"🇰🇷 한국어/K-POP","in":"🇮🇳 인도권","br":"🇧🇷 브라질/포르투갈어","fr":"🇫🇷 프랑스어","tr":"🇹🇷 터키어","it":"🇮🇹 이탈리아어","de":"🇩🇪 독일어","ru":"🇷🇺 러시아/슬라브","ar":"🇸🇦 아랍어/중동","th":"🇹🇭 태국어","id":"🇮🇩 인도네시아/말레이","vi":"🇻🇳 베트남어","zh":"🇹🇼 중화권","eu":"🇪🇺 유럽 기타","other":"🌐 기타"};
+
+const nf = new Intl.NumberFormat('ko-KR');
+
+if (location.protocol === 'file:') {
+  const fw = document.getElementById('fileProtocolWarn');
+  if (fw) fw.style.display = 'block';
+}
+
+function esc(s) {
+  if (!s) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function fmtDur(sec) {
+  if (!sec) return '-';
+  const h = Math.floor(sec / 3600);
+  const m = Math.floor((sec % 3600) / 60);
+  const s = sec % 60;
+  return h > 0
+    ? h + ':' + String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0')
+    : m + ':' + String(s).padStart(2,'0');
+}
+
+function fmtKorEok(n) {
+  return (n / 100000000).toFixed(2) + '억';
+}
+
+// ================= ZERO-LAG FISHER-YATES DECK JUKEBOX ENGINE =================
+let RAW_ROWS = [];
+let PAGE_STORAGE_KEY = 'utubeinfo_fy_deck_v1_default';
+let ytPlayer = null;
+let ytPlayerReady = false;
+let pendingPlayVideoId = '';
+let currentFiltered = [];
+let currentIndex = -1;
+let currentVideoId = '';
+let lastHighlightedEl = null;
+// shuffleMode: 'deck' (Fisher-Yates + localStorage) | 'dice' (Independent random, no save) | 'seq' (1->2->3)
+let shuffleMode = 'deck';
+let diceHistory = [];
+let hasStartedPlayback = false;
+let skipTimer = null;
+let consecutiveErrors = 0;
+
+// Persistent Fisher-Yates Deck State (for full unfiltered dataset of active view/tab)
+let mainDeck = [];
+let mainDeckPos = 0;
+let restoredFromStorage = false;
+
+// Temporary Fisher-Yates Deck State (when search/filter is active)
+let filterDeck = [];
+let filterDeckPos = 0;
+let isFilterActive = false;
+
+function buildFisherYatesDeck(size) {
+  const deck = new Array(size);
+  for (let i = 0; i < size; i++) deck[i] = i;
+  for (let i = size - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const tmp = deck[i];
+    deck[i] = deck[j];
+    deck[j] = tmp;
+  }
+  return deck;
+}
+
+function saveMainDeckToStorage() {
+  try {
+    localStorage.setItem(PAGE_STORAGE_KEY + '_deck', JSON.stringify(mainDeck));
+    localStorage.setItem(PAGE_STORAGE_KEY + '_pos', String(mainDeckPos));
+  } catch (e) {}
+}
+
+function saveMainPosToStorage() {
+  try {
+    localStorage.setItem(PAGE_STORAGE_KEY + '_pos', String(mainDeckPos));
+  } catch (e) {}
+}
+
+function loadOrInitMainDeck() {
+  const total = RAW_ROWS.length;
+  if (!total) {
+    mainDeck = [];
+    mainDeckPos = 0;
+    restoredFromStorage = false;
+    return;
+  }
+  try {
+    const rawDeck = localStorage.getItem(PAGE_STORAGE_KEY + '_deck');
+    const rawPos = localStorage.getItem(PAGE_STORAGE_KEY + '_pos');
+    if (rawDeck) {
+      const parsed = JSON.parse(rawDeck);
+      if (Array.isArray(parsed) && parsed.length === total) {
+        mainDeck = parsed;
+        const p = parseInt(rawPos || '0', 10);
+        mainDeckPos = (!isNaN(p) && p >= 0 && p < total) ? p : 0;
+        restoredFromStorage = true;
+        return;
+      }
+    }
+  } catch (e) {}
+  mainDeck = buildFisherYatesDeck(total);
+  mainDeckPos = 0;
+  restoredFromStorage = false;
+  saveMainDeckToStorage();
+}
+
+function reshuffleNewDeck(autoPlayNow) {
+  if (shuffleMode !== 'deck') {
+    shuffleMode = 'deck';
+    syncShuffleModeButtons();
+  }
+  if (isFilterActive) {
+    if (!currentFiltered.length) return;
+    filterDeck = buildFisherYatesDeck(currentFiltered.length);
+    filterDeckPos = 0;
+    playTrackAtIndex(filterDeck[0]);
+    return;
+  }
+  if (!RAW_ROWS.length) return;
+  mainDeck = buildFisherYatesDeck(RAW_ROWS.length);
+  mainDeckPos = 0;
+  restoredFromStorage = false;
+  saveMainDeckToStorage();
+  if (autoPlayNow) {
+    playTrackAtIndex(mainDeck[0]);
+  } else {
+    cueInitialDeckTrack();
+  }
+  const badge = document.getElementById('jbStateBadge');
+  badge.textContent = '🃏 카드 새 덱 셔플 완료 (1번 카드부터 시작)';
+  badge.style.color = 'var(--green)';
+}
+
+function formatQueueStatusText() {
+  const total = currentFiltered.length;
+  if (!total) return '대기열 0곡';
+  if (shuffleMode === 'deck') {
+    const pos = isFilterActive ? filterDeckPos : mainDeckPos;
+    const remain = Math.max(0, total - pos - 1);
+    const saveTag = (!isFilterActive && restoredFromStorage) ? ' · 💾 자동저장 이어듣기' : ' · 💾 위치 자동저장 중';
+    return `🃏 피셔 덱 ${nf.format(pos + 1)} / ${nf.format(total)}번째 (남은 미재생 ${nf.format(remain)}곡${saveTag})`;
+  }
+  if (shuffleMode === 'dice') {
+    return `🎲 주사위 랜덤(독립 추출) 모드 · 전체 ${nf.format(total)}곡 중 무작위 추첨 (기록 저장 안 함)`;
+  }
+  return `순차 ${nf.format(Math.max(1, currentIndex + 1))} / ${nf.format(total)}번째 곡 (순차 재생 모드)`;
+}
+
+function buildEmbedUrl(vid, autoplay) {
+  const originParam = (location.protocol === 'http:' || location.protocol === 'https:')
+    ? '&origin=' + encodeURIComponent(location.origin)
+    : '';
+  return `https://www.youtube.com/embed/${vid}?enablejsapi=1&playsinline=1&rel=0&modestbranding=1&fs=1&autoplay=${autoplay ? 1 : 0}${originParam}`;
+}
+
+function cueInitialDeckTrack(shouldAutoPlay) {
+  loadOrInitMainDeck();
+  if (!currentFiltered.length) {
+    currentIndex = -1;
+    currentVideoId = '';
+    document.getElementById('jbQueuePos').textContent = '대기열 0곡';
+    return '';
+  }
+  const targetRowIdx = mainDeck[mainDeckPos] || 0;
+  if (shouldAutoPlay) {
+    playTrackAtIndex(targetRowIdx);
+    return currentVideoId;
+  }
+  currentIndex = targetRowIdx;
+  const r = currentFiltered[targetRowIdx];
+  currentVideoId = r[1];
+
+  const prefix = restoredFromStorage && mainDeckPos > 0
+    ? `💾 이어듣기 (${nf.format(mainDeckPos + 1)}번째 카드): `
+    : `🃏 첫 카드 선곡 (${nf.format(mainDeckPos + 1)}번째 카드): `;
+
+  document.getElementById('jbTitle').textContent = `${prefix}#${nf.format(r[0])} ${r[2]}`;
+  document.getElementById('jbMeta').innerHTML =
+    `채널: <strong style="color:#fff">${esc(r[3])}</strong> · 조회수: <strong style="color:var(--green)">${nf.format(r[5])} (${fmtKorEok(r[5])})</strong> · 게시일: ${r[8]} · 길이: ${fmtDur(r[9])} · <a href="#" onclick="openYouTubeQueueStartingAt('${r[1]}'); return false;">↗ 유튜브 새 탭 열기(이 곡+덱 순서 50곡 대기열)</a>`;
+  document.getElementById('jbQueuePos').textContent = formatQueueStatusText();
+
+  const badge = document.getElementById('jbStateBadge');
+  if (restoredFromStorage && mainDeckPos > 0) {
+    badge.textContent = `💾 이전 종료 위치(${nf.format(mainDeckPos + 1)}번째 카드) 복원 완료`;
+  } else {
+    badge.textContent = '🃏 피셔-예이츠 카드 덱 준비 완료';
+  }
+  badge.style.color = 'var(--green)';
+  document.getElementById('jbStartBtn').textContent = '▶ 연속 재생 시작';
+  hasStartedPlayback = false;
+
+  if (ytPlayerReady && ytPlayer && typeof ytPlayer.cueVideoById === 'function') {
+    try { ytPlayer.cueVideoById(currentVideoId); } catch (e) {}
+  } else {
+    const iframeEl = document.getElementById('ytPlayerContainer');
+    if (iframeEl) {
+      iframeEl.src = buildEmbedUrl(currentVideoId, false);
+    }
+  }
+  return currentVideoId;
+}
+
+function initYouTubePlayerInstance() {
+  if (ytPlayer || !(window.YT && window.YT.Player)) return;
+  const iframeEl = document.getElementById('ytPlayerContainer');
+  if (!iframeEl || iframeEl.src === 'about:blank') return;
+  try {
+    ytPlayer = new YT.Player('ytPlayerContainer', {
+      events: {
+        onReady: onPlayerReady,
+        onStateChange: onPlayerStateChange,
+        onError: onPlayerError
+      }
+    });
+  } catch (e) {}
+}
+
+window.onYouTubeIframeAPIReady = function() {
+  initYouTubePlayerInstance();
+};
+
+function onPlayerReady() {
+  ytPlayerReady = true;
+  const badge = document.getElementById('jbStateBadge');
+  if (pendingPlayVideoId) {
+    const vidToLoad = pendingPlayVideoId;
+    pendingPlayVideoId = '';
+    hasStartedPlayback = true;
+    ytPlayer.loadVideoById(vidToLoad);
+    try { ytPlayer.playVideo(); } catch (e) {}
+  } else if (badge) {
+    badge.textContent = '🎲 랜덤 첫 곡 준비 완료 ([▶ 연속 재생 시작]을 누르세요)';
+    badge.style.color = 'var(--green)';
+  }
+}
+
+function handleStateCode(stateCode) {
+  const badge = document.getElementById('jbStateBadge');
+  const startBtn = document.getElementById('jbStartBtn');
+  if (!badge || !startBtn) return;
+  if (stateCode === 1) { // PLAYING
+    hasStartedPlayback = true;
+    consecutiveErrors = 0;
+    badge.textContent = '▶ 실시간 연속 재생 중';
+    badge.style.color = 'var(--green)';
+    startBtn.textContent = '⏸ 일시정지';
+    if (currentIndex >= 0 && currentFiltered[currentIndex]) {
+      const r = currentFiltered[currentIndex];
+      document.getElementById('jbTitle').textContent = `#${nf.format(r[0])} ${r[2]}`;
+      setupMediaSession(r);
+    }
+    updateMediaSessionState('playing');
+  } else if (stateCode === 2) { // PAUSED
+    badge.textContent = '⏸ 일시정지됨';
+    badge.style.color = 'var(--gold)';
+    startBtn.textContent = '▶ 계속 재생';
+    updateMediaSessionState('paused');
+  } else if (stateCode === 3) { // BUFFERING
+    badge.textContent = '⏳ 불러오는 중...';
+    badge.style.color = 'var(--accent)';
+  } else if (stateCode === 5) { // CUED
+    if (hasStartedPlayback && ytPlayerReady && ytPlayer) {
+      try { ytPlayer.playVideo(); } catch (e) {}
+    }
+  } else if (stateCode === 0) { // ENDED
+    badge.textContent = '⏭ 다음 곡 자동 전환 중...';
+    playNextTrack(true);
+  }
+}
+
+function onPlayerStateChange(event) {
+  handleStateCode(event.data);
+}
+
+// Fallback postMessage listener for Samsung Internet / mobile browsers
+window.addEventListener('message', (e) => {
+  if (!e.origin || !e.origin.includes('youtube.com')) return;
+  try {
+    const data = typeof e.data === 'string' ? JSON.parse(e.data) : e.data;
+    if (!data) return;
+    if (data.event === 'onStateChange' && typeof data.info === 'number') {
+      handleStateCode(data.info);
+    } else if (data.event === 'infoDelivery' && data.info && typeof data.info.playerState === 'number') {
+      handleStateCode(data.info.playerState);
+    } else if (data.event === 'onError' && typeof data.info === 'number') {
+      onPlayerError({ data: data.info });
+    }
+  } catch (err) {}
+});
+
+function onPlayerError(event) {
+  consecutiveErrors++;
+  const badge = document.getElementById('jbStateBadge');
+  if (badge) {
+    badge.textContent = `⚠ 재생 제한 곡(코드 ${event.data}) → 다음 곡 즉시 스킵 중...`;
+    badge.style.color = 'var(--rose)';
+  }
+  clearTimeout(skipTimer);
+  if (consecutiveErrors > 30) {
+    if (badge) badge.textContent = '⚠ 연속 제한 감지 ([유튜브 앱 50곡 연속 열기]를 이용해 주세요)';
+    return;
+  }
+  skipTimer = setTimeout(() => {
+    playNextTrack(true);
+  }, 200);
+}
+
+function highlightPlayingRow(vid) {
+  if (lastHighlightedEl) {
+    lastHighlightedEl.classList.remove('now-playing');
+    lastHighlightedEl = null;
+  }
+  const row = document.getElementById('vid-row-' + vid);
+  if (row) {
+    row.classList.add('now-playing');
+    lastHighlightedEl = row;
+  }
+}
+
+function playTrackAtIndex(idx) {
+  if (!currentFiltered.length) return;
+  if (idx < 0) idx = currentFiltered.length - 1;
+  if (idx >= currentFiltered.length) idx = 0;
+
+  currentIndex = idx;
+  const r = currentFiltered[idx];
+  currentVideoId = r[1];
+  hasStartedPlayback = true;
+
+  if (shuffleMode === 'deck') {
+    if (isFilterActive) {
+      const foundPos = filterDeck.indexOf(idx);
+      if (foundPos !== -1) filterDeckPos = foundPos;
+    } else {
+      if (mainDeck[mainDeckPos] !== idx) {
+        const foundPos = mainDeck.indexOf(idx);
+        if (foundPos !== -1) mainDeckPos = foundPos;
+      }
+      saveMainPosToStorage();
+    }
+  } else if (shuffleMode === 'dice') {
+    diceHistory.push(idx);
+    if (diceHistory.length > 300) diceHistory.shift();
+  }
+
+  const badge = document.getElementById('jbStateBadge');
+  badge.textContent = '⏳ 곡 불러오는 중...';
+  badge.style.color = 'var(--accent)';
+  document.getElementById('jbStartBtn').textContent = '⏸ 일시정지';
+  document.getElementById('jbTitle').textContent = `#${nf.format(r[0])} ${r[2]}`;
+  document.getElementById('jbMeta').innerHTML =
+    `채널: <strong style="color:#fff">${esc(r[3])}</strong> · 조회수: <strong style="color:var(--green)">${nf.format(r[5])} (${fmtKorEok(r[5])})</strong> · 게시일: ${r[8]} · 길이: ${fmtDur(r[9])} · <a href="#" onclick="openYouTubeQueueStartingAt('${r[1]}'); return false;">↗ 유튜브 새 탭 열기(이 곡+덱 순서 50곡 대기열)</a>`;
+  document.getElementById('jbQueuePos').textContent = formatQueueStatusText();
+
+  highlightPlayingRow(currentVideoId);
+
+  if (ytPlayerReady && ytPlayer && typeof ytPlayer.loadVideoById === 'function') {
+    ytPlayer.loadVideoById(currentVideoId);
+    try { ytPlayer.playVideo(); } catch (e) {}
+  } else {
+    const iframeEl = document.getElementById('ytPlayerContainer');
+    if (iframeEl) {
+      iframeEl.src = buildEmbedUrl(currentVideoId, true);
+      if (!ytPlayer && window.YT && window.YT.Player) {
+        initYouTubePlayerInstance();
+      }
+    }
+  }
+
+  setupMediaSession(r);
+}
+
+function sendIframeCommand(funcName) {
+  const iframeEl = document.getElementById('ytPlayerContainer');
+  if (iframeEl && iframeEl.contentWindow) {
+    iframeEl.contentWindow.postMessage(JSON.stringify({ event: 'command', func: funcName, args: [] }), '*');
+  }
+}
+
+function pauseJukeboxSafely() {
+  if (ytPlayerReady && ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
+    try { ytPlayer.pauseVideo(); } catch (e) {}
+  } else {
+    sendIframeCommand('pauseVideo');
+  }
+}
+
+function playByVideoId(vid) {
+  const idx = currentFiltered.findIndex(r => r[1] === vid);
+  if (idx !== -1) {
+    consecutiveErrors = 0;
+    playTrackAtIndex(idx);
+  }
+}
+
+function startOrToggleJukebox() {
+  if (!currentFiltered.length) return;
+  if (currentIndex === -1) {
+    let firstIdx = 0;
+    if (shuffleMode === 'deck') {
+      firstIdx = isFilterActive ? filterDeck[filterDeckPos] : mainDeck[mainDeckPos];
+    } else if (shuffleMode === 'dice') {
+      firstIdx = Math.floor(Math.random() * currentFiltered.length);
+    }
+    playTrackAtIndex(firstIdx);
+    return;
+  }
+  if (!hasStartedPlayback) {
+    playTrackAtIndex(currentIndex);
+    return;
+  }
+  if (ytPlayerReady && ytPlayer && typeof ytPlayer.getPlayerState === 'function') {
+    const st = ytPlayer.getPlayerState();
+    if (st === 1 || st === 3) {
+      ytPlayer.pauseVideo();
+    } else if (st === -1 || st === 5) {
+      ytPlayer.loadVideoById(currentVideoId);
+      try { ytPlayer.playVideo(); } catch (e) {}
+    } else {
+      ytPlayer.playVideo();
+    }
+  } else {
+    const startBtn = document.getElementById('jbStartBtn');
+    if (startBtn.textContent.includes('일시정지')) {
+      sendIframeCommand('pauseVideo');
+      handleStateCode(2);
+    } else {
+      sendIframeCommand('playVideo');
+      handleStateCode(1);
+    }
+  }
+}
+
+function playNextTrack(fromAutoAdvance) {
+  if (!currentFiltered.length) return;
+  if (!fromAutoAdvance) consecutiveErrors = 0;
+  if (shuffleMode === 'deck') {
+    if (isFilterActive) {
+      filterDeckPos++;
+      if (filterDeckPos >= filterDeck.length) {
+        filterDeck = buildFisherYatesDeck(currentFiltered.length);
+        filterDeckPos = 0;
+      }
+      playTrackAtIndex(filterDeck[filterDeckPos]);
+    } else {
+      mainDeckPos++;
+      if (mainDeckPos >= mainDeck.length) {
+        mainDeck = buildFisherYatesDeck(RAW_ROWS.length);
+        mainDeckPos = 0;
+        saveMainDeckToStorage();
+      } else {
+        saveMainPosToStorage();
+      }
+      playTrackAtIndex(mainDeck[mainDeckPos]);
+    }
+  } else if (shuffleMode === 'dice') {
+    let nextIdx = currentIndex;
+    if (currentFiltered.length > 1) {
+      for (let tries = 0; tries < 5; tries++) {
+        nextIdx = Math.floor(Math.random() * currentFiltered.length);
+        if (nextIdx !== currentIndex) break;
+      }
+    } else {
+      nextIdx = 0;
+    }
+    playTrackAtIndex(nextIdx);
+  } else {
+    playTrackAtIndex(currentIndex + 1);
+  }
+}
+
+function playPrevTrack() {
+  if (!currentFiltered.length) return;
+  consecutiveErrors = 0;
+  if (shuffleMode === 'deck') {
+    if (isFilterActive) {
+      filterDeckPos = filterDeckPos > 0 ? filterDeckPos - 1 : 0;
+      playTrackAtIndex(filterDeck[filterDeckPos]);
+    } else {
+      mainDeckPos = mainDeckPos > 0 ? mainDeckPos - 1 : 0;
+      saveMainPosToStorage();
+      playTrackAtIndex(mainDeck[mainDeckPos]);
+    }
+  } else if (shuffleMode === 'dice') {
+    if (diceHistory.length >= 2) {
+      diceHistory.pop();
+      const prevIdx = diceHistory.pop();
+      playTrackAtIndex(prevIdx);
+    } else {
+      playNextTrack(false);
+    }
+  } else {
+    playTrackAtIndex(currentIndex > 0 ? currentIndex - 1 : 0);
+  }
+}
+
+function syncShuffleModeButtons() {
+  const deckBtn = document.getElementById('jbDeckBtn');
+  const diceBtn = document.getElementById('jbDiceBtn');
+  const reshuffleBtn = document.getElementById('jbReshuffleBtn');
+  if (!deckBtn || !diceBtn) return;
+
+  const isDeck = (shuffleMode === 'deck');
+  const isDice = (shuffleMode === 'dice');
+
+  deckBtn.textContent = isDeck ? '🃏 피셔 덱 셔플: 켜짐' : '🃏 피셔 덱 셔플: 꺼짐';
+  deckBtn.classList.toggle('active-mode', isDeck);
+
+  diceBtn.textContent = isDice ? '🎲 주사위 랜덤(무저장): 켜짐' : '🎲 주사위 랜덤(무저장): 꺼짐';
+  diceBtn.classList.toggle('active-mode', isDice);
+
+  if (reshuffleBtn) {
+    reshuffleBtn.style.opacity = isDeck ? '1' : '0.55';
+  }
+  const qEl = document.getElementById('jbQueuePos');
+  if (qEl) qEl.textContent = formatQueueStatusText();
+}
+
+function toggleDeckShuffle() {
+  if (shuffleMode === 'deck') {
+    shuffleMode = 'seq';
+  } else {
+    shuffleMode = 'deck';
+    const targetIdx = isFilterActive ? filterDeck[filterDeckPos] : mainDeck[mainDeckPos];
+    syncShuffleModeButtons();
+    if (hasStartedPlayback && targetIdx !== undefined) {
+      playTrackAtIndex(targetIdx);
+      return;
+    }
+  }
+  syncShuffleModeButtons();
+}
+
+function toggleDiceShuffle() {
+  if (shuffleMode === 'dice') {
+    shuffleMode = 'seq';
+    syncShuffleModeButtons();
+  } else {
+    shuffleMode = 'dice';
+    syncShuffleModeButtons();
+    if (currentFiltered.length) {
+      const randIdx = Math.floor(Math.random() * currentFiltered.length);
+      playTrackAtIndex(randIdx);
+    }
+  }
+}
+
+function toggleTheaterMode() {
+  const panel = document.getElementById('jukeboxPanel');
+  const box = document.getElementById('jbVideoBox');
+  const tBtn = document.getElementById('jbTheaterBtn');
+  const fBtn = document.getElementById('jbFullscreenBtn');
+  const aBtn = document.getElementById('jbAudioModeBtn');
+
+  panel.classList.remove('fullscreen-mode');
+  fBtn.classList.remove('active-mode');
+  fBtn.textContent = '⛶ 꽉 찬 전체화면 (연속재생 유지)';
+  box.classList.remove('audio-mode');
+  aBtn.classList.remove('active-mode');
+  aBtn.textContent = '🎧 미니 오디오 모드';
+
+  const isTheater = panel.classList.toggle('theater-mode');
+  tBtn.classList.toggle('active-mode', isTheater);
+  tBtn.textContent = isTheater ? '📺 기본 크기로 줄이기' : '📺 크게 보기 (극장 모드)';
+  if (isTheater) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+function toggleFullscreenMode() {
+  const panel = document.getElementById('jukeboxPanel');
+  const box = document.getElementById('jbVideoBox');
+  const fBtn = document.getElementById('jbFullscreenBtn');
+  const tBtn = document.getElementById('jbTheaterBtn');
+  const aBtn = document.getElementById('jbAudioModeBtn');
+
+  panel.classList.remove('theater-mode');
+  tBtn.classList.remove('active-mode');
+  tBtn.textContent = '📺 크게 보기 (극장 모드)';
+  box.classList.remove('audio-mode');
+  aBtn.classList.remove('active-mode');
+  aBtn.textContent = '🎧 미니 오디오 모드';
+
+  const isFs = panel.classList.toggle('fullscreen-mode');
+  fBtn.classList.toggle('active-mode', isFs);
+  fBtn.textContent = isFs ? '✕ 전체화면 닫기 (목록 보기)' : '⛶ 꽉 찬 전체화면 (연속재생 유지)';
+
+  if (isFs) {
+    if (panel.requestFullscreen) {
+      panel.requestFullscreen().catch(() => {});
+    } else if (panel.webkitRequestFullscreen) {
+      panel.webkitRequestFullscreen();
+    }
+  } else {
+    if (document.fullscreenElement && document.exitFullscreen) {
+      document.exitFullscreen().catch(() => {});
+    }
+  }
+}
+
+document.addEventListener('fullscreenchange', () => {
+  const panel = document.getElementById('jukeboxPanel');
+  const fBtn = document.getElementById('jbFullscreenBtn');
+  if (panel && fBtn && !document.fullscreenElement && panel.classList.contains('fullscreen-mode')) {
+    panel.classList.remove('fullscreen-mode');
+    fBtn.classList.remove('active-mode');
+    fBtn.textContent = '⛶ 꽉 찬 전체화면 (연속재생 유지)';
+  }
+});
+
+function toggleAudioCompactMode() {
+  const panel = document.getElementById('jukeboxPanel');
+  const box = document.getElementById('jbVideoBox');
+  const btn = document.getElementById('jbAudioModeBtn');
+  const tBtn = document.getElementById('jbTheaterBtn');
+  const fBtn = document.getElementById('jbFullscreenBtn');
+
+  panel.classList.remove('theater-mode', 'fullscreen-mode');
+  tBtn.classList.remove('active-mode');
+  tBtn.textContent = '📺 크게 보기 (극장 모드)';
+  fBtn.classList.remove('active-mode');
+  fBtn.textContent = '⛶ 꽉 찬 전체화면 (연속재생 유지)';
+
+  const isCompact = box.classList.toggle('audio-mode');
+  btn.classList.toggle('active-mode', isCompact);
+  btn.textContent = isCompact ? '📺 기본 화면 크기' : '🎧 미니 오디오 모드';
+}
+
+function scrollToCurrentPlaying() {
+  const panel = document.getElementById('jukeboxPanel');
+  if (panel && panel.classList.contains('fullscreen-mode')) {
+    toggleFullscreenMode();
+  }
+  if (currentIndex < 0) return;
+  if (renderedCount <= currentIndex) {
+    appendNextTableBatch(currentIndex - renderedCount + 100);
+  }
+  const row = document.getElementById('vid-row-' + currentVideoId);
+  if (row) {
+    row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
+
+function build50QueueIds(startVideoId) {
+  if (!currentFiltered.length) return [];
+  const ids = [];
+  if (shuffleMode === 'deck') {
+    const deck = isFilterActive ? filterDeck : mainDeck;
+    let startPos = isFilterActive ? filterDeckPos : mainDeckPos;
+    if (startVideoId) {
+      const rowIdx = currentFiltered.findIndex(r => r[1] === startVideoId);
+      if (rowIdx !== -1) {
+        const foundPos = deck.indexOf(rowIdx);
+        if (foundPos !== -1) startPos = foundPos;
+      }
+    }
+    for (let i = 0; i < deck.length && ids.length < 50; i++) {
+      const rIdx = deck[(startPos + i) % deck.length];
+      if (currentFiltered[rIdx]) ids.push(currentFiltered[rIdx][1]);
+    }
+  } else if (shuffleMode === 'dice') {
+    const used = new Set();
+    if (startVideoId) {
+      used.add(startVideoId);
+      ids.push(startVideoId);
+    }
+    const maxTarget = Math.min(50, currentFiltered.length);
+    let guard = 0;
+    while (ids.length < maxTarget && guard < 500) {
+      guard++;
+      const rIdx = Math.floor(Math.random() * currentFiltered.length);
+      const vid = currentFiltered[rIdx][1];
+      if (!used.has(vid)) {
+        used.add(vid);
+        ids.push(vid);
+      }
+    }
+  } else {
+    let startIdx = currentIndex >= 0 ? currentIndex : 0;
+    if (startVideoId) {
+      const found = currentFiltered.findIndex(r => r[1] === startVideoId);
+      if (found !== -1) startIdx = found;
+    }
+    for (let i = 0; i < currentFiltered.length && ids.length < 50; i++) {
+      ids.push(currentFiltered[(startIdx + i) % currentFiltered.length][1]);
+    }
+  }
+  return ids;
+}
+
+function openYouTubeQueueStartingAt(startVid) {
+  const ids = build50QueueIds(startVid);
+  if (!ids.length) return;
+  const url = 'https://www.youtube.com/watch_videos?video_ids=' + ids.join(',');
+  window.open(url, '_blank', 'noopener');
+}
+
+function openYouTube50Queue() {
+  const startVid = currentVideoId || (shuffleMode !== 'seq' ? '' : (currentFiltered[0] ? currentFiltered[0][1] : ''));
+  const ids = build50QueueIds(startVid);
+  if (!ids.length) return;
+  const url = 'https://www.youtube.com/watch_videos?video_ids=' + ids.join(',');
+  window.open(url, '_blank', 'noopener');
+}
+
+function setupMediaSession(r) {
+  if (!('mediaSession' in navigator)) return;
+  try {
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: r[2],
+      artist: r[3],
+      album: 'YouTube 100M+ Music Videos',
+      artwork: [
+        { src: `https://i.ytimg.com/vi/${r[1]}/mqdefault.jpg`, sizes: '320x180', type: 'image/jpeg' },
+        { src: `https://i.ytimg.com/vi/${r[1]}/hqdefault.jpg`, sizes: '480x360', type: 'image/jpeg' }
+      ]
+    });
+    navigator.mediaSession.setActionHandler('play', () => { if (ytPlayer) ytPlayer.playVideo(); });
+    navigator.mediaSession.setActionHandler('pause', () => { if (ytPlayer) ytPlayer.pauseVideo(); });
+    navigator.mediaSession.setActionHandler('previoustrack', () => playPrevTrack());
+    navigator.mediaSession.setActionHandler('nexttrack', () => playNextTrack(false));
+  } catch (e) {}
+}
+
+function updateMediaSessionState(state) {
+  if ('mediaSession' in navigator) {
+    try { navigator.mediaSession.playbackState = state; } catch (e) {}
+  }
+}
+
+// ================= ULTRA-LIGHT PROGRESSIVE TABLE ENGINE =================
+let renderedCount = 0;
+let showThumbGlobal = false;
+
+function buildRowHtml(r, showThumb) {
+  const vid = r[1];
+  const views = r[5];
+  const vCls = views >= 1000000000 ? 'views-billion' : 'views-strong';
+  const activeCls = (vid === currentVideoId) ? ' class="now-playing"' : '';
+  const thumbTd = showThumb
+    ? `<td><img class="thumb-img" style="cursor:pointer" onclick="playByVideoId('${vid}')" loading="lazy" decoding="async" src="https://i.ytimg.com/vi/${vid}/mqdefault.jpg" alt=""></td>`
+    : '';
+  const catLabel = CAT_MAP[r[10]] ? `${r[10]} (${CAT_MAP[r[10]]})` : r[10];
+  const rg = r[14] || 'other';
+  const sr = r[15] || rg;
+  const regLabel = SUB_REG_MAP[sr] || sr;
+  const srcHtml = r[13] > 0
+    ? `<a class="src-link-btn" href="video_sources.html?v=${vid}" target="_blank" title="클릭하여 수집 출처 ${r[13]}곳 보기">🔗 ${r[13]}곳</a>`
+    : '-';
+
+  return `<tr id="vid-row-${vid}"${activeCls}>` +
+    `<td class="num rank-cell">${nf.format(r[0])}</td>` +
+    thumbTd +
+    `<td style="white-space:nowrap">` +
+      `<button class="play-inline-btn" onclick="playByVideoId('${vid}')" title="상단 주크박스에서 즉시 연속 재생">▶ 재생</button>` +
+      `<a class="vid-code" href="#" onclick="openYouTubeQueueStartingAt('${vid}'); return false;" title="이 곡부터 50곡 연속 재생 대기열로 유튜브 새 탭에서 열기">${vid} ↗</a>` +
+    `</td>` +
+    `<td class="title-main" onclick="playByVideoId('${vid}')" title="클릭하면 상단 주크박스에서 즉시 재생됩니다">${esc(r[2])}</td>` +
+    `<td><a style="color:var(--muted)" href="https://www.youtube.com/channel/${r[4]}" target="_blank" rel="noopener">${esc(r[3])}</a></td>` +
+    `<td><span class="badge b-reg-${rg}">${esc(regLabel)}</span></td>` +
+    `<td class="num ${vCls}">${nf.format(views)}<span class="kor-unit">${fmtKorEok(views)}</span></td>` +
+    `<td class="num">${nf.format(r[6])}</td>` +
+    `<td class="num">${nf.format(r[7])}</td>` +
+    `<td style="white-space:nowrap">${r[8]}</td>` +
+    `<td class="num">${fmtDur(r[9])}</td>` +
+    `<td style="white-space:nowrap">${esc(catLabel)}</td>` +
+    `<td><span class="badge b-${r[11]}">${r[11]}</span></td>` +
+    `<td class="num" style="color:var(--muted)">${r[12] ? nf.format(r[12]) : '-'}</td>` +
+    `<td class="num">${srcHtml}</td>` +
+    `</tr>`;
+}
+
+function updateStatusText() {
+  const total = currentFiltered.length;
+  const statusEl = document.getElementById('renderStatus');
+  const sentinel = document.getElementById('loadMoreSentinel');
+  if (!statusEl || !sentinel) return;
+  if (total === 0) {
+    statusEl.textContent = '조건에 일치하는 영상이 없습니다 (0개).';
+    sentinel.style.display = 'none';
+    return;
+  }
+  if (renderedCount >= total) {
+    statusEl.innerHTML = `✅ 필터 결과 총 <strong style="color:var(--green)">${nf.format(total)}</strong>개 행 전체 표시 완료 (현재 목록 원본 ${nf.format(RAW_ROWS.length)}곡 전량)`;
+    sentinel.style.display = 'none';
+  } else {
+    statusEl.innerHTML = `⚡ 초고속 반응 모드: 전체 <strong style="color:var(--green)">${nf.format(total)}</strong>곡 대기열 중 표 화면에 <strong>${nf.format(renderedCount)}</strong>행 표시 중 (스크롤 시 자동 펼쳐짐 · 랜덤 셔플은 ${nf.format(total)}곡 전체에서 작동)`;
+    sentinel.style.display = 'block';
+  }
+}
+
+function appendNextTableBatch(batchSize) {
+  const total = currentFiltered.length;
+  if (renderedCount >= total) return;
+  const end = Math.min(renderedCount + batchSize, total);
+  const parts = new Array(end - renderedCount);
+  for (let i = renderedCount; i < end; i++) {
+    parts[i - renderedCount] = buildRowHtml(currentFiltered[i], showThumbGlobal);
+  }
+  document.getElementById('tableBody').insertAdjacentHTML('beforeend', parts.join(''));
+  renderedCount = end;
+  if (currentVideoId) highlightPlayingRow(currentVideoId);
+  updateStatusText();
+}
+
+function renderAllRemainingRows() {
+  const total = currentFiltered.length;
+  if (renderedCount >= total) return;
+  const CHUNK = 1500;
+  function step() {
+    if (renderedCount < currentFiltered.length) {
+      appendNextTableBatch(CHUNK);
+      if (renderedCount < currentFiltered.length) {
+        requestAnimationFrame(step);
+      }
+    }
+  }
+  step();
+}
+
+function applyFiltersAndRender() {
+  const searchEl = document.getElementById('searchInput');
+  const subEl = document.getElementById('subtypeFilter');
+  const subRegEl = document.getElementById('subRegionFilter');
+  const tierEl = document.getElementById('tierFilter');
+  const sortEl = document.getElementById('sortSelect');
+  const thumbEl = document.getElementById('thumbToggle');
+
+  const q = searchEl ? searchEl.value.trim().toLowerCase() : '';
+  const sub = subEl ? subEl.value : '';
+  const subReg = subRegEl ? subRegEl.value : '';
+  const minV = Number(tierEl ? (tierEl.value || 0) : 0);
+  const sortKey = sortEl ? sortEl.value : 'views_desc';
+  showThumbGlobal = thumbEl ? thumbEl.checked : false;
+
+  const thEl = document.getElementById('thumbHeader');
+  if (thEl) thEl.style.display = showThumbGlobal ? '' : 'none';
+
+  let list = RAW_ROWS.filter(r => {
+    if (sub && r[11] !== sub) return false;
+    if (subReg && r[15] !== subReg) return false;
+    if (minV > 0 && r[5] < minV) return false;
+    if (q) {
+      const hay = (r[1] + ' ' + r[2] + ' ' + r[3] + ' ' + (SUB_REG_MAP[r[15]] || '')).toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+
+  list = list.slice();
+  if (sortKey === 'views_desc') list.sort((a,b) => b[5] - a[5]);
+  else if (sortKey === 'views_asc') list.sort((a,b) => a[5] - b[5]);
+  else if (sortKey === 'likes_desc') list.sort((a,b) => b[6] - a[6]);
+  else if (sortKey === 'comments_desc') list.sort((a,b) => b[7] - a[7]);
+  else if (sortKey === 'pub_desc') list.sort((a,b) => (b[8] > a[8] ? 1 : -1));
+  else if (sortKey === 'pub_asc') list.sort((a,b) => (a[8] > b[8] ? 1 : -1));
+  else if (sortKey === 'dur_desc') list.sort((a,b) => b[9] - a[9]);
+
+  currentFiltered = list;
+  isFilterActive = Boolean(q || sub || subReg || minV > 0 || sortKey !== 'views_desc');
+  if (isFilterActive) {
+    filterDeck = buildFisherYatesDeck(currentFiltered.length);
+    filterDeckPos = 0;
+  }
+  if (currentVideoId) {
+    currentIndex = currentFiltered.findIndex(r => r[1] === currentVideoId);
+  }
+  const qPosEl = document.getElementById('jbQueuePos');
+  if (qPosEl) qPosEl.textContent = formatQueueStatusText();
+
+  document.getElementById('tableBody').innerHTML = '';
+  renderedCount = 0;
+  lastHighlightedEl = null;
+
+  appendNextTableBatch(250);
+}
+
+function jumpToRow(rankNum) {
+  if (!currentFiltered.length) return;
+  const targetIdx = Math.min(Math.max(0, rankNum - 1), currentFiltered.length - 1);
+  if (renderedCount <= targetIdx) {
+    appendNextTableBatch(targetIdx - renderedCount + 50);
+  }
+  const rows = document.querySelectorAll('#tableBody tr');
+  if (!rows.length) return;
+  const el = rows[Math.min(targetIdx, rows.length - 1)];
+  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  el.style.outline = '2px solid var(--accent)';
+  setTimeout(() => { if (el) el.style.outline = ''; }, 1800);
+}
+
+function initTableObserverAndListeners() {
+  if ('IntersectionObserver' in window) {
+    const sentinel = document.getElementById('loadMoreSentinel');
+    if (sentinel) {
+      const io = new IntersectionObserver((entries) => {
+        if (entries[0] && entries[0].isIntersecting) {
+          appendNextTableBatch(300);
+        }
+      }, { rootMargin: '600px' });
+      io.observe(sentinel);
+    }
+  }
+  let debounceTimer = null;
+  const searchEl = document.getElementById('searchInput');
+  if (searchEl) {
+    searchEl.addEventListener('input', () => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(applyFiltersAndRender, 120);
+    });
+  }
+  ['subtypeFilter', 'subRegionFilter', 'tierFilter', 'sortSelect', 'thumbToggle'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('change', applyFiltersAndRender);
+  });
+}
+
+function loadYouTubeIframeApiScript() {
+  if (window.YT && window.YT.Player) {
+    initYouTubePlayerInstance();
+    return;
+  }
+  if (document.getElementById('yt-iframe-api-script')) return;
+  const tag = document.createElement('script');
+  tag.id = 'yt-iframe-api-script';
+  tag.src = 'https://www.youtube.com/iframe_api';
+  tag.async = true;
+  document.head.appendChild(tag);
+}
+
+
+RAW_ROWS = INITIAL_ROWS;
+currentFiltered = RAW_ROWS;
+PAGE_STORAGE_KEY = 'utubeinfo_fy_deck_v1_region_ko';
+
+initTableObserverAndListeners();
+cueInitialDeckTrack(false);
+applyFiltersAndRender();
+loadYouTubeIframeApiScript();
+</script>
+</body>
+</html>

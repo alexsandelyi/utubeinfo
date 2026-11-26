@@ -81,6 +81,8 @@ a:hover { text-decoration: underline; }
   color: #fff;
   border-color: #38bdf8;
 }
+.nav-link.reg-ko:hover, .nav-link.reg-ko.active { border-color: #a78bfa; }
+.nav-link.reg-ko.active { background: #6d28d9; color: #fff; }
 .nav-link.reg-en:hover, .nav-link.reg-en.active { border-color: #38bdf8; }
 .nav-link.reg-en.active { background: #0284c7; color: #fff; }
 .nav-link.reg-ja:hover, .nav-link.reg-ja.active { border-color: #fb7185; }
@@ -144,6 +146,7 @@ a:hover { text-decoration: underline; }
 }
 .hub-tab-btn.active { background: #0284c7; color: #fff; border-color: #38bdf8; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35); }
 .hub-tab-btn.active .tab-cnt { background: rgba(255, 255, 255, 0.22); color: #fff; }
+.hub-tab-btn.tab-ko.active { background: #6d28d9; border-color: #a78bfa; box-shadow: 0 4px 12px rgba(109, 40, 217, 0.35); }
 .hub-tab-btn.tab-en.active { background: #0284c7; border-color: #38bdf8; }
 .hub-tab-btn.tab-ja.active { background: #be123c; border-color: #fb7185; box-shadow: 0 4px 12px rgba(190, 18, 60, 0.35); }
 .hub-tab-btn.tab-es.active { background: #b45309; border-color: #fbbf24; box-shadow: 0 4px 12px rgba(180, 83, 9, 0.35); }
@@ -509,6 +512,7 @@ tbody td {
 .b-non_music { background: rgba(249, 115, 22, 0.18); color: #fdba74; }
 .b-active { background: rgba(52, 211, 153, 0.16); color: #6ee7b7; }
 .b-unavailable { background: rgba(251, 113, 133, 0.2); color: #fda4af; }
+.b-reg-ko { background: rgba(167, 139, 250, 0.18); color: #c4b5fd; }
 .b-reg-en { background: rgba(56, 189, 248, 0.16); color: #7dd3fc; }
 .b-reg-ja { background: rgba(251, 113, 133, 0.18); color: #fda4af; }
 .b-reg-es { background: rgba(251, 191, 36, 0.18); color: #fde68a; }
@@ -588,7 +592,7 @@ tbody td {
 </style>
 </head>
 <body>
-<nav class="top-nav"><div class="nav-row"><span class="brand">🎬 YouTube 100M+ Census</span><a class="nav-link" href="index.html?v=10">🏠 종합 홈 & 탭</a><a class="nav-link" href="youtube_100m_official_mv_only.html?v=10">순수 공식 MV (10,202)</a><a class="nav-link" href="youtube_100m_mv_verified.html?v=10">음악 카테고리 1억+ (11,512)</a><a class="nav-link" href="youtube_100m_all_categories.html?v=10">전 카테고리 1억+ (12,101)</a><a class="nav-link" href="utubeinfo_db_viewer.html?v=10">원본 DB 전체 (29,537)</a><a class="nav-link" href="video_sources.html?v=10">🔗 출처 사전 (29,537)</a></div><div class="nav-row nav-row-regions"><span class="nav-group-label">🌐 언어권별 순수 공식 MV:</span><a class="nav-link" href="index.html?v=10#tab=all" title="종합 HTML에서 4개 언어권을 탭으로 전환">🗂️ 4개 언어권 탭 통합</a><a class="nav-link reg-en active" href="youtube_100m_region_en.html?v=10">🇺🇸 영어권 (4,244)</a><a class="nav-link reg-ja" href="youtube_100m_region_ja.html?v=10">🇯🇵 일본어권 (128)</a><a class="nav-link reg-es" href="youtube_100m_region_es.html?v=10">🇪🇸 스페인어권 (2,228)</a><a class="nav-link reg-other" href="youtube_100m_region_other.html?v=10">🌍 기타권 (3,602)</a></div></nav>
+<nav class="top-nav"><div class="nav-row"><span class="brand">🎬 YouTube 100M+ Census</span><a class="nav-link" href="index.html?v=11">🏠 종합 홈 & 탭</a><a class="nav-link" href="youtube_100m_official_mv_only.html?v=11">순수 공식 MV (10,202)</a><a class="nav-link" href="youtube_100m_mv_verified.html?v=11">음악 카테고리 1억+ (11,512)</a><a class="nav-link" href="youtube_100m_all_categories.html?v=11">전 카테고리 1억+ (12,101)</a><a class="nav-link" href="utubeinfo_db_viewer.html?v=11">원본 DB 전체 (29,537)</a><a class="nav-link" href="video_sources.html?v=11">🔗 출처 사전 (29,537)</a></div><div class="nav-row nav-row-regions"><span class="nav-group-label">🌐 언어권별 순수 공식 MV:</span><a class="nav-link" href="index.html?v=11#tab=all" title="종합 HTML에서 5개 언어권을 탭으로 전환">🗂️ 5개 언어권 탭 통합</a><a class="nav-link reg-ko" href="youtube_100m_region_ko.html?v=11">🇰🇷 한국어권 (391)</a><a class="nav-link reg-en active" href="youtube_100m_region_en.html?v=11">🇺🇸 영어권 (4,244)</a><a class="nav-link reg-ja" href="youtube_100m_region_ja.html?v=11">🇯🇵 일본어권 (128)</a><a class="nav-link reg-es" href="youtube_100m_region_es.html?v=11">🇪🇸 스페인어권 (2,228)</a><a class="nav-link reg-other" href="youtube_100m_region_other.html?v=11">🌍 기타권 (3,211)</a></div></nav>
 <div class="container">
   <div class="page-header">
     <h1>🇺🇸 영어권 1억 뷰+ 순수 공식 MV 목록 &amp; 연속 주크박스</h1>
