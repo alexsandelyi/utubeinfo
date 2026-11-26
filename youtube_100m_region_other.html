@@ -56,6 +56,21 @@ a:hover { text-decoration: underline; }
   margin-right: 10px;
   font-size: 14px;
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.ver-badge {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  background: rgba(56, 189, 248, 0.18);
+  border: 1px solid rgba(56, 189, 248, 0.5);
+  color: #7dd3fc;
+  vertical-align: middle;
 }
 .nav-group-label {
   font-size: 11px;
@@ -592,7 +607,7 @@ tbody td {
 </style>
 </head>
 <body>
-<nav class="top-nav"><div class="nav-row"><span class="brand">🎬 YouTube 100M+ Census</span><a class="nav-link" href="index.html?v=12">🏠 종합 홈 & 탭</a><a class="nav-link" href="youtube_100m_official_mv_only.html?v=12">순수 공식 MV (10,202)</a><a class="nav-link" href="youtube_100m_mv_verified.html?v=12">음악 카테고리 1억+ (11,512)</a><a class="nav-link" href="youtube_100m_all_categories.html?v=12">전 카테고리 1억+ (12,101)</a><a class="nav-link" href="utubeinfo_db_viewer.html?v=12">원본 DB 전체 (29,537)</a><a class="nav-link" href="video_sources.html?v=12">🔗 출처 사전 (29,537)</a></div><div class="nav-row nav-row-regions"><span class="nav-group-label">🌐 언어권별 순수 공식 MV:</span><a class="nav-link" href="index.html?v=12#tab=all" title="종합 HTML에서 5개 언어권을 탭으로 전환">🗂️ 5개 언어권 탭 통합</a><a class="nav-link reg-ko" href="youtube_100m_region_ko.html?v=12">🇰🇷 한국어권 (391)</a><a class="nav-link reg-en" href="youtube_100m_region_en.html?v=12">🇺🇸 영어권 (4,244)</a><a class="nav-link reg-ja" href="youtube_100m_region_ja.html?v=12">🇯🇵 일본어권 (128)</a><a class="nav-link reg-es" href="youtube_100m_region_es.html?v=12">🇪🇸 스페인어권 (2,228)</a><a class="nav-link reg-other active" href="youtube_100m_region_other.html?v=12">🌍 기타권 (3,211)</a></div></nav>
+<nav class="top-nav"><div class="nav-row"><span class="brand">🎬 YouTube 100M+ Census <span class="ver-badge">v13</span></span><a class="nav-link" href="index.html?v=13">🏠 종합 홈 & 탭</a><a class="nav-link" href="youtube_100m_official_mv_only.html?v=13">순수 공식 MV (10,202)</a><a class="nav-link" href="youtube_100m_mv_verified.html?v=13">음악 카테고리 1억+ (11,512)</a><a class="nav-link" href="youtube_100m_all_categories.html?v=13">전 카테고리 1억+ (12,101)</a><a class="nav-link" href="utubeinfo_db_viewer.html?v=13">원본 DB 전체 (29,537)</a><a class="nav-link" href="video_sources.html?v=13">🔗 출처 사전 (29,537)</a></div><div class="nav-row nav-row-regions"><span class="nav-group-label">🌐 언어권별 순수 공식 MV:</span><a class="nav-link" href="index.html?v=13#tab=all" title="종합 HTML에서 5개 언어권을 탭으로 전환">🗂️ 5개 언어권 탭 통합</a><a class="nav-link reg-ko" href="youtube_100m_region_ko.html?v=13">🇰🇷 한국어권 (391)</a><a class="nav-link reg-en" href="youtube_100m_region_en.html?v=13">🇺🇸 영어권 (4,244)</a><a class="nav-link reg-ja" href="youtube_100m_region_ja.html?v=13">🇯🇵 일본어권 (128)</a><a class="nav-link reg-es" href="youtube_100m_region_es.html?v=13">🇪🇸 스페인어권 (2,228)</a><a class="nav-link reg-other active" href="youtube_100m_region_other.html?v=13">🌍 기타권 (3,211)</a></div></nav>
 <div class="container">
   <div class="page-header">
     <h1>🌍 기타권 1억 뷰+ 순수 공식 MV 목록 &amp; 연속 주크박스</h1>
@@ -607,6 +622,7 @@ tbody td {
     </div>
     <div class="jukebox-info">
       <div class="jukebox-status-line">
+        <span class="ver-badge">v13</span>
         <span id="jbStateBadge" style="color:var(--green)">🎲 랜덤 첫 곡 준비 완료</span>
         <span>·</span>
         <span id="jbQueuePos">전체 3,211곡 대기열</span>
