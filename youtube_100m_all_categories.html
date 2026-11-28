@@ -539,11 +539,16 @@ tbody td {
   cursor: pointer;
 }
 .play-inline-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  height: 27px;
   background: #0284c7;
   color: #fff;
   border: none;
   border-radius: 5px;
-  padding: 5px 9px;
+  padding: 0 9px;
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
@@ -551,6 +556,28 @@ tbody td {
   touch-action: manipulation;
 }
 .play-inline-btn:hover { background: #38bdf8; color: #0f172a; }
+.yt-open-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  width: 28px;
+  height: 27px;
+  border-radius: 5px;
+  background: rgba(56, 189, 248, 0.14);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: #7dd3fc;
+  text-decoration: none;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+.yt-open-btn:hover {
+  background: #0284c7;
+  border-color: #38bdf8;
+  color: #fff;
+  text-decoration: none;
+}
 .thumb-img {
   width: 72px;
   height: 40px;
@@ -668,7 +695,7 @@ tbody td {
 </style>
 </head>
 <body>
-<nav class="top-nav"><div class="nav-row"><span class="brand">🎬 YouTube 100M+ Census <span class="ver-badge">v14</span></span><a class="nav-link" href="index.html?v=14">🏠 종합 홈 & 탭</a><a class="nav-link" href="youtube_100m_official_mv_only.html?v=14">순수 공식 MV (10,202)</a><a class="nav-link" href="youtube_100m_mv_verified.html?v=14">음악 카테고리 1억+ (11,512)</a><a class="nav-link active" href="youtube_100m_all_categories.html?v=14">전 카테고리 1억+ (12,101)</a><a class="nav-link" href="utubeinfo_db_viewer.html?v=14">원본 DB 전체 (29,537)</a><a class="nav-link" href="video_sources.html?v=14">🔗 출처 사전 (29,537)</a></div><div class="nav-row nav-row-regions"><span class="nav-group-label">🌐 언어권별 순수 공식 MV:</span><a class="nav-link" href="index.html?v=14#tab=all" title="종합 HTML에서 5개 언어권을 탭으로 전환">🗂️ 5개 언어권 탭 통합</a><a class="nav-link reg-ko" href="youtube_100m_region_ko.html?v=14">🇰🇷 한국어권 (391)</a><a class="nav-link reg-en" href="youtube_100m_region_en.html?v=14">🇺🇸 영어권 (4,244)</a><a class="nav-link reg-ja" href="youtube_100m_region_ja.html?v=14">🇯🇵 일본어권 (128)</a><a class="nav-link reg-es" href="youtube_100m_region_es.html?v=14">🇪🇸 스페인어권 (2,228)</a><a class="nav-link reg-other" href="youtube_100m_region_other.html?v=14">🌍 기타권 (3,211)</a></div></nav>
+<nav class="top-nav"><div class="nav-row"><span class="brand">🎬 YouTube 100M+ Census <span class="ver-badge">v15</span></span><a class="nav-link" href="index.html?v=15">🏠 종합 홈 & 탭</a><a class="nav-link" href="youtube_100m_official_mv_only.html?v=15">순수 공식 MV (10,202)</a><a class="nav-link" href="youtube_100m_mv_verified.html?v=15">음악 카테고리 1억+ (11,512)</a><a class="nav-link active" href="youtube_100m_all_categories.html?v=15">전 카테고리 1억+ (12,101)</a><a class="nav-link" href="utubeinfo_db_viewer.html?v=15">원본 DB 전체 (29,537)</a><a class="nav-link" href="video_sources.html?v=15">🔗 출처 사전 (29,537)</a></div><div class="nav-row nav-row-regions"><span class="nav-group-label">🌐 언어권별 순수 공식 MV:</span><a class="nav-link" href="index.html?v=15#tab=all" title="종합 HTML에서 5개 언어권을 탭으로 전환">🗂️ 5개 언어권 탭 통합</a><a class="nav-link reg-ko" href="youtube_100m_region_ko.html?v=15">🇰🇷 한국어권 (391)</a><a class="nav-link reg-en" href="youtube_100m_region_en.html?v=15">🇺🇸 영어권 (4,244)</a><a class="nav-link reg-ja" href="youtube_100m_region_ja.html?v=15">🇯🇵 일본어권 (128)</a><a class="nav-link reg-es" href="youtube_100m_region_es.html?v=15">🇪🇸 스페인어권 (2,228)</a><a class="nav-link reg-other" href="youtube_100m_region_other.html?v=15">🌍 기타권 (3,211)</a></div></nav>
 <div class="container">
   <div class="page-header">
     <h1>카테고리 무관 1억 뷰+ 전체 목록 &amp; 연속 주크박스</h1>
@@ -683,7 +710,7 @@ tbody td {
     </div>
     <div class="jukebox-info">
       <div class="jukebox-status-line">
-        <span class="ver-badge">v14</span>
+        <span class="ver-badge">v15</span>
         <span id="jbStateBadge" style="color:var(--green)">🎲 랜덤 첫 곡 준비 완료</span>
         <span>·</span>
         <span id="jbQueuePos">전체 12,101곡 목록</span>
@@ -1677,7 +1704,7 @@ function buildRowHtml(r, showThumb) {
     thumbTd +
     `<td style="white-space:nowrap">` +
       `<button class="play-inline-btn" onclick="playByVideoId('${vid}')" title="상단 주크박스에서 즉시 연속 재생">▶ 재생</button>` +
-      `<a class="vid-code" href="#" onclick="openYouTubeQueueStartingAt('${vid}'); return false;" title="이 곡부터 50곡 연속 재생 대기열로 유튜브 새 탭에서 열기">${vid} ↗</a>` +
+      `<a class="yt-open-btn" href="https://www.youtube.com/watch?v=${vid}" onclick="openYouTubeQueueStartingAt('${vid}'); return false;" aria-label="이 곡부터 50곡 연속 재생 대기열로 유튜브 새 탭에서 열기" title="이 곡부터 50곡 연속 재생 대기열로 유튜브 새 탭에서 열기"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>` +
     `</td>` +
     `<td class="title-main" onclick="playByVideoId('${vid}')" title="클릭하면 상단 주크박스에서 즉시 재생됩니다">${esc(r[2])}</td>` +
     `<td><a style="color:var(--muted)" href="https://www.youtube.com/channel/${r[4]}" target="_blank" rel="noopener">${esc(r[3])}</a></td>` +
