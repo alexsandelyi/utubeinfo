@@ -593,7 +593,7 @@ tbody td {
 </style>
 </head>
 <body>
-<nav class="top-nav"><div class="nav-row"><span class="brand">🎬 YouTube 100M+ Census <span class="ver-badge">v17</span></span><a class="nav-link active" id="nav-main-home" href="index.html?v=17" onclick="switchHubTab('all'); return false;">🏠 공식 MV 홈 (10,202)</a><a class="nav-link" href="youtube_100m_mv_verified.html?v=17">음악 카테고리 1억+ (11,512)</a><a class="nav-link" href="youtube_100m_all_categories.html?v=17">전 카테고리 1억+ (12,101)</a><a class="nav-link" href="utubeinfo_db_viewer.html?v=17">원본 DB 전체 (29,537)</a><a class="nav-link" href="video_sources.html?v=17">🔗 출처 사전 (29,537)</a></div><div class="nav-row nav-row-regions"><span class="nav-group-label">🌐 언어권별 순수 공식 MV:</span><a class="nav-link active" id="nav-tab-all" href="index.html?v=17#tab=all" onclick="switchHubTab('all'); return false;">🌐 전체 (10,202)</a><a class="nav-link reg-ko" id="nav-tab-ko" href="youtube_100m_region_ko.html?v=17" onclick="switchHubTab('ko'); return false;">🇰🇷 한국어권 (391)</a><a class="nav-link reg-en" id="nav-tab-en" href="youtube_100m_region_en.html?v=17" onclick="switchHubTab('en'); return false;">🇺🇸 영어권 (4,244)</a><a class="nav-link reg-ja" id="nav-tab-ja" href="youtube_100m_region_ja.html?v=17" onclick="switchHubTab('ja'); return false;">🇯🇵 일본어권 (128)</a><a class="nav-link reg-es" id="nav-tab-es" href="youtube_100m_region_es.html?v=17" onclick="switchHubTab('es'); return false;">🇪🇸 스페인어권 (2,228)</a><a class="nav-link reg-other" id="nav-tab-other" href="youtube_100m_region_other.html?v=17" onclick="switchHubTab('other'); return false;">🌍 기타권 (3,211)</a></div></nav>
+<nav class="top-nav"><div class="nav-row"><span class="brand">🎬 YouTube 100M+ Census <span class="ver-badge">v18</span></span><a class="nav-link active" id="nav-main-home" href="index.html?v=18" onclick="switchHubTab('all'); return false;">🏠 공식 MV 홈 (10,202)</a><a class="nav-link" href="youtube_100m_mv_verified.html?v=18">음악 카테고리 1억+ (11,512)</a><a class="nav-link" href="youtube_100m_all_categories.html?v=18">전 카테고리 1억+ (12,101)</a><a class="nav-link" href="utubeinfo_db_viewer.html?v=18">원본 DB 전체 (29,537)</a><a class="nav-link" href="video_sources.html?v=18">🔗 출처 사전 (29,537)</a></div><div class="nav-row nav-row-regions"><span class="nav-group-label">🌐 언어권별 순수 공식 MV:</span><a class="nav-link active" id="nav-tab-all" href="index.html?v=18#tab=all" onclick="switchHubTab('all'); return false;">🌐 전체 (10,202)</a><a class="nav-link reg-ko" id="nav-tab-ko" href="youtube_100m_region_ko.html?v=18" onclick="switchHubTab('ko'); return false;">🇰🇷 한국어권 (391)</a><a class="nav-link reg-en" id="nav-tab-en" href="youtube_100m_region_en.html?v=18" onclick="switchHubTab('en'); return false;">🇺🇸 영어권 (4,244)</a><a class="nav-link reg-ja" id="nav-tab-ja" href="youtube_100m_region_ja.html?v=18" onclick="switchHubTab('ja'); return false;">🇯🇵 일본어권 (128)</a><a class="nav-link reg-es" id="nav-tab-es" href="youtube_100m_region_es.html?v=18" onclick="switchHubTab('es'); return false;">🇪🇸 스페인어권 (2,228)</a><a class="nav-link reg-other" id="nav-tab-other" href="youtube_100m_region_other.html?v=18" onclick="switchHubTab('other'); return false;">🌍 기타권 (3,211)</a></div></nav>
 <div class="container">
   <div class="page-header" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
     <div>
@@ -611,7 +611,7 @@ tbody td {
     </div>
     <div class="jukebox-info">
       <div class="jukebox-status-line">
-        <span class="ver-badge">v17</span>
+        <span class="ver-badge">v18</span>
         <span id="jbStateBadge" style="color:var(--green)">🎲 랜덤 첫 곡 준비 완료</span>
         <span>·</span>
         <span id="jbQueuePos">전체 10,202곡 목록</span>
@@ -668,11 +668,6 @@ tbody td {
       <input type="checkbox" id="thumbToggle"> 썸네일 표시
     </label>
     <button class="btn" id="renderAllBtn" onclick="renderAllRemainingRows()">📋 표 전체 한 번에 펼치기</button>
-  </div>
-
-  <div class="status-bar">
-    <div id="renderStatus">데이터 준비 중...</div>
-    <div style="display:flex;gap:6px;flex-wrap:wrap;" id="jumpBar"></div>
   </div>
 
   <div class="table-wrap">
@@ -1591,20 +1586,17 @@ function buildRowHtml(r, showThumb) {
 
 function updateStatusText() {
   const total = currentFiltered.length;
-  const statusEl = document.getElementById('renderStatus');
   const sentinel = document.getElementById('loadMoreSentinel');
-  if (!statusEl || !sentinel) return;
   if (total === 0) {
-    statusEl.textContent = '조건에 일치하는 영상이 없습니다 (0개).';
-    sentinel.style.display = 'none';
+    const tb = document.getElementById('tableBody');
+    if (tb) {
+      tb.innerHTML = '<tr><td colspan="15" style="text-align:center;padding:24px;color:var(--muted);">조건에 일치하는 영상이 없습니다 (0개).</td></tr>';
+    }
+    if (sentinel) sentinel.style.display = 'none';
     return;
   }
-  if (renderedCount >= total) {
-    statusEl.innerHTML = `✅ 필터 결과 총 <strong style="color:var(--green)">${nf.format(total)}</strong>개 행 전체 표시 완료 (현재 목록 원본 ${nf.format(RAW_ROWS.length)}곡 전량)`;
-    sentinel.style.display = 'none';
-  } else {
-    statusEl.innerHTML = `⚡ 초고속 반응 모드: 전체 <strong style="color:var(--green)">${nf.format(total)}</strong>곡 대기열 중 표 화면에 <strong>${nf.format(renderedCount)}</strong>행 표시 중 (스크롤 시 자동 펼쳐짐 · 랜덤 셔플은 ${nf.format(total)}곡 전체에서 작동)`;
-    sentinel.style.display = 'block';
+  if (sentinel) {
+    sentinel.style.display = (renderedCount >= total) ? 'none' : 'block';
   }
 }
 
@@ -1723,6 +1715,7 @@ function applyFiltersAndRender(isInitialSync) {
   lastHighlightedEl = null;
 
   appendNextTableBatch(250);
+  if (currentFiltered.length === 0) updateStatusText();
 }
 
 function jumpToRow(rankNum) {
@@ -1794,19 +1787,6 @@ for (let i = 0; i < ALL_MV_ROWS.length; i++) {
 
 let activeHubTab = 'all';
 
-function rebuildJumpBar(total) {
-  const bar = document.getElementById('jumpBar');
-  if (!bar) return;
-  if (!total) { bar.innerHTML = ''; return; }
-  let marks = [1, 1000, 3000, 5000, 8000];
-  if (total <= 250) marks = [1, 50, 100];
-  else if (total <= 1500) marks = [1, 200, 500, 1000];
-  else if (total <= 5000) marks = [1, 500, 1000, 2000, 3000];
-  const parts = marks.filter(m => m < total).map(m => `<button class="btn" onclick="jumpToRow(${m})">${nf.format(m)}위</button>`);
-  parts.push(`<button class="btn" onclick="jumpToRow(${total})">마지막(${nf.format(total)}위)</button>`);
-  bar.innerHTML = parts.join('');
-}
-
 function rebuildSubRegionDropdown(rows) {
   const sel = document.getElementById('subRegionFilter');
   if (!sel) return;
@@ -1838,7 +1818,6 @@ function updateTabControls(rows) {
   document.getElementById('searchInput').placeholder = `제목, 채널명, Video ID 검색 (${nf.format(total)}곡 전체에서 0.01초 즉시 검색)...`;
   document.getElementById('renderAllBtn').textContent = `📋 표 전체 ${nf.format(total)}행 한 번에 펼치기`;
   document.getElementById('loadAllSentinelBtn').textContent = `📋 끝까지(${nf.format(total)}위) 전부 한 번에 펼치기`;
-  rebuildJumpBar(total);
 }
 
 function switchHubTab(tabKey, fromHash) {
