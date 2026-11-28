@@ -276,18 +276,20 @@ a:hover { text-decoration: underline; }
   align-items: center;
 }
 .jukebox-video-box {
-  width: 300px;
-  height: 169px;
+  width: 400px;
+  height: 225px;
+  min-width: 200px;
+  min-height: 200px;
   background: #000;
   border-radius: 8px;
   overflow: hidden;
   flex-shrink: 0;
   border: 1px solid var(--border);
 }
-.jukebox-video-box.audio-mode {
-  width: 112px;
-  height: 63px;
-  opacity: 0.85;
+.jukebox-video-box iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .jukebox-panel.theater-mode {
   position: relative;
@@ -396,6 +398,58 @@ a:hover { text-decoration: underline; }
   color: #fde68a;
   font-size: 12px;
   display: none;
+}
+.jb-error-notice {
+  margin-top: 8px;
+  padding: 7px 10px;
+  border-radius: 6px;
+  background: rgba(251, 113, 133, 0.14);
+  border: 1px solid rgba(251, 113, 133, 0.4);
+  color: #fecdd3;
+  font-size: 12px;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.jb-error-notice a {
+  color: #7dd3fc;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.jb-notice-close {
+  background: transparent;
+  border: 1px solid rgba(251, 113, 133, 0.45);
+  color: #fecdd3;
+  border-radius: 4px;
+  padding: 2px 7px;
+  font-size: 11px;
+  cursor: pointer;
+}
+.jb-notice-close:hover { background: rgba(251, 113, 133, 0.25); color: #fff; }
+.site-footer {
+  max-width: 1680px;
+  margin: 28px auto 0 auto;
+  padding: 18px 20px 28px 20px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+.site-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.site-footer-links a {
+  color: #7dd3fc;
+  font-weight: 600;
+}
+.site-footer p {
+  margin: 4px 0;
 }
 
 .toolbar {
@@ -584,30 +638,37 @@ tbody td {
   .hub-tab-btn, .hub-standalone-link { flex-shrink: 0; white-space: nowrap; }
   .container { padding: 10px; }
   .jukebox-panel {
-    top: 78px;
+    position: relative;
+    top: 0;
     padding: 10px;
     gap: 10px;
+    flex-direction: column;
+    align-items: stretch;
   }
   .jukebox-video-box {
-    width: 144px;
-    height: 81px;
+    width: 100%;
+    max-width: 400px;
+    height: 225px;
+    min-width: 200px;
+    min-height: 200px;
+    margin: 0 auto;
   }
   .jukebox-panel.theater-mode .jukebox-video-box {
     width: 100%;
-    height: 240px;
+    max-width: none;
+    height: 260px;
+    min-height: 200px;
   }
-  .jukebox-video-box.audio-mode {
-    width: 64px;
-    height: 36px;
-  }
+  .jukebox-info { min-width: 0; }
   .jukebox-title { font-size: 13px; white-space: normal; }
   .jukebox-meta { font-size: 11px; margin-bottom: 6px; }
   .jb-btn { padding: 7px 9px; font-size: 11px; }
+  .site-footer { padding: 14px 12px 24px 12px; }
 }
 </style>
 </head>
 <body>
-<nav class="top-nav"><div class="nav-row"><span class="brand">🎬 YouTube 100M+ Census <span class="ver-badge">v13</span></span><a class="nav-link" href="index.html?v=13">🏠 종합 홈 & 탭</a><a class="nav-link" href="youtube_100m_official_mv_only.html?v=13">순수 공식 MV (10,202)</a><a class="nav-link" href="youtube_100m_mv_verified.html?v=13">음악 카테고리 1억+ (11,512)</a><a class="nav-link" href="youtube_100m_all_categories.html?v=13">전 카테고리 1억+ (12,101)</a><a class="nav-link" href="utubeinfo_db_viewer.html?v=13">원본 DB 전체 (29,537)</a><a class="nav-link" href="video_sources.html?v=13">🔗 출처 사전 (29,537)</a></div><div class="nav-row nav-row-regions"><span class="nav-group-label">🌐 언어권별 순수 공식 MV:</span><a class="nav-link" href="index.html?v=13#tab=all" title="종합 HTML에서 5개 언어권을 탭으로 전환">🗂️ 5개 언어권 탭 통합</a><a class="nav-link reg-ko" href="youtube_100m_region_ko.html?v=13">🇰🇷 한국어권 (391)</a><a class="nav-link reg-en" href="youtube_100m_region_en.html?v=13">🇺🇸 영어권 (4,244)</a><a class="nav-link reg-ja active" href="youtube_100m_region_ja.html?v=13">🇯🇵 일본어권 (128)</a><a class="nav-link reg-es" href="youtube_100m_region_es.html?v=13">🇪🇸 스페인어권 (2,228)</a><a class="nav-link reg-other" href="youtube_100m_region_other.html?v=13">🌍 기타권 (3,211)</a></div></nav>
+<nav class="top-nav"><div class="nav-row"><span class="brand">🎬 YouTube 100M+ Census <span class="ver-badge">v14</span></span><a class="nav-link" href="index.html?v=14">🏠 종합 홈 & 탭</a><a class="nav-link" href="youtube_100m_official_mv_only.html?v=14">순수 공식 MV (10,202)</a><a class="nav-link" href="youtube_100m_mv_verified.html?v=14">음악 카테고리 1억+ (11,512)</a><a class="nav-link" href="youtube_100m_all_categories.html?v=14">전 카테고리 1억+ (12,101)</a><a class="nav-link" href="utubeinfo_db_viewer.html?v=14">원본 DB 전체 (29,537)</a><a class="nav-link" href="video_sources.html?v=14">🔗 출처 사전 (29,537)</a></div><div class="nav-row nav-row-regions"><span class="nav-group-label">🌐 언어권별 순수 공식 MV:</span><a class="nav-link" href="index.html?v=14#tab=all" title="종합 HTML에서 5개 언어권을 탭으로 전환">🗂️ 5개 언어권 탭 통합</a><a class="nav-link reg-ko" href="youtube_100m_region_ko.html?v=14">🇰🇷 한국어권 (391)</a><a class="nav-link reg-en" href="youtube_100m_region_en.html?v=14">🇺🇸 영어권 (4,244)</a><a class="nav-link reg-ja active" href="youtube_100m_region_ja.html?v=14">🇯🇵 일본어권 (128)</a><a class="nav-link reg-es" href="youtube_100m_region_es.html?v=14">🇪🇸 스페인어권 (2,228)</a><a class="nav-link reg-other" href="youtube_100m_region_other.html?v=14">🌍 기타권 (3,211)</a></div></nav>
 <div class="container">
   <div class="page-header">
     <h1>🇯🇵 일본어권 1억 뷰+ 순수 공식 MV 목록 &amp; 연속 주크박스</h1>
@@ -615,19 +676,19 @@ tbody td {
   </div>
 
   
-  <!-- Built-in YouTube IFrame Player API Jukebox -->
+  <!-- Built-in YouTube IFrame Player API Jukebox (Single-Track Sequential Load) -->
   <div class="jukebox-panel" id="jukeboxPanel">
     <div class="jukebox-video-box" id="jbVideoBox">
-      <iframe id="ytPlayerContainer" width="100%" height="100%" src="about:blank" frameborder="0" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      <iframe id="ytPlayerContainer" width="100%" height="100%" src="about:blank" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe>
     </div>
     <div class="jukebox-info">
       <div class="jukebox-status-line">
-        <span class="ver-badge">v13</span>
+        <span class="ver-badge">v14</span>
         <span id="jbStateBadge" style="color:var(--green)">🎲 랜덤 첫 곡 준비 완료</span>
         <span>·</span>
-        <span id="jbQueuePos">전체 128곡 대기열</span>
+        <span id="jbQueuePos">전체 128곡 목록</span>
       </div>
-      <div class="jukebox-title" id="jbTitle">[▶ 연속 재생 시작] 또는 [⏭ 다음 곡]을 누르면 즉시 재생됩니다</div>
+      <div class="jukebox-title" id="jbTitle">[▶ 연속 재생 시작] 또는 [⏭ 다음 곡]을 누르면 현재 곡만 즉시 로드됩니다</div>
       <div class="jukebox-meta" id="jbMeta">💡 큰 화면으로 보면서 무한 랜덤 셔플을 유지하려면 새 탭 대신 아래 보라색 <strong>[⛶ 꽉 찬 전체화면]</strong> 또는 <strong>[📺 크게 보기]</strong>를 누르세요!</div>
       <div class="jukebox-controls">
         <button class="jb-btn primary" id="jbStartBtn" onclick="startOrToggleJukebox()">▶ 연속 재생 시작</button>
@@ -638,12 +699,15 @@ tbody td {
         <button class="jb-btn" id="jbReshuffleBtn" onclick="reshuffleNewDeck(true)" title="피셔 덱 카드를 처음부터 새로 섞고 진행 기록을 1번 카드로 초기화합니다">🔄 새 덱 섞기</button>
         <button class="jb-btn screen-btn" id="jbFullscreenBtn" onclick="toggleFullscreenMode()">⛶ 꽉 찬 전체화면 (연속재생 유지)</button>
         <button class="jb-btn screen-btn" id="jbTheaterBtn" onclick="toggleTheaterMode()">📺 크게 보기 (극장 모드)</button>
-        <button class="jb-btn" id="jbAudioModeBtn" onclick="toggleAudioCompactMode()">🎧 미니 오디오 모드</button>
         <button class="jb-btn" onclick="scrollToCurrentPlaying()">🎯 현재 곡 위치</button>
         <button class="jb-btn" onclick="openYouTube50Queue()" title="현재 모드 기준으로 50곡을 묶어 유튜브 새 탭/앱 연속 재생목록으로 엽니다">📱 유튜브 앱 50곡 연속 열기 ↗</button>
       </div>
+      <div class="jb-error-notice" id="jbErrorNotice">
+        <span id="jbErrorNoticeText"></span>
+        <button class="jb-notice-close" onclick="dismissErrorNotice()">✕ 닫기</button>
+      </div>
       <div class="file-warn" id="fileProtocolWarn">
-        💡 <strong>안내:</strong> 탐색기에서 <code>file://</code>로 직접 열면 VEVO 등 일부 공식 뮤직비디오가 보안 정책(오류 153)으로 차단될 수 있습니다. 웹 주소(<code>https://ilbbang.com/utubeinfo/</code>) 또는 폴더 안의 <strong><code>play_jukebox.bat</code></strong>로 여시면 모든 곡이 차단 없이 연속 재생됩니다!
+        💡 <strong>안내:</strong> 탐색기에서 <code>file://</code>로 직접 열면 VEVO 등 일부 공식 뮤직비디오가 보안 정책(오류 153)으로 차단될 수 있습니다. 웹 주소(<code>https://ilbbang.com/utubeinfo/</code>) 또는 폴더 안의 <strong><code>play_jukebox.bat</code></strong>로 여시면 정상 재생됩니다!
       </div>
     </div>
   </div>
@@ -734,6 +798,28 @@ tbody td {
   </div>
 </div>
 
+<footer class="site-footer" id="sitePolicyFooter">
+  <div class="site-footer-links">
+    <strong>📜 YouTube API 서비스 이용 및 정책 안내</strong>
+    <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener noreferrer">YouTube 서비스 약관 (Terms of Service) ↗</a>
+    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google 개인정보처리방침 (Privacy Policy) ↗</a>
+    <span>·</span>
+    <span>데이터 리포트 생성일: <strong>2026-11-28</strong></span>
+  </div>
+  <p>
+    본 사이트는 공식 <strong>YouTube IFrame Player API</strong> 및 <strong>YouTube Data API v3</strong>를 통해 공개된 영상 정보와 공식 플레이어를 제공합니다.
+    본 사이트의 플레이어 및 기능을 이용함으로써 사용자는 <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener noreferrer">YouTube 서비스 약관</a>에 동의하게 됩니다.
+  </p>
+  <p>
+    <strong>개인정보 안내:</strong> 본 사이트는 별도의 회원가입이나 서버 측 개인정보 수집을 수행하지 않으며, 셔플 덱 진행 위치(비개인정보)만 사용자 브라우저의 <code>localStorage</code>에 저장합니다.
+    YouTube 임베드 플레이어 이용 과정에서 발생하는 데이터 처리는 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google 개인정보처리방침</a>을 따릅니다.
+  </p>
+  <p>
+    <strong>저작권 및 데이터 정책:</strong> 모든 영상의 저작권은 각 원저작권자(아티스트·기획사 등)에게 있으며, 본 사이트는 영상을 복제·저장·다운로드하지 않고 공식 임베드 플레이어 및 YouTube 원곡 링크만 제공합니다.
+    외부 퍼가기(Embed)가 제한된 영상은 우회하지 않고 YouTube 원곡 링크 안내 후 다음 곡으로 전환되며, YouTube API 통계 데이터는 정책에 따라 30일 이내 정기 갱신을 원칙으로 합니다.
+  </p>
+</footer>
+
 <script>
 const INITIAL_ROWS = [[1,"SX_ViT4Ra7k","米津玄師  Kenshi Yonezu  - Lemon","Kenshi Yonezu  米津玄師","UCUCeZaZeJbEYAAzvMgrKOPQ",1004135664,3591757,315288,"2018-02-26",275,"10","official_mv",1004120121,9,"ja","ja"],[2,"-tKVN2mAKRI","DAOKO × 米津玄師『打上花火』MUSIC VIDEO","daoko_jp","UCIzc1_X3OAFquArF3EOVeWw",751615870,3420891,0,"2017-08-09",293,"10","official_mv",751595676,5,"ja","ja"],[3,"ZRtdQ81jPUQ","YOASOBI「アイドル」 Official Music Video","YOASOBI","UCvpredjG93ifbCP1Y77JyFA",702174284,5124130,176419,"2023-04-12",226,"10","official_mv",701903718,5,"ja","ja"],[4,"TQ8WlA2GXbk","Official髭男dism - Pretender［Official Video］","Official髭男dism","UC3vg17IZ1IV73xx069jG44w",665594743,2365541,115180,"2019-04-16",336,"10","official_mv",665253003,7,"ja","ja"],[5,"dy90tA3TT1c","YOASOBI「怪物」Official Music Video　(YOASOBI - Monster)","YOASOBI","UCvpredjG93ifbCP1Y77JyFA",483031637,2726422,51005,"2021-01-13",209,"10","official_mv",482878832,5,"ja","ja"],[6,"Qp3b-RXtz4w","【Ado】うっせぇわ","Ado","UCln9P4Qm3-EAY4aiEPmRwEA",431944593,3854732,240236,"2020-10-23",203,"10","official_mv",431786169,6,"ja","ja"],[7,"0xSiBpUdW4E","あいみょん - マリーゴールド【OFFICIAL MUSIC VIDEO】","あいみょん","UCG8MvaPCa2ecKH3GZyFxduA",393923402,1038024,45482,"2018-07-17",322,"10","official_mv",393910972,4,"ja","ja"],[8,"-EKxzId_Sj4","米津玄師  - アイネクライネ , Kenshi Yonezu - Eine Kleine","Kenshi Yonezu  米津玄師","UCUCeZaZeJbEYAAzvMgrKOPQ",382958343,1395756,63436,"2014-03-31",296,"10","official_mv",382954574,3,"ja","ja"],[9,"wfCcs0vLysk","Mrs. GREEN APPLE - インフェルノ（Inferno）","Mrs. GREEN APPLE","UCpFgmZm65yOU5X-hmWkWjuw",376227635,2271449,62075,"2019-08-02",222,"10","official_mv",376194054,3,"ja","ja"],[10,"Dx_fKPBPYUI","米津玄師 - LOSER , Kenshi Yonezu","Kenshi Yonezu  米津玄師","UCUCeZaZeJbEYAAzvMgrKOPQ",370667382,1456323,67728,"2016-09-15",243,"10","official_mv",370663857,3,"ja","ja"],[11,"PDSkFeMVNFs","RADWIMPS - 前前前世 (movie ver.) [Official Music Video]","RADWIMPS","UCIVqvhyo8ttjYOmMJuhq_YQ",361611083,1646928,113355,"2016-08-19",293,"10","official_mv",361559000,4,"ja","ja"],[12,"9aJVr5tTTWk","米津玄師 - ピースサイン , Kenshi Yonezu - Peace Sign","Kenshi Yonezu  米津玄師","UCUCeZaZeJbEYAAzvMgrKOPQ",346410033,1633147,66192,"2017-06-07",265,"10","official_mv",346405735,3,"ja","ja"],[13,"CxnJf0tWu48","BTS (防弾少年団) 'Airplane pt.2 -Japanese ver.-' Official MV","UNIVERSAL MUSIC JAPAN","UCl2aT0nRejTCQO_LHZAftBw",344957959,6946997,252112,"2018-11-06",228,"10","official_mv",344902229,4,"ja","ja"],[14,"QW28YKqdxe0","NiziU  『Make you happy』 M/V","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",331934012,2383687,201920,"2020-06-29",209,"10","official_mv",331930875,6,"ja","ja"],[15,"a2GujJZfXpg","スパークル [original ver.] -Your name. Music Video edition- 予告編 from new album「人間開花」初回盤DVD","RADWIMPS","UCIVqvhyo8ttjYOmMJuhq_YQ",310909679,3161996,98873,"2016-10-27",182,"10","official_mv",310628015,3,"ja","ja"],[16,"gJX2iy6nhHc","米津玄師  - 灰色と青（ ＋菅田将暉 ）,  Kenshi Yonezu - Haiirotoao（+Masaki Suda)","Kenshi Yonezu  米津玄師","UCUCeZaZeJbEYAAzvMgrKOPQ",293519669,1106960,39875,"2017-10-10",343,"10","official_mv",293515873,3,"ja","ja"],[17,"x8VYWazR5mE","YOASOBI「夜に駆ける」 Official Music Video","YOASOBI","UCvpredjG93ifbCP1Y77JyFA",286831319,3317901,112248,"2019-11-16",276,"10","official_mv",286815026,4,"ja","ja"],[18,"jhOVibLEDhA","星野源 – 恋 (Official Video)","星野源 Gen Hoshino","UCPKlrgZXnnb89nSeITvTdGA",286344974,921213,43568,"2016-09-20",293,"10","official_mv",286289250,4,"ja","ja"],[19,"-VKIqrvVOpo","ヨルシカ - ただ君に晴れ (MUSIC VIDEO)","ヨルシカ / n-buna Official","UCRIgIJQWuBJ0Cv_VlU3USNA",285797039,1554361,44830,"2018-05-04",200,"10","official_mv",285733203,3,"ja","ja"],[20,"pgXpM4l_MwI","【Ado】 唱","Ado","UCln9P4Qm3-EAY4aiEPmRwEA",283266702,1613576,32741,"2023-09-06",190,"10","official_mv",283167271,4,"ja","ja"],[21,"LIlZCmETvsY","サカナクション / 新宝島　-Music Video-","サカナクション sakanaction","UCli_j3KPGhsF1Mv1AK17UPA",281504998,1197702,12362,"2015-09-26",313,"10","official_mv",281492644,3,"ja","ja"],[22,"Mi9uNu35Gmk","SEKAI NO OWARI「RPG」","sekainoowarijp","UCOYmRdtvvcQPspSmW8QsJhQ",280791188,899356,75037,"2013-04-22",296,"10","official_mv",280746159,3,"ja","ja"],[23,"9IHwqdz8Xhw","BTS (방탄소년단) 'Stay Gold' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",278304760,11657462,1749470,"2020-06-26",256,"10","official_mv",278278265,5,"ja","ja"],[24,"dFf4AgBNR1E","【MV full】 恋するフォーチュンクッキー / AKB48[公式]","AKB48","UCxjXU89x6owat9dA8Z-bzdw",273466046,781583,53548,"2013-10-30",323,"10","official_mv",273391560,6,"ja","ja"],[25,"UFQEttrn6CQ","米津玄師 - 感電   Kenshi Yonezu - KANDEN","Kenshi Yonezu  米津玄師","UCUCeZaZeJbEYAAzvMgrKOPQ",272461608,1270837,104336,"2020-07-10",293,"10","official_mv",272457248,3,"ja","ja"],[26,"QjrkrVmC-8M","Mrs. GREEN APPLE「ライラック」Official Music Video","Mrs. GREEN APPLE","UCpFgmZm65yOU5X-hmWkWjuw",255594473,1001189,50570,"2024-04-12",304,"10","official_mv",255567696,2,"ja","ja"],[27,"YnSW8ian29w","【Ado】踊","Ado","UCln9P4Qm3-EAY4aiEPmRwEA",248680848,2057339,63412,"2021-04-27",209,"10","official_mv",248638247,3,"ja","ja"],[28,"M2cckDmNLMI","米津玄師 Kenshi Yonezu - KICKBACK","Kenshi Yonezu  米津玄師","UCUCeZaZeJbEYAAzvMgrKOPQ",246794161,1891268,63834,"2022-10-25",228,"10","official_mv",246788442,3,"ja","ja"],[29,"zFT3f9biz68","BTS (방탄소년단) 'Film out' Official MV","HYBE LABELS","UC3IZKseVpdzPSBaWxBxundA",244248603,9668522,2382202,"2021-04-01",229,"10","official_mv",244224685,5,"ja","ja"],[30,"Y4nEEZwckuU","YOASOBI「群青」Official Music Video","YOASOBI","UCvpredjG93ifbCP1Y77JyFA",244210937,1374665,24504,"2020-12-01",263,"10","official_mv",244119331,3,"ja","ja"],[31,"Hh9yZWeTmVM","ONE OK ROCK - The Beginning [Official Music Video]","ONE OK ROCK","UCzycs8MqvIY4nXWwS-v4J9g",243596647,1197634,44017,"2012-08-15",314,"10","official_mv",243592068,3,"ja","ja"],[32,"LmZD-TU96q4","米津玄師  Kenshi Yonezu - IRIS OUT","Kenshi Yonezu  米津玄師","UCUCeZaZeJbEYAAzvMgrKOPQ",243250993,2031074,80460,"2025-09-15",154,"10","official_mv",243233468,2,"ja","ja"],[33,"bt8wNQJaKAk","Official髭男dism - I LOVE...［Official Video］","Official髭男dism","UC3vg17IZ1IV73xx069jG44w",241810081,957032,41860,"2020-01-15",289,"10","official_mv",241721496,3,"ja","ja"],[34,"19y8YTbvri8","メズマライザー / 初音ミク・重音テトSV - Mesmerizer","サツキ","UCtmi2O7lp0C_i53hFIExAaA",234241290,2273231,134084,"2024-04-27",157,"10","official_mv",0,1,"ja","ja"],[35,"kzZ6KXDM1RI","優里『ドライフラワー』Official Music Video -ディレクターズカットver.-","優里 Official YouTube Channel","UCBNVZPlWoR7oArfzJNrK9yw",233991014,598542,12451,"2021-03-18",288,"10","official_mv",233969375,3,"ja","ja"],[36,"OIBODIPC_8Y","YOASOBI「勇者」 Official Music Video／TVアニメ『葬送のフリーレン』オープニングテーマ","YOASOBI","UCvpredjG93ifbCP1Y77JyFA",230156019,1248037,25693,"2023-09-29",204,"10","official_mv",230035399,3,"ja","ja"],[37,"WIKqgE4BwAY","BABYMETAL - ギミチョコ！！- Gimme chocolate!! (OFFICIAL)","BABYMETAL","UC33_tIj4m1_XaqfFcomShvw",225315997,3093828,145493,"2014-02-26",244,"10","official_mv",225308883,4,"ja","ja"],[38,"ptnYBctoexk","米津玄師  - 馬と鹿   Kenshi Yonezu - Uma to Shika","Kenshi Yonezu  米津玄師","UCUCeZaZeJbEYAAzvMgrKOPQ",224366050,854360,51407,"2019-09-02",285,"10","official_mv",224363991,3,"ja","ja"],[39,"51CH3dPaWXc","スピッツ / ロビンソン","spitzclips","UCEAOVoVVtVBhcn7vLIQIkDA",222298892,588231,40634,"2010-04-16",269,"10","official_mv",222233308,3,"ja","ja"],[40,"J5Z7tIq7bco","スキマスイッチ - 「奏（かなで）」Music Video : SUKIMASWITCH / KANADE Music Video","SukimaSwitchVEVO","UCK3avWTCKdXZyYiHUEsCzNQ",221779581,496460,16673,"2008-12-08",345,"10","official_mv",221673793,2,"ja","ja"],[41,"KTZ-y85Erus","ヨルシカ - だから僕は音楽を辞めた (Music Video)","ヨルシカ / n-buna Official","UCRIgIJQWuBJ0Cv_VlU3USNA",221732841,1346533,30954,"2019-04-05",247,"10","official_mv",221682319,3,"ja","ja"],[42,"sOiMD45QGLs","【Ado】ギラギラ","Ado","UCln9P4Qm3-EAY4aiEPmRwEA",221628031,1421778,44731,"2021-02-14",277,"10","official_mv",221565629,3,"ja","ja"],[43,"m34DPnRUfMU","Mrs. GREEN APPLE - 青と夏","MrsGREENAPPLEVEVO","UC5e0xdyGS7OEgyLroMxwrbw",215136769,1169082,64742,"2018-08-10",314,"10","official_mv",215131031,2,"ja","ja"],[44,"yzC4hFK5P3g","きゃりーぱみゅぱみゅ - PONPONPON , Kyary Pamyu Pamyu - PONPONPON","Warner Music Japan","UCfb-Ly0RXaUGxglFJmPji1g",214957404,0,307312,"2011-07-16",264,"10","official_mv",214933531,3,"ja","ja"],[45,"DuMqFknYHBs","Official髭男dism - イエスタデイ［Official Video］","Official髭男dism","UC3vg17IZ1IV73xx069jG44w",213835908,815085,35403,"2019-09-20",301,"10","official_mv",213806826,2,"ja","ja"],[46,"fhzKLBZJC3w","King Gnu - SPECIALZ","King Gnu official YouTube channel","UCkB8HnJSDSJ2hkLQFUc-YrQ",211014239,1296248,46976,"2023-09-21",242,"10","official_mv",210980790,1,"ja","ja"],[47,"zkNzxsaCunU","米津玄師 - 春雷   Kenshi Yonezu - Shunrai","Kenshi Yonezu  米津玄師","UCUCeZaZeJbEYAAzvMgrKOPQ",203754555,930556,41981,"2017-12-04",298,"10","official_mv",203750390,2,"ja","ja"],[48,"F64yFFnZfkI","ヨルシカ - 言って。(Music Video)","ヨルシカ / n-buna Official","UCRIgIJQWuBJ0Cv_VlU3USNA",203326640,1427864,28756,"2017-06-28",244,"10","official_mv",203273775,2,"ja","ja"],[49,"1FliVTcX8bQ","【Ado】新時代 (ウタ from ONE PIECE FILM RED)","Ado","UCln9P4Qm3-EAY4aiEPmRwEA",202272747,1621605,42516,"2022-06-15",238,"10","official_mv",202226375,3,"ja","ja"],[50,"lzAyrgSqeeE","米津玄師  - orion , Kenshi Yonezu","Kenshi Yonezu  米津玄師","UCUCeZaZeJbEYAAzvMgrKOPQ",199335703,699539,25899,"2017-02-01",291,"10","official_mv",199334165,2,"ja","ja"],[51,"gU5oN0KVofU","Superfly 『愛をこめて花束を』Music Video","Superfly","UCW1vck-e025HMBwix6cW_qw",197734098,502142,15856,"2011-01-12",301,"10","official_mv",197666522,3,"ja","ja"],[52,"Uh6dkL1M9DM","米津玄師  - Flamingo / Kenshi Yonezu","Kenshi Yonezu  米津玄師","UCUCeZaZeJbEYAAzvMgrKOPQ",196253682,1009941,73254,"2018-10-20",218,"10","official_mv",196252536,2,"ja","ja"],[53,"0E00Zuayv9Q","PPAP（Pen-Pineapple-Apple-Pen Official）ペンパイナッポーアッポーペン／PIKOTARO(ピコ太郎)","PIKOTAROピコ太郎OFFICIAL CHANNEL","UCKpIOnsk-gcwHXIzuk24ExA",192897357,1039709,0,"2016-08-25",69,"10","official_mv",192727509,4,"ja","ja"],[54,"lkHlnWFnA0c","【MV full】 ヘビーローテーション / AKB48 [公式]","AKB48","UCxjXU89x6owat9dA8Z-bzdw",192865545,499774,40718,"2010-09-08",345,"10","official_mv",192837240,4,"ja","ja"],[55,"wQ_POfToaVY","TWICE「Candy Pop」Music Video","TWICE JAPAN OFFICIAL YouTube Channel","UCCRb6nYKaT8tzLA8CwDdUtw",191237885,1977523,111902,"2018-01-11",265,"10","official_mv",191223101,2,"ja","ja"],[56,"hN5MBlGv2Ac","Official髭男dism - Subtitle [Official Video]","Official髭男dism","UC9M4B-fqveLyWPGNdSkam7g",190823655,673337,16713,"2022-10-27",322,"10","official_mv",190717033,3,"ja","ja"],[57,"-kgOFJG881I","Official髭男dism - 宿命［Official Video］","Official髭男dism","UC3vg17IZ1IV73xx069jG44w",190710559,812669,34366,"2019-07-08",283,"10","official_mv",190637357,2,"ja","ja"],[58,"4-Gw0TAM6-Q","三代目 J SOUL BROTHERS from EXILE TRIBE / 「R.Y.U.S.E.I.」Music Video","avex","UC1oPBUWifc0QOOY8DEKhLuQ",190237114,344053,23325,"2014-05-15",300,"10","official_mv",190209862,3,"ja","ja"],[59,"3eytpBOkOFA","YOASOBI「祝福」Official Music Video (『機動戦士ガンダム 水星の魔女』オープニングテーマ)","YOASOBI","UCvpredjG93ifbCP1Y77JyFA",189623285,780614,17678,"2022-10-02",198,"10","official_mv",189551911,3,"ja","ja"],[60,"O1bhZgkC4Gw","Official髭男dism - Cry Baby［Official Video］","Official髭男dism","UC3vg17IZ1IV73xx069jG44w",189442488,1414878,43973,"2021-05-06",241,"10","official_mv",189332155,3,"ja","ja"],[61,"eaUpme4jalE","BTS 'Lights' Official MV","UNIVERSAL MUSIC JAPAN","UCl2aT0nRejTCQO_LHZAftBw",184191013,5357010,326847,"2019-07-02",327,"10","official_mv",184167781,3,"ja","ja"],[62,"EHw005ZqCXk","Official髭男dism - ノーダウト［Official Video］","Official髭男dism","UC3vg17IZ1IV73xx069jG44w",179278730,756987,23535,"2018-04-30",199,"10","official_mv",179218684,2,"ja","ja"],[63,"K_xTet06SUo","和楽器バンド / 千本桜","avex","UC1oPBUWifc0QOOY8DEKhLuQ",179076195,1240941,50745,"2014-01-31",280,"10","official_mv",179046056,3,"ja","ja"],[64,"gt-v_YCkaMY","【Ado】逆光（ウタ from ONE PIECE FILM RED）","Ado","UCln9P4Qm3-EAY4aiEPmRwEA",176558959,1386521,21660,"2022-07-06",250,"10","official_mv",176476575,3,"ja","ja"],[65,"8iuLXODzL04","YOASOBI「たぶん」Official Music  Video","YOASOBI","UCvpredjG93ifbCP1Y77JyFA",174853437,1697210,22838,"2020-07-20",264,"10","official_mv",174785002,3,"ja","ja"],[66,"xefpHEg5UIA","Mrs. GREEN APPLE - 僕のこと","MrsGREENAPPLEVEVO","UC5e0xdyGS7OEgyLroMxwrbw",172585287,905654,38259,"2019-01-17",329,"10","official_mv",172571979,2,"ja","ja"],[67,"9lVPAWLWtWc","ヨルシカ - 花に亡霊（OFFICIAL VIDEO）","ヨルシカ / n-buna Official","UCRIgIJQWuBJ0Cv_VlU3USNA",170665579,1342800,38460,"2020-04-22",243,"10","official_mv",170618402,2,"ja","ja"],[68,"x2rvSf0STBM","Mrs. GREEN APPLE「ダンスホール」Official Music Video","Mrs. GREEN APPLE","UCpFgmZm65yOU5X-hmWkWjuw",167428601,650696,13458,"2022-06-28",211,"10","official_mv",167420305,3,"ja","ja"],[69,"dHXC_ahjtEE","Chinozo 'グッバイ宣言' feat.FloweR","Chinozo","UCft5HulDeuKloukyShxyOZA",161851071,1427440,87525,"2020-04-13",177,"10","official_mv",161842293,1,"ja","ja"],[70,"jW-bkbSWb4A","Stray Kids 『CIRCUS』 Music Video","Stray Kids Japan Official YouTube","UCXhj2pPWvONXmvgHX5wllCA",161627882,2724967,479855,"2022-06-09",200,"10","official_mv",161612145,1,"ja","ja"],[71,"sAuEeM_6zpk","YOASOBI「あの夢をなぞって」 Official Music Video","YOASOBI","UCvpredjG93ifbCP1Y77JyFA",159577261,1167007,21190,"2020-01-18",240,"10","official_mv",159517245,3,"ja","ja"],[72,"j1hft9Wjq9U","YOASOBI - 夜に駆ける / THE HOME TAKE","THE FIRST TAKE","UC9zY_E8mcAo_Oq772LEZq8Q",157809369,1891466,65692,"2020-05-15",288,"10","official_mv",157792810,2,"ja","ja"],[73,"Jb6Zlg30rgk","MAN WITH A MISSION×milet「絆ノ奇跡」Music Video","mwamjapan","UCy21ToKvBD45wUPaSLkr5NQ",157372428,856464,19726,"2023-04-16",225,"10","official_mv",157350648,1,"ja","ja"],[74,"EQ94zflNqn4","RADWIMPS - 愛にできることはまだあるかい [Official Music Video]","RADWIMPS","UCIVqvhyo8ttjYOmMJuhq_YQ",154999682,1221272,54886,"2019-07-18",449,"10","official_mv",154954769,2,"ja","ja"],[75,"s582L3gujnw","米津玄師 - パプリカ  Kenshi Yonezu - PAPRIKA","Kenshi Yonezu  米津玄師","UCUCeZaZeJbEYAAzvMgrKOPQ",154673018,881219,62539,"2019-08-09",206,"10","official_mv",154672196,2,"ja","ja"],[76,"IV7usfiEbms","ケツメイシ「友よ 〜 この先もずっと…」","ケツメイシ","UCxbLt3v4E9SHReoXxbkOIbw",154109845,804952,62129,"2016-04-05",323,"10","official_mv",154106760,2,"ja","ja"],[77,"yvHfl1JEPc0","SixTONES – こっから [YouTube ver.]","SixTONES","UCwjAKjycHHT1QzHrQN5Stww",152180903,0,125586,"2023-05-12",205,"10","official_mv",152174828,2,"ja","ja"],[78,"j7CDb610Bg0","BUMP OF CHICKEN「天体観測」","BUMP OF CHICKEN","UCOfESRUR5duQ2hMnTQ4oqhA",151719873,531041,23231,"2010-12-11",272,"10","official_mv",151690471,3,"ja","ja"],[79,"44cICMd3jW4","Mrs. GREEN APPLE「Soranji」Official Music Video","Mrs. GREEN APPLE","UCpFgmZm65yOU5X-hmWkWjuw",149021715,702152,30199,"2022-11-02",354,"10","official_mv",149004667,3,"ja","ja"],[80,"ZdKYi5ekshM","TWICE「Breakthrough」Music Video","TWICE JAPAN OFFICIAL YouTube Channel","UCCRb6nYKaT8tzLA8CwDdUtw",147117389,2034612,109826,"2019-06-11",218,"10","official_mv",147105623,1,"ja","ja"],[81,"6YZlFdTIdzM","ONE OK ROCK - Clock Strikes [Official Music Video]","ONE OK ROCK","UCzycs8MqvIY4nXWwS-v4J9g",145227535,1041155,32869,"2013-02-25",239,"10","official_mv",145224612,3,"ja","ja"],[82,"9qRCARM_LfE","あいみょん - 愛を伝えたいだとか 【OFFICIAL MUSIC VIDEO】","あいみょん","UCG8MvaPCa2ecKH3GZyFxduA",142716599,773970,12636,"2017-04-20",256,"10","official_mv",142711587,2,"ja","ja"],[83,"o6wtDPVkKqI","「残酷な天使のテーゼ」MUSIC VIDEO（HDver.）/Zankoku na Tenshi no Te-ze“The Cruel Angel's Thesis”","KING RECORDS","UC6KEU5-KSTszEOOnAl8ZwPQ",142150583,1204539,37119,"2018-06-20",244,"10","official_mv",0,1,"ja","ja"],[84,"xGbxsiBZGPI","ONE OK ROCK 「完全感覚Dreamer」","A-Sketch MUSIC LABEL","UCdIGbKA_8trRiOq7eGZ7oSA",141590748,610398,22769,"2010-05-13",260,"10","official_mv",141588407,3,"ja","ja"],[85,"kzdJkT4kp-A","YOASOBI「ハルジオン」Official Music Video","YOASOBI","UCvpredjG93ifbCP1Y77JyFA",140489273,972696,18507,"2020-05-11",203,"10","official_mv",140456280,2,"ja","ja"],[86,"-wb2PAx6aEs","米津玄師 - さよーならまたいつか！ Kenshi Yonezu - Sayonara, Mata Itsuka !","Kenshi Yonezu  米津玄師","UCUCeZaZeJbEYAAzvMgrKOPQ",140423644,690092,29659,"2024-04-11",208,"10","official_mv",140415557,3,"ja","ja"],[87,"ItjnF7Q9IrU","ケツメイシ『バラード』","ケツメイシ","UChlz62qIkNouRTXbwJhYyRg",138157533,165717,11154,"2011-01-24",426,"10","official_mv",138155005,3,"ja","ja"],[88,"Sw1Flgub9s8","ヨルシカ - 春泥棒（OFFICIAL VIDEO）","ヨルシカ / n-buna Official","UCRIgIJQWuBJ0Cv_VlU3USNA",137907750,873539,25445,"2021-01-09",300,"10","official_mv",137861820,2,"ja","ja"],[89,"Eze6-eHmtJg","スピッツ / チェリー","spitzclips","UCEAOVoVVtVBhcn7vLIQIkDA",136441064,476372,21288,"2010-04-23",264,"10","official_mv",136406998,3,"ja","ja"],[90,"Jy-QS27q7lA","Mrs. GREEN APPLE「ケセラセラ」Official Music Video","Mrs. GREEN APPLE","UCpFgmZm65yOU5X-hmWkWjuw",135250367,511853,21154,"2023-04-25",314,"10","official_mv",135240708,3,"ja","ja"],[91,"jg09lNupc1s","【Ado】レディメイド","Ado","UCln9P4Qm3-EAY4aiEPmRwEA",134724279,1068844,20958,"2020-12-24",243,"10","official_mv",134678568,2,"ja","ja"],[92,"o1sUaVJUeB0","宇多田ヒカル - First Love","HikaruUtadaVEVO","UCIeYlKN4aBz_jvT4XWlrMuA",133110452,763259,30574,"2016-01-27",258,"10","official_mv",133067590,2,"ja","ja"],[93,"hyV1AJiFNyo","【Ado】ウタカタララバイ（ウタ from ONE PIECE FILM RED）","Ado","UCln9P4Qm3-EAY4aiEPmRwEA",132159958,971367,14427,"2022-08-06",193,"10","official_mv",132122286,3,"ja","ja"],[94,"EXxaBXKjl6Q","Mr.Children 「HANABI」 MUSIC VIDEO","Mr.Children Official Channel","UCXteDRy5qB0IjA8WPusCJ7w",129543067,287296,11141,"2013-05-28",358,"10","official_mv",129480009,3,"ja","ja"],[95,"HFlgNoUsr4k","PPAP（Pen-Pineapple-Apple-Pen Official）”LONG” ver. ペンパイナッポーアッポーペン「ロング」バージョン／PIKOTARO(ピコ太郎)","PIKOTAROピコ太郎OFFICIAL CHANNEL","UCKpIOnsk-gcwHXIzuk24ExA",127884182,445747,34801,"2016-10-28",160,"10","official_mv",127874726,2,"ja","ja"],[96,"a6QT0acJFQE","NiziU(니쥬) Debut Single『Step and a step』MV","JYP Entertainment","UCaO6TYtlC8U5ttz62hTrZgg",127645397,1053819,164692,"2020-11-24",222,"10","official_mv",127644566,2,"ja","ja"],[97,"A_1t2Dkd2Io","AAA / 「恋音と雨空」Music Video","avex","UC1oPBUWifc0QOOY8DEKhLuQ",126307507,381627,24395,"2013-08-07",319,"10","official_mv",126289085,3,"ja","ja"],[98,"1s84rIhPuhk","米津玄師 - 海の幽霊  Kenshi Yonezu - Spirits of the Sea","Kenshi Yonezu  米津玄師","UCUCeZaZeJbEYAAzvMgrKOPQ",125743884,985121,75642,"2019-05-27",256,"10","official_mv",125743050,2,"ja","ja"],[99,"GVFR9zmQjec","AAA / 「さよならの前に」Music Video","avex","UC1oPBUWifc0QOOY8DEKhLuQ",125172355,340820,20337,"2014-08-14",325,"10","official_mv",125156491,2,"ja","ja"],[100,"t35H2BVq490","TWICE「TT -Japanese ver.-」Music Video","TWICE JAPAN OFFICIAL YouTube Channel","UCCRb6nYKaT8tzLA8CwDdUtw",121985996,832749,54175,"2017-06-20",251,"10","official_mv",121979291,1,"ja","ja"],[101,"cyq5-StPISU","【Ado】阿修羅ちゃん","Ado","UCln9P4Qm3-EAY4aiEPmRwEA",120914450,941700,16635,"2021-10-28",199,"10","official_mv",120886700,2,"ja","ja"],[102,"0Uhh62MUEic","宇多田ヒカル『One Last Kiss』","Hikaru Utada","UChcgcbX3zMBwd0wTJyy2JlA",120794066,1059596,41662,"2021-03-08",259,"10","official_mv",120757465,2,"ja","ja"],[103,"V9_ZpqfqHFI","【Ado】Tot Musica（ウタ from ONE PIECE FILM RED）","Ado","UCln9P4Qm3-EAY4aiEPmRwEA",120272151,1523266,27825,"2022-08-17",202,"10","official_mv",120230280,2,"ja","ja"],[104,"h-kQw4JqCHE","スピッツ / 空も飛べるはず","spitzclips","UCEAOVoVVtVBhcn7vLIQIkDA",119487812,393165,20545,"2010-04-06",279,"10","official_mv",119457463,3,"ja","ja"],[105,"WdhMjzfg6-k","【MV full】 フライングゲット （ダンシングバージョン） / AKB48 [公式]","AKB48","UCxjXU89x6owat9dA8Z-bzdw",118454823,268745,13917,"2011-10-27",261,"10","official_mv",118407327,2,"ja","ja"],[106,"sk1Z-Hqwwog","【Ado】私は最強 (ウタ from ONE PIECE FILM RED)","Ado","UCln9P4Qm3-EAY4aiEPmRwEA",116977775,775045,14890,"2022-06-22",270,"10","official_mv",116946313,1,"ja","ja"],[107,"JfgOjtq440o","back number - 「クリスマスソング」Music Video","UNIVERSAL MUSIC JAPAN","UCl2aT0nRejTCQO_LHZAftBw",116335932,274161,15891,"2015-10-27",126,"10","official_mv",116333751,1,"ja","ja"],[108,"4_OKI91h3tw","かりゆし58「アンマー」","LD&K music","UCXIQnRfxSPEZAW1gAK1Guvw",115807196,282941,15884,"2007-12-20",305,"10","official_mv",115803129,1,"ja","ja"],[109,"Ae6gQmhaMn4","ゲスの極み乙女「私以外私じゃないの」","ゲスの極み乙女 Official YouTube Channel","UC0pHUMEOtul5NlaT-Rt-34w",113960795,442949,30694,"2015-04-08",243,"10","official_mv",113954060,1,"ja","ja"],[110,"ARwVe1MYAUA","あいみょん - 君はロックを聴かない 【OFFICIAL MUSIC VIDEO】","あいみょん","UCG8MvaPCa2ecKH3GZyFxduA",111893930,393182,7649,"2017-08-16",267,"10","official_mv",111890018,1,"ja","ja"],[111,"DwTinTO0o9I","GReeeeN - キセキ","GReeeeNVEVO","UCAp7biVgschwGLlBTzncB2g",111407139,0,26678,"2010-07-05",392,"10","official_mv",111392534,2,"ja","ja"],[112,"Jj1_mfUzjOs","YOASOBI「UNDEAD」 Official Music Video／『〈物語〉シリーズ オフ&モンスターシーズン』主題歌","YOASOBI","UCvpredjG93ifbCP1Y77JyFA",110737695,644677,13184,"2024-09-14",187,"10","official_mv",110632476,1,"ja","ja"],[113,"2MNL2mU8pBE","Mr.Children「HANABI」 Tour2015 REFLECTION Live","Mr.Children Official Channel","UCXteDRy5qB0IjA8WPusCJ7w",109434510,209634,12275,"2017-05-09",349,"10","official_mv",109417876,1,"ja","ja"],[114,"RiDCIqF0-6Y","Mrs. GREEN APPLE - ロマンチシズム","MrsGREENAPPLEVEVO","UC5e0xdyGS7OEgyLroMxwrbw",109138828,565475,17617,"2019-04-10",217,"10","official_mv",109133836,1,"ja","ja"],[115,"nhOhFOoURnE","YOASOBI「三原色」Official Music Video","YOASOBI","UCvpredjG93ifbCP1Y77JyFA",108683661,704382,15514,"2021-07-03",227,"10","official_mv",108655046,1,"ja","ja"],[116,"HuoOEry-Yc4","TWICE「One More Time」Music Video","TWICE JAPAN OFFICIAL YouTube Channel","UCCRb6nYKaT8tzLA8CwDdUtw",108660278,1064223,87434,"2017-10-05",182,"10","official_mv",108652965,2,"ja","ja"],[117,"IvDTkTKi5pA","スキマスイッチ - 「全力少年」Music Video : SUKIMASWITCH / ZENRYOKU SHOUNEN Music Video","SukimaSwitchVEVO","UCK3avWTCKdXZyYiHUEsCzNQ",107348533,352506,15270,"2008-12-08",282,"10","official_mv",107305917,1,"ja","ja"],[118,"sPLqsLsooJY","米津玄師, 宇多田ヒカル Kenshi Yonezu, Hikaru Utada -  JANE DOE","Kenshi Yonezu  米津玄師","UCUCeZaZeJbEYAAzvMgrKOPQ",105985716,850977,25883,"2025-09-23",247,"10","official_mv",105975145,1,"ja","ja"],[119,"erGCAu_hFqM","アンジェラ・アキ「手紙 ~拝啓 十五の君へ~」Official  Music Video (HD)","ANGELA AKI","UCS3xG6qAAqXxwDZdAfa1NXA",104691779,375518,28207,"2013-06-18",314,"10","official_mv",0,1,"ja","ja"],[120,"w9V3x61D994","SEKAI NO OWARI「炎と森のカーニバル」","sekainoowarijp","UCOYmRdtvvcQPspSmW8QsJhQ",103797156,335267,18649,"2014-03-31",304,"10","official_mv",103787571,1,"ja","ja"],[121,"YapsFDcGe_s","スピッツ / 楓","spitzclips","UCEAOVoVVtVBhcn7vLIQIkDA",102961492,297499,12926,"2010-04-16",327,"10","official_mv",102915100,2,"ja","ja"],[122,"Nxwt_s1lM04","Mr.Children 「Tomorrow never knows」 MUSIC VIDEO","Mr.Children Official Channel","UCXteDRy5qB0IjA8WPusCJ7w",102890029,227795,12308,"2013-05-28",322,"10","official_mv",102841998,1,"ja","ja"],[123,"vd3IlOjSUGQ","YOASOBI「ハルカ」Official Music Video","YOASOBI","UCvpredjG93ifbCP1Y77JyFA",101886363,656504,18296,"2020-12-18",245,"10","official_mv",101831236,1,"ja","ja"],[124,"cK3NMZAUKGw","BABYMETAL - メギツネ - MEGITSUNE (OFFICIAL)","BABYMETAL","UC33_tIj4m1_XaqfFcomShvw",100904512,1006732,44898,"2013-06-04",250,"10","official_mv",100902397,2,"ja","ja"],[125,"RzXTe-QfWTw","YOASOBI「アイドル」(Idol) from 『YOASOBI ARENA TOUR 2023 \"電光石火\"』2023.6.4@さいたまスーパーアリーナ","YOASOBI","UCvpredjG93ifbCP1Y77JyFA",100453125,858521,18370,"2023-06-28",293,"10","official_mv",100433885,1,"ja","ja"],[126,"fmOEKOjyDxU","TWICE 「Perfect World」 Music Video","TWICE JAPAN OFFICIAL YouTube Channel","UCCRb6nYKaT8tzLA8CwDdUtw",100438647,2003168,150347,"2021-06-29",187,"10","official_mv",100425727,1,"ja","ja"],[127,"xXA5StMti8c","Mr.Children 「しるし」 MUSIC VIDEO","Mr.Children Official Channel","UCXteDRy5qB0IjA8WPusCJ7w",100309993,164844,7969,"2013-05-28",438,"10","official_mv",100260622,1,"ja","ja"],[128,"vUsikBoa8i0","優里『ビリミリオン』Official Music Video","優里 Official YouTube Channel","UCBNVZPlWoR7oArfzJNrK9yw",100272903,530200,16621,"2023-01-19",229,"10","official_mv",100264376,1,"ja","ja"]];
 const CAT_MAP = {"1":"영화/애니메이션","2":"자동차","10":"음악","15":"반려동물","17":"스포츠","19":"여행/이벤트","20":"게임","22":"인물/블로그","23":"코미디","24":"엔터테인먼트","25":"뉴스/정치","26":"노하우/스타일","27":"교육","28":"과학/기술","29":"비영리/사회운동"};
@@ -765,15 +851,14 @@ function fmtKorEok(n) {
   return (n / 100000000).toFixed(2) + '억';
 }
 
-// ================= ZERO-LAG NATIVE PLAYLIST + FISHER-YATES DECK JUKEBOX ENGINE =================
-const NATIVE_QUEUE_SIZE = 80; // Pre-loaded inside YouTube player for Brave/mobile background autoplay
+// ================= SINGLE-TRACK SEQUENTIAL + FISHER-YATES DECK JUKEBOX ENGINE =================
 let RAW_ROWS = [];
 let PAGE_STORAGE_KEY = 'utubeinfo_fy_deck_v1_default';
 let ytPlayer = null;
 let ytPlayerReady = false;
 let ytSdkEventsWorking = false;
-let pendingQueueIds = null;
-let pendingQueueAutoPlay = false;
+let pendingVideoId = '';
+let pendingAutoPlay = false;
 let currentFiltered = [];
 let currentIndex = -1;
 let currentVideoId = '';
@@ -783,17 +868,9 @@ let shuffleMode = 'deck';
 let diceHistory = [];
 let hasStartedPlayback = false;
 let skipTimer = null;
-let nativeAdvanceWatchdog = null;
 let consecutiveErrors = 0;
 let lastEndedKey = '';
 let lastEndedTime = 0;
-
-// Native YouTube internal playlist batch state (enables OS/Brave background auto-advance)
-let nativeQueueRowIndices = [];
-let nativeQueueVids = [];
-let nativeQueueCursor = 0;
-let nativeQueueLoaded = false;
-let nativeQueueStale = false;
 
 // Persistent Fisher-Yates Deck State (for full unfiltered dataset of active view/tab)
 let mainDeck = [];
@@ -878,57 +955,11 @@ function syncDeckCursorToRowIdx(idx) {
   }
 }
 
-function buildUpcomingRowIndices(startRowIdx, maxCount) {
-  const total = currentFiltered.length;
-  if (!total) return [];
-  const limit = Math.min(maxCount, total);
-  const out = [];
-  if (shuffleMode === 'deck') {
-    const deck = isFilterActive ? filterDeck : mainDeck;
-    let startPos = isFilterActive ? filterDeckPos : mainDeckPos;
-    if (typeof startRowIdx === 'number' && startRowIdx >= 0 && startRowIdx < total) {
-      const foundPos = deck.indexOf(startRowIdx);
-      if (foundPos !== -1) startPos = foundPos;
-    }
-    for (let i = 0; i < limit && i < deck.length; i++) {
-      const rIdx = deck[(startPos + i) % deck.length];
-      if (currentFiltered[rIdx]) out.push(rIdx);
-    }
-  } else if (shuffleMode === 'dice') {
-    const used = new Set();
-    if (typeof startRowIdx === 'number' && startRowIdx >= 0 && startRowIdx < total) {
-      used.add(startRowIdx);
-      out.push(startRowIdx);
-    }
-    let guard = 0;
-    while (out.length < limit && guard < limit * 8) {
-      guard++;
-      const rIdx = Math.floor(Math.random() * total);
-      if (!used.has(rIdx)) {
-        used.add(rIdx);
-        out.push(rIdx);
-      }
-    }
-  } else {
-    const base = (typeof startRowIdx === 'number' && startRowIdx >= 0 && startRowIdx < total) ? startRowIdx : 0;
-    for (let i = 0; i < limit; i++) {
-      out.push((base + i) % total);
-    }
-  }
-  return out;
-}
-
-function buildEmbedUrl(vidOrIds, autoplay) {
-  const ids = Array.isArray(vidOrIds) ? vidOrIds : [vidOrIds];
-  const firstVid = ids[0] || '';
+function buildEmbedUrl(vid, autoplay) {
   const originParam = (location.protocol === 'http:' || location.protocol === 'https:')
     ? '&origin=' + encodeURIComponent(location.origin)
     : '';
-  // Put remaining IDs (excluding firstVid so track 0 doesn't play twice) into YouTube's native playlist parameter
-  const playlistParam = ids.length > 1
-    ? '&playlist=' + ids.slice(1).join(',')
-    : '';
-  return `https://www.youtube.com/embed/${firstVid}?enablejsapi=1&playsinline=1&rel=0&modestbranding=1&fs=1&autoplay=${autoplay ? 1 : 0}${playlistParam}${originParam}`;
+  return `https://www.youtube.com/embed/${vid}?enablejsapi=1&playsinline=1&rel=0&fs=1&autoplay=${autoplay ? 1 : 0}${originParam}`;
 }
 
 function updateNowPlayingUI(r, titlePrefix) {
@@ -936,10 +967,40 @@ function updateNowPlayingUI(r, titlePrefix) {
   const pfx = titlePrefix || '';
   document.getElementById('jbTitle').textContent = `${pfx}#${nf.format(r[0])} ${r[2]}`;
   document.getElementById('jbMeta').innerHTML =
-    `채널: <strong style="color:#fff">${esc(r[3])}</strong> · 조회수: <strong style="color:var(--green)">${nf.format(r[5])} (${fmtKorEok(r[5])})</strong> · 게시일: ${r[8]} · 길이: ${fmtDur(r[9])} · <a href="#" onclick="openYouTubeQueueStartingAt('${r[1]}'); return false;">↗ 유튜브 새 탭 열기(이 곡+덱 순서 50곡 대기열)</a>`;
+    `채널: <strong style="color:#fff">${esc(r[3])}</strong> · 조회수: <strong style="color:var(--green)">${nf.format(r[5])} (${fmtKorEok(r[5])})</strong> · 게시일: ${r[8]} · 길이: ${fmtDur(r[9])} · ` +
+    `<a href="https://www.youtube.com/watch?v=${r[1]}" target="_blank" rel="noopener noreferrer">↗ YouTube 원곡 보기</a> · ` +
+    `<a href="#" onclick="openYouTubeQueueStartingAt('${r[1]}'); return false;">↗ 유튜브 50곡 대기열 열기</a>`;
   document.getElementById('jbQueuePos').textContent = formatQueueStatusText();
   highlightPlayingRow(r[1]);
   setupMediaSession(r);
+}
+
+function dismissErrorNotice() {
+  const box = document.getElementById('jbErrorNotice');
+  if (box) box.style.display = 'none';
+}
+
+function showErrorNotice(code, failedRow) {
+  const box = document.getElementById('jbErrorNotice');
+  const txt = document.getElementById('jbErrorNoticeText');
+  if (!box || !txt) return;
+  let reason = `재생 오류(코드 ${code})`;
+  if (code === 101 || code === 150) {
+    reason = `외부 퍼가기 제한 곡(오류 ${code})`;
+  } else if (code === 100) {
+    reason = `삭제 또는 비공개 전환 영상(오류 ${code})`;
+  } else if (code === 153) {
+    reason = `플레이어 리퍼러/보안 제한(오류 ${code})`;
+  }
+  if (failedRow) {
+    const vid = failedRow[1];
+    txt.innerHTML =
+      `⚠ <strong>${esc(reason)}</strong>: ${esc(failedRow[2])} — 저작권자 정책을 준수해 우회하지 않고 다음 곡으로 전환합니다. ` +
+      `<a href="https://www.youtube.com/watch?v=${vid}" target="_blank" rel="noopener noreferrer">▶ YouTube에서 직접 보기 ↗</a>`;
+  } else {
+    txt.textContent = `⚠ ${reason} — 다음 곡으로 전환합니다.`;
+  }
+  box.style.display = 'flex';
 }
 
 function reshuffleNewDeck(autoPlayNow) {
@@ -971,42 +1032,29 @@ function reshuffleNewDeck(autoPlayNow) {
 
 function formatQueueStatusText() {
   const total = currentFiltered.length;
-  if (!total) return '대기열 0곡';
-  const batchTag = nativeQueueVids.length > 1
-    ? ` · 🔋 백그라운드 ${nativeQueueVids.length}곡 장전(${nativeQueueCursor + 1}/${nativeQueueVids.length})`
-    : '';
+  if (!total) return '목록 0곡';
   if (shuffleMode === 'deck') {
     const pos = isFilterActive ? filterDeckPos : mainDeckPos;
     const remain = Math.max(0, total - pos - 1);
     const saveTag = (!isFilterActive && restoredFromStorage) ? ' · 💾 이어듣기' : ' · 💾 자동저장';
-    return `🃏 피셔 덱 ${nf.format(pos + 1)} / ${nf.format(total)}번째 (남은 ${nf.format(remain)}곡${saveTag}${batchTag})`;
+    return `🃏 피셔 덱 ${nf.format(pos + 1)} / ${nf.format(total)}번째 (남은 ${nf.format(remain)}곡${saveTag} · 1곡 순차 로드)`;
   }
   if (shuffleMode === 'dice') {
-    return `🎲 주사위 랜덤(무저장) · 전체 ${nf.format(total)}곡 무작위 추첨${batchTag}`;
+    return `🎲 주사위 랜덤(무저장) · 전체 ${nf.format(total)}곡 무작위 추첨 · 1곡 순차 로드`;
   }
-  return `순차 ${nf.format(Math.max(1, currentIndex + 1))} / ${nf.format(total)}번째 곡${batchTag}`;
-}
-
-function prepareNativeQueueAtRowIndex(startRowIdx) {
-  nativeQueueRowIndices = buildUpcomingRowIndices(startRowIdx, NATIVE_QUEUE_SIZE);
-  nativeQueueVids = nativeQueueRowIndices.map(i => currentFiltered[i][1]);
-  nativeQueueCursor = 0;
-  nativeQueueStale = false;
-  return nativeQueueVids;
+  return `순차 ${nf.format(Math.max(1, currentIndex + 1))} / ${nf.format(total)}번째 곡 · 1곡 순차 로드`;
 }
 
 function cueInitialDeckTrack(shouldAutoPlay) {
   loadOrInitMainDeck();
-  clearTimeout(nativeAdvanceWatchdog);
   clearTimeout(skipTimer);
+  dismissErrorNotice();
   if (!currentFiltered.length) {
     currentIndex = -1;
     currentVideoId = '';
-    nativeQueueRowIndices = [];
-    nativeQueueVids = [];
-    nativeQueueCursor = 0;
-    nativeQueueLoaded = false;
-    document.getElementById('jbQueuePos').textContent = '대기열 0곡';
+    pendingVideoId = '';
+    pendingAutoPlay = false;
+    document.getElementById('jbQueuePos').textContent = '목록 0곡';
     return '';
   }
   const targetRowIdx = mainDeck[mainDeckPos] || 0;
@@ -1017,7 +1065,8 @@ function cueInitialDeckTrack(shouldAutoPlay) {
   currentIndex = targetRowIdx;
   const r = currentFiltered[targetRowIdx];
   currentVideoId = r[1];
-  const ids = prepareNativeQueueAtRowIndex(targetRowIdx);
+  pendingVideoId = '';
+  pendingAutoPlay = false;
 
   const prefix = restoredFromStorage && mainDeckPos > 0
     ? `💾 이어듣기 (${nf.format(mainDeckPos + 1)}번째 카드): `
@@ -1027,25 +1076,20 @@ function cueInitialDeckTrack(shouldAutoPlay) {
 
   const badge = document.getElementById('jbStateBadge');
   if (restoredFromStorage && mainDeckPos > 0) {
-    badge.textContent = `💾 이전 종료 위치(${nf.format(mainDeckPos + 1)}번째 카드 · ${ids.length}곡 장전) 복원 완료`;
+    badge.textContent = `💾 이전 종료 위치(${nf.format(mainDeckPos + 1)}번째 카드) 복원 완료 · 1곡 순차 로드`;
   } else {
-    badge.textContent = `🃏 피셔-예이츠 덱 준비 완료 (백그라운드 ${ids.length}곡 장전)`;
+    badge.textContent = '🃏 피셔-예이츠 덱 준비 완료 ([▶ 연속 재생 시작]을 누르세요)';
   }
   badge.style.color = 'var(--green)';
   document.getElementById('jbStartBtn').textContent = '▶ 연속 재생 시작';
   hasStartedPlayback = false;
 
-  if (ytPlayerReady && ytPlayer) {
-    if (ids.length > 1 && typeof ytPlayer.cuePlaylist === 'function') {
-      try { ytPlayer.cuePlaylist(ids, 0, 0); nativeQueueLoaded = true; } catch (e) {}
-    } else if (typeof ytPlayer.cueVideoById === 'function') {
-      try { ytPlayer.cueVideoById(currentVideoId); nativeQueueLoaded = true; } catch (e) {}
-    }
+  if (ytPlayerReady && ytPlayer && typeof ytPlayer.cueVideoById === 'function') {
+    try { ytPlayer.cueVideoById(currentVideoId); } catch (e) {}
   } else {
     const iframeEl = document.getElementById('ytPlayerContainer');
     if (iframeEl) {
-      iframeEl.src = buildEmbedUrl(ids, false);
-      nativeQueueLoaded = true;
+      iframeEl.src = buildEmbedUrl(currentVideoId, false);
     }
   }
   return currentVideoId;
@@ -1070,64 +1114,6 @@ window.onYouTubeIframeAPIReady = function() {
   initYouTubePlayerInstance();
 };
 
-function loadQueueIntoPlayer(ids, autoPlay) {
-  if (!ids || !ids.length) return;
-  if (ytPlayerReady && ytPlayer) {
-    try {
-      if (ids.length > 1 && typeof ytPlayer.loadPlaylist === 'function') {
-        if (autoPlay) ytPlayer.loadPlaylist(ids, 0, 0);
-        else ytPlayer.cuePlaylist(ids, 0, 0);
-      } else if (typeof ytPlayer.loadVideoById === 'function') {
-        if (autoPlay) ytPlayer.loadVideoById(ids[0]);
-        else ytPlayer.cueVideoById(ids[0]);
-      }
-      if (autoPlay && typeof ytPlayer.playVideo === 'function') {
-        ytPlayer.playVideo();
-      }
-      nativeQueueLoaded = true;
-      return;
-    } catch (e) {}
-  }
-  if (!ytPlayerReady) {
-    pendingQueueIds = ids.slice();
-    pendingQueueAutoPlay = autoPlay;
-  }
-  const iframeEl = document.getElementById('ytPlayerContainer');
-  if (iframeEl) {
-    iframeEl.src = buildEmbedUrl(ids, autoPlay);
-    nativeQueueLoaded = true;
-    if (!ytPlayer && window.YT && window.YT.Player) {
-      initYouTubePlayerInstance();
-    }
-  }
-}
-
-function onPlayerReady() {
-  ytPlayerReady = true;
-  const badge = document.getElementById('jbStateBadge');
-  if (pendingQueueIds && pendingQueueIds.length) {
-    const q = pendingQueueIds;
-    const ap = pendingQueueAutoPlay;
-    pendingQueueIds = null;
-    pendingQueueAutoPlay = false;
-    hasStartedPlayback = ap;
-    loadQueueIntoPlayer(q, ap);
-  } else if (badge && !hasStartedPlayback) {
-    badge.textContent = `🔋 백그라운드 ${nativeQueueVids.length}곡 장전 완료 ([▶ 연속 재생 시작]을 누르세요)`;
-    badge.style.color = 'var(--green)';
-  }
-}
-
-function safeGetPlaylistIndex() {
-  if (ytPlayerReady && ytPlayer && typeof ytPlayer.getPlaylistIndex === 'function') {
-    try {
-      const idx = ytPlayer.getPlaylistIndex();
-      if (typeof idx === 'number' && idx >= 0) return idx;
-    } catch (e) {}
-  }
-  return nativeQueueCursor;
-}
-
 function safeGetCurrentPlayerVideoId() {
   if (ytPlayerReady && ytPlayer && typeof ytPlayer.getVideoData === 'function') {
     try {
@@ -1138,43 +1124,258 @@ function safeGetCurrentPlayerVideoId() {
   return '';
 }
 
-function syncFromNativePlayer(hintVid, hintPlIdx) {
-  const actualVid = hintVid || safeGetCurrentPlayerVideoId();
-  let plIdx = (typeof hintPlIdx === 'number' && hintPlIdx >= 0) ? hintPlIdx : safeGetPlaylistIndex();
-
-  if (actualVid && nativeQueueVids.length) {
-    if (nativeQueueVids[plIdx] !== actualVid) {
-      const foundInQueue = nativeQueueVids.indexOf(actualVid);
-      if (foundInQueue !== -1) plIdx = foundInQueue;
-    }
+function loadSingleVideoIntoPlayer(vid, autoPlay) {
+  if (!vid) return;
+  if (ytPlayerReady && ytPlayer) {
+    try {
+      if (autoPlay && typeof ytPlayer.loadVideoById === 'function') {
+        ytPlayer.loadVideoById(vid);
+        pendingVideoId = '';
+        pendingAutoPlay = false;
+        return;
+      }
+      if (!autoPlay && typeof ytPlayer.cueVideoById === 'function') {
+        ytPlayer.cueVideoById(vid);
+        pendingVideoId = '';
+        pendingAutoPlay = false;
+        return;
+      }
+    } catch (e) {}
   }
-
-  let matchedRowIdx = -1;
-  if (plIdx >= 0 && plIdx < nativeQueueRowIndices.length && (!actualVid || nativeQueueVids[plIdx] === actualVid)) {
-    nativeQueueCursor = plIdx;
-    matchedRowIdx = nativeQueueRowIndices[plIdx];
-  } else if (actualVid) {
-    matchedRowIdx = currentFiltered.findIndex(r => r[1] === actualVid);
-  }
-
-  if (matchedRowIdx >= 0 && currentFiltered[matchedRowIdx]) {
-    const r = currentFiltered[matchedRowIdx];
-    const changed = (r[1] !== currentVideoId || matchedRowIdx !== currentIndex);
-    currentIndex = matchedRowIdx;
-    currentVideoId = r[1];
-    if (changed) {
-      syncDeckCursorToRowIdx(matchedRowIdx);
-      updateNowPlayingUI(r, '');
-    } else {
-      document.getElementById('jbTitle').textContent = `#${nf.format(r[0])} ${r[2]}`;
-      document.getElementById('jbQueuePos').textContent = formatQueueStatusText();
-      setupMediaSession(r);
+  pendingVideoId = vid;
+  pendingAutoPlay = autoPlay;
+  const iframeEl = document.getElementById('ytPlayerContainer');
+  if (iframeEl) {
+    iframeEl.src = buildEmbedUrl(vid, autoPlay);
+    if (!ytPlayer && window.YT && window.YT.Player) {
+      initYouTubePlayerInstance();
     }
   }
 }
 
-function advanceAfterBatchEnd() {
+function onPlayerReady() {
+  ytPlayerReady = true;
+  const badge = document.getElementById('jbStateBadge');
+  if (pendingVideoId) {
+    const targetVid = pendingVideoId;
+    const ap = pendingAutoPlay;
+    pendingVideoId = '';
+    pendingAutoPlay = false;
+    hasStartedPlayback = ap;
+    const loadedVid = safeGetCurrentPlayerVideoId();
+    const curState = (ytPlayer && typeof ytPlayer.getPlayerState === 'function') ? ytPlayer.getPlayerState() : -1;
+    if (loadedVid !== targetVid) {
+      loadSingleVideoIntoPlayer(targetVid, ap);
+    } else if (ap && curState !== 1 && curState !== 3 && typeof ytPlayer.playVideo === 'function') {
+      try { ytPlayer.playVideo(); } catch (e) {}
+    }
+  } else if (badge && !hasStartedPlayback) {
+    badge.textContent = '✅ YouTube 공식 플레이어 준비 완료 ([▶ 연속 재생 시작]을 누르세요)';
+    badge.style.color = 'var(--green)';
+  }
+}
+
+function handleStateCode(stateCode) {
+  const badge = document.getElementById('jbStateBadge');
+  const startBtn = document.getElementById('jbStartBtn');
+  if (!badge || !startBtn) return;
+
+  if (stateCode === 1) { // PLAYING
+    clearTimeout(skipTimer);
+    hasStartedPlayback = true;
+    consecutiveErrors = 0;
+    badge.textContent = '▶ 공식 플레이어 재생 중';
+    badge.style.color = 'var(--green)';
+    startBtn.textContent = '⏸ 일시정지';
+    updateMediaSessionState('playing');
+  } else if (stateCode === 2) { // PAUSED
+    badge.textContent = '⏸ 일시정지됨';
+    badge.style.color = 'var(--gold)';
+    startBtn.textContent = '▶ 계속 재생';
+    updateMediaSessionState('paused');
+  } else if (stateCode === 3) { // BUFFERING
+    badge.textContent = '⏳ 불러오는 중...';
+    badge.style.color = 'var(--accent)';
+  } else if (stateCode === 5) { // CUED
+    if (hasStartedPlayback && ytPlayerReady && ytPlayer && typeof ytPlayer.playVideo === 'function') {
+      try { ytPlayer.playVideo(); } catch (e) {}
+    }
+  } else if (stateCode === 0) { // ENDED
+    // Deduplicate rapid ENDED signals (prevents double-skipping)
+    const now = Date.now();
+    const endKey = currentVideoId;
+    if (endKey && endKey === lastEndedKey && (now - lastEndedTime) < 1500) {
+      return;
+    }
+    lastEndedKey = endKey;
+    lastEndedTime = now;
+
+    badge.textContent = '⏭ 다음 곡 불러오는 중...';
+    badge.style.color = 'var(--accent)';
+    playNextTrack(true);
+  }
+}
+
+function onPlayerStateChange(event) {
+  ytSdkEventsWorking = true;
+  handleStateCode(event.data);
+}
+
+// Fallback postMessage listener ONLY when YouTube IFrame SDK events aren't attached
+window.addEventListener('message', (e) => {
+  if (!e.origin || !e.origin.includes('youtube.com')) return;
+  try {
+    const data = typeof e.data === 'string' ? JSON.parse(e.data) : e.data;
+    if (!data) return;
+    if (data.event === 'infoDelivery' && data.info) {
+      if (!ytSdkEventsWorking && typeof data.info.playerState === 'number') {
+        handleStateCode(data.info.playerState);
+      }
+    } else if (!ytSdkEventsWorking && data.event === 'onStateChange' && typeof data.info === 'number') {
+      handleStateCode(data.info);
+    } else if (!ytSdkEventsWorking && data.event === 'onError' && typeof data.info === 'number') {
+      onPlayerError({ data: data.info });
+    }
+  } catch (err) {}
+});
+
+function onPlayerError(event) {
+  ytSdkEventsWorking = true;
+  consecutiveErrors++;
+  const code = event ? event.data : 0;
+  const failedRow = (currentIndex >= 0 && currentFiltered[currentIndex]) ? currentFiltered[currentIndex] : null;
+  showErrorNotice(code, failedRow);
+
+  const badge = document.getElementById('jbStateBadge');
+  clearTimeout(skipTimer);
+  if (consecutiveErrors > 15) {
+    if (badge) {
+      badge.textContent = '⚠ 연속 재생 제한 감지 — 위 YouTube 원곡 링크 또는 [유튜브 앱 50곡 연속 열기]를 이용해 주세요';
+      badge.style.color = 'var(--rose)';
+    }
+    return;
+  }
+  if (badge) {
+    badge.textContent = `⚠ 외부 퍼가기 제한 곡(코드 ${code}) → 잠시 후 다음 곡으로 이동합니다`;
+    badge.style.color = 'var(--rose)';
+  }
+  skipTimer = setTimeout(() => {
+    playNextTrack(true);
+  }, 1800);
+}
+
+function highlightPlayingRow(vid) {
+  if (lastHighlightedEl) {
+    lastHighlightedEl.classList.remove('now-playing');
+    lastHighlightedEl = null;
+  }
+  const row = document.getElementById('vid-row-' + vid);
+  if (row) {
+    row.classList.add('now-playing');
+    lastHighlightedEl = row;
+  }
+}
+
+function playTrackAtIndex(idx) {
   if (!currentFiltered.length) return;
+  if (idx < 0) idx = currentFiltered.length - 1;
+  if (idx >= currentFiltered.length) idx = 0;
+
+  clearTimeout(skipTimer);
+  currentIndex = idx;
+  const r = currentFiltered[idx];
+  currentVideoId = r[1];
+  hasStartedPlayback = true;
+
+  syncDeckCursorToRowIdx(idx);
+
+  const badge = document.getElementById('jbStateBadge');
+  badge.textContent = '⏳ 곡 불러오는 중...';
+  badge.style.color = 'var(--accent)';
+  document.getElementById('jbStartBtn').textContent = '⏸ 일시정지';
+  updateNowPlayingUI(r, '');
+
+  loadSingleVideoIntoPlayer(currentVideoId, true);
+}
+
+function sendIframeCommand(funcName) {
+  const iframeEl = document.getElementById('ytPlayerContainer');
+  if (iframeEl && iframeEl.contentWindow) {
+    iframeEl.contentWindow.postMessage(JSON.stringify({ event: 'command', func: funcName, args: [] }), '*');
+  }
+}
+
+function pauseJukeboxSafely() {
+  clearTimeout(skipTimer);
+  if (ytPlayerReady && ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
+    try { ytPlayer.pauseVideo(); } catch (e) {}
+  } else {
+    sendIframeCommand('pauseVideo');
+  }
+}
+
+function playByVideoId(vid) {
+  const idx = currentFiltered.findIndex(r => r[1] === vid);
+  if (idx !== -1) {
+    consecutiveErrors = 0;
+    dismissErrorNotice();
+    playTrackAtIndex(idx);
+  }
+}
+
+function startOrToggleJukebox() {
+  if (!currentFiltered.length) return;
+  if (currentIndex === -1) {
+    let firstIdx = 0;
+    if (shuffleMode === 'deck') {
+      firstIdx = isFilterActive ? filterDeck[filterDeckPos] : mainDeck[mainDeckPos];
+    } else if (shuffleMode === 'dice') {
+      firstIdx = Math.floor(Math.random() * currentFiltered.length);
+    }
+    playTrackAtIndex(firstIdx);
+    return;
+  }
+  if (!hasStartedPlayback) {
+    if (ytPlayerReady && ytPlayer && typeof ytPlayer.playVideo === 'function') {
+      const loadedVid = safeGetCurrentPlayerVideoId();
+      if (!loadedVid || loadedVid === currentVideoId) {
+        hasStartedPlayback = true;
+        try {
+          ytPlayer.playVideo();
+          return;
+        } catch (e) {}
+      }
+    }
+    playTrackAtIndex(currentIndex);
+    return;
+  }
+  if (ytPlayerReady && ytPlayer && typeof ytPlayer.getPlayerState === 'function') {
+    const st = ytPlayer.getPlayerState();
+    if (st === 1 || st === 3) {
+      ytPlayer.pauseVideo();
+    } else {
+      ytPlayer.playVideo();
+    }
+  } else {
+    const startBtn = document.getElementById('jbStartBtn');
+    if (startBtn.textContent.includes('일시정지')) {
+      sendIframeCommand('pauseVideo');
+      handleStateCode(2);
+    } else {
+      sendIframeCommand('playVideo');
+      handleStateCode(1);
+    }
+  }
+}
+
+function playNextTrack(fromAutoAdvance) {
+  if (!currentFiltered.length) return;
+  if (!fromAutoAdvance) {
+    consecutiveErrors = 0;
+    dismissErrorNotice();
+  }
+  clearTimeout(skipTimer);
+
   if (shuffleMode === 'deck') {
     if (isFilterActive) {
       filterDeckPos++;
@@ -1205,307 +1406,11 @@ function advanceAfterBatchEnd() {
   }
 }
 
-function handleStateCode(stateCode) {
-  const badge = document.getElementById('jbStateBadge');
-  const startBtn = document.getElementById('jbStartBtn');
-  if (!badge || !startBtn) return;
-
-  if (stateCode === 1) { // PLAYING
-    clearTimeout(nativeAdvanceWatchdog);
-    clearTimeout(skipTimer);
-    hasStartedPlayback = true;
-    consecutiveErrors = 0;
-    syncFromNativePlayer();
-    badge.textContent = '▶ 실시간 연속 재생 중';
-    badge.style.color = 'var(--green)';
-    startBtn.textContent = '⏸ 일시정지';
-    updateMediaSessionState('playing');
-  } else if (stateCode === 2) { // PAUSED
-    badge.textContent = '⏸ 일시정지됨';
-    badge.style.color = 'var(--gold)';
-    startBtn.textContent = '▶ 계속 재생';
-    updateMediaSessionState('paused');
-  } else if (stateCode === 3) { // BUFFERING
-    clearTimeout(nativeAdvanceWatchdog);
-    syncFromNativePlayer();
-    badge.textContent = '⏳ 불러오는 중...';
-    badge.style.color = 'var(--accent)';
-  } else if (stateCode === 5) { // CUED
-    if (hasStartedPlayback && ytPlayerReady && ytPlayer && typeof ytPlayer.playVideo === 'function') {
-      try { ytPlayer.playVideo(); } catch (e) {}
-    }
-  } else if (stateCode === 0) { // ENDED
-    // Deduplicate rapid ENDED signals (prevents double-skipping)
-    const now = Date.now();
-    const plIdx = safeGetPlaylistIndex();
-    const endKey = currentVideoId + '@' + plIdx;
-    if (endKey === lastEndedKey && (now - lastEndedTime) < 1200) {
-      return;
-    }
-    lastEndedKey = endKey;
-    lastEndedTime = now;
-
-    // If native internal playlist has remaining tracks AND filters haven't changed,
-    // let YouTube's own player advance natively (critical for Brave background playback!)
-    if (!nativeQueueStale && nativeQueueVids.length > 1 && plIdx >= 0 && plIdx < nativeQueueVids.length - 1) {
-      badge.textContent = `⏭ 내부 대기열 다음 곡 전환 중 (${plIdx + 2}/${nativeQueueVids.length})...`;
-      badge.style.color = 'var(--accent)';
-      clearTimeout(nativeAdvanceWatchdog);
-      // Safety watchdog ONLY if native advance stalls for >3.5s
-      nativeAdvanceWatchdog = setTimeout(() => {
-        if (!hasStartedPlayback) return;
-        const curState = (ytPlayerReady && ytPlayer && typeof ytPlayer.getPlayerState === 'function')
-          ? ytPlayer.getPlayerState()
-          : 0;
-        const curPl = safeGetPlaylistIndex();
-        if ((curState === 0 || curState === 5 || curState === -1) && curPl === plIdx) {
-          if (ytPlayerReady && ytPlayer && typeof ytPlayer.nextVideo === 'function') {
-            try { ytPlayer.nextVideo(); } catch (e) {}
-          } else {
-            playNextTrack(true);
-          }
-        }
-      }, 3500);
-      return;
-    }
-
-    // End of the 80-track batch (or filter changed): load the next 80-track native batch
-    badge.textContent = '⏭ 다음 80곡 대기열 자동 장전 중...';
-    advanceAfterBatchEnd();
-  }
-}
-
-function onPlayerStateChange(event) {
-  ytSdkEventsWorking = true;
-  handleStateCode(event.data);
-}
-
-// Fallback postMessage listener ONLY when YouTube IFrame SDK events aren't attached (e.g. Samsung Internet)
-window.addEventListener('message', (e) => {
-  if (!e.origin || !e.origin.includes('youtube.com')) return;
-  try {
-    const data = typeof e.data === 'string' ? JSON.parse(e.data) : e.data;
-    if (!data) return;
-    if (data.event === 'infoDelivery' && data.info) {
-      const vid = data.info.videoData && data.info.videoData.video_id;
-      const pIdx = typeof data.info.playlistIndex === 'number' ? data.info.playlistIndex : -1;
-      if (vid && vid !== currentVideoId) {
-        syncFromNativePlayer(vid, pIdx);
-      }
-      if (!ytSdkEventsWorking && typeof data.info.playerState === 'number') {
-        handleStateCode(data.info.playerState);
-      }
-    } else if (!ytSdkEventsWorking && data.event === 'onStateChange' && typeof data.info === 'number') {
-      handleStateCode(data.info);
-    } else if (!ytSdkEventsWorking && data.event === 'onError' && typeof data.info === 'number') {
-      onPlayerError({ data: data.info });
-    }
-  } catch (err) {}
-});
-
-// Sync deck position & auto-recover if returning from background/locked screen
-document.addEventListener('visibilitychange', () => {
-  if (document.hidden || !ytPlayerReady || !ytPlayer) return;
-  syncFromNativePlayer();
-  if (hasStartedPlayback && typeof ytPlayer.getPlayerState === 'function') {
-    try {
-      const st = ytPlayer.getPlayerState();
-      if (st === 5) {
-        ytPlayer.playVideo();
-      } else if (st === 0) {
-        handleStateCode(0);
-      }
-    } catch (e) {}
-  }
-});
-
-function onPlayerError(event) {
-  ytSdkEventsWorking = true;
-  consecutiveErrors++;
-  const badge = document.getElementById('jbStateBadge');
-  if (badge) {
-    badge.textContent = `⚠ 재생 제한 곡(코드 ${event.data}) → 다음 곡 즉시 스킵 중...`;
-    badge.style.color = 'var(--rose)';
-  }
-  clearTimeout(skipTimer);
-  if (consecutiveErrors > 30) {
-    if (badge) badge.textContent = '⚠ 연속 제한 감지 ([유튜브 앱 50곡 연속 열기]를 이용해 주세요)';
-    return;
-  }
-  skipTimer = setTimeout(() => {
-    const plIdx = safeGetPlaylistIndex();
-    if (!nativeQueueStale && ytPlayerReady && ytPlayer && typeof ytPlayer.nextVideo === 'function' && plIdx >= 0 && plIdx < nativeQueueVids.length - 1) {
-      nativeQueueCursor = plIdx + 1;
-      const nextRowIdx = nativeQueueRowIndices[nativeQueueCursor];
-      if (nextRowIdx !== undefined && currentFiltered[nextRowIdx]) {
-        currentIndex = nextRowIdx;
-        currentVideoId = currentFiltered[nextRowIdx][1];
-        syncDeckCursorToRowIdx(nextRowIdx);
-        updateNowPlayingUI(currentFiltered[nextRowIdx], '');
-      }
-      try { ytPlayer.nextVideo(); } catch (e) { playNextTrack(true); }
-    } else {
-      playNextTrack(true);
-    }
-  }, 250);
-}
-
-function highlightPlayingRow(vid) {
-  if (lastHighlightedEl) {
-    lastHighlightedEl.classList.remove('now-playing');
-    lastHighlightedEl = null;
-  }
-  const row = document.getElementById('vid-row-' + vid);
-  if (row) {
-    row.classList.add('now-playing');
-    lastHighlightedEl = row;
-  }
-}
-
-function playTrackAtIndex(idx) {
-  if (!currentFiltered.length) return;
-  if (idx < 0) idx = currentFiltered.length - 1;
-  if (idx >= currentFiltered.length) idx = 0;
-
-  clearTimeout(nativeAdvanceWatchdog);
-  clearTimeout(skipTimer);
-  currentIndex = idx;
-  const r = currentFiltered[idx];
-  currentVideoId = r[1];
-  hasStartedPlayback = true;
-
-  syncDeckCursorToRowIdx(idx);
-  const ids = prepareNativeQueueAtRowIndex(idx);
-
-  const badge = document.getElementById('jbStateBadge');
-  badge.textContent = `⏳ 곡 불러오는 중 (백그라운드 ${ids.length}곡 장전)...`;
-  badge.style.color = 'var(--accent)';
-  document.getElementById('jbStartBtn').textContent = '⏸ 일시정지';
-  updateNowPlayingUI(r, '');
-
-  loadQueueIntoPlayer(ids, true);
-}
-
-function sendIframeCommand(funcName) {
-  const iframeEl = document.getElementById('ytPlayerContainer');
-  if (iframeEl && iframeEl.contentWindow) {
-    iframeEl.contentWindow.postMessage(JSON.stringify({ event: 'command', func: funcName, args: [] }), '*');
-  }
-}
-
-function pauseJukeboxSafely() {
-  clearTimeout(nativeAdvanceWatchdog);
-  clearTimeout(skipTimer);
-  if (ytPlayerReady && ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
-    try { ytPlayer.pauseVideo(); } catch (e) {}
-  } else {
-    sendIframeCommand('pauseVideo');
-  }
-}
-
-function playByVideoId(vid) {
-  const idx = currentFiltered.findIndex(r => r[1] === vid);
-  if (idx !== -1) {
-    consecutiveErrors = 0;
-    playTrackAtIndex(idx);
-  }
-}
-
-function startOrToggleJukebox() {
-  if (!currentFiltered.length) return;
-  if (currentIndex === -1) {
-    let firstIdx = 0;
-    if (shuffleMode === 'deck') {
-      firstIdx = isFilterActive ? filterDeck[filterDeckPos] : mainDeck[mainDeckPos];
-    } else if (shuffleMode === 'dice') {
-      firstIdx = Math.floor(Math.random() * currentFiltered.length);
-    }
-    playTrackAtIndex(firstIdx);
-    return;
-  }
-  if (!hasStartedPlayback) {
-    if (!nativeQueueStale && nativeQueueLoaded && ytPlayerReady && ytPlayer && typeof ytPlayer.playVideo === 'function') {
-      hasStartedPlayback = true;
-      try {
-        ytPlayer.playVideo();
-        return;
-      } catch (e) {}
-    }
-    playTrackAtIndex(currentIndex);
-    return;
-  }
-  if (ytPlayerReady && ytPlayer && typeof ytPlayer.getPlayerState === 'function') {
-    const st = ytPlayer.getPlayerState();
-    if (st === 1 || st === 3) {
-      ytPlayer.pauseVideo();
-    } else if (st === -1 || st === 5) {
-      ytPlayer.playVideo();
-    } else {
-      ytPlayer.playVideo();
-    }
-  } else {
-    const startBtn = document.getElementById('jbStartBtn');
-    if (startBtn.textContent.includes('일시정지')) {
-      sendIframeCommand('pauseVideo');
-      handleStateCode(2);
-    } else {
-      sendIframeCommand('playVideo');
-      handleStateCode(1);
-    }
-  }
-}
-
-function playNextTrack(fromAutoAdvance) {
-  if (!currentFiltered.length) return;
-  if (!fromAutoAdvance) consecutiveErrors = 0;
-  clearTimeout(nativeAdvanceWatchdog);
-
-  // Instant native skip inside the pre-loaded 80-song playlist (zero reload!)
-  if (!nativeQueueStale && nativeQueueLoaded && ytPlayerReady && ytPlayer && typeof ytPlayer.nextVideo === 'function') {
-    const plIdx = safeGetPlaylistIndex();
-    if (plIdx >= 0 && plIdx < nativeQueueVids.length - 1) {
-      nativeQueueCursor = plIdx + 1;
-      const nextRowIdx = nativeQueueRowIndices[nativeQueueCursor];
-      if (nextRowIdx !== undefined && currentFiltered[nextRowIdx]) {
-        hasStartedPlayback = true;
-        currentIndex = nextRowIdx;
-        currentVideoId = currentFiltered[nextRowIdx][1];
-        syncDeckCursorToRowIdx(nextRowIdx);
-        updateNowPlayingUI(currentFiltered[nextRowIdx], '');
-        try {
-          ytPlayer.nextVideo();
-          return;
-        } catch (e) {}
-      }
-    }
-  }
-  advanceAfterBatchEnd();
-}
-
 function playPrevTrack() {
   if (!currentFiltered.length) return;
   consecutiveErrors = 0;
-  clearTimeout(nativeAdvanceWatchdog);
-
-  // Instant native previous inside the pre-loaded 80-song playlist
-  if (!nativeQueueStale && nativeQueueLoaded && ytPlayerReady && ytPlayer && typeof ytPlayer.previousVideo === 'function') {
-    const plIdx = safeGetPlaylistIndex();
-    if (plIdx > 0 && plIdx < nativeQueueVids.length) {
-      nativeQueueCursor = plIdx - 1;
-      const prevRowIdx = nativeQueueRowIndices[nativeQueueCursor];
-      if (prevRowIdx !== undefined && currentFiltered[prevRowIdx]) {
-        hasStartedPlayback = true;
-        currentIndex = prevRowIdx;
-        currentVideoId = currentFiltered[prevRowIdx][1];
-        syncDeckCursorToRowIdx(prevRowIdx);
-        updateNowPlayingUI(currentFiltered[prevRowIdx], '');
-        try {
-          ytPlayer.previousVideo();
-          return;
-        } catch (e) {}
-      }
-    }
-  }
+  dismissErrorNotice();
+  clearTimeout(skipTimer);
 
   if (shuffleMode === 'deck') {
     if (isFilterActive) {
@@ -1554,19 +1459,13 @@ function syncShuffleModeButtons() {
 function toggleDeckShuffle() {
   if (shuffleMode === 'deck') {
     shuffleMode = 'seq';
-    nativeQueueStale = true;
     syncShuffleModeButtons();
-    if (hasStartedPlayback && currentIndex >= 0) {
-      playTrackAtIndex(currentIndex);
-    }
   } else {
     shuffleMode = 'deck';
-    nativeQueueStale = true;
     const targetIdx = isFilterActive ? filterDeck[filterDeckPos] : mainDeck[mainDeckPos];
     syncShuffleModeButtons();
     if (hasStartedPlayback && targetIdx !== undefined) {
       playTrackAtIndex(targetIdx);
-      return;
     }
   }
 }
@@ -1574,14 +1473,9 @@ function toggleDeckShuffle() {
 function toggleDiceShuffle() {
   if (shuffleMode === 'dice') {
     shuffleMode = 'seq';
-    nativeQueueStale = true;
     syncShuffleModeButtons();
-    if (hasStartedPlayback && currentIndex >= 0) {
-      playTrackAtIndex(currentIndex);
-    }
   } else {
     shuffleMode = 'dice';
-    nativeQueueStale = true;
     syncShuffleModeButtons();
     if (currentFiltered.length) {
       const randIdx = Math.floor(Math.random() * currentFiltered.length);
@@ -1592,17 +1486,12 @@ function toggleDiceShuffle() {
 
 function toggleTheaterMode() {
   const panel = document.getElementById('jukeboxPanel');
-  const box = document.getElementById('jbVideoBox');
   const tBtn = document.getElementById('jbTheaterBtn');
   const fBtn = document.getElementById('jbFullscreenBtn');
-  const aBtn = document.getElementById('jbAudioModeBtn');
 
   panel.classList.remove('fullscreen-mode');
   fBtn.classList.remove('active-mode');
   fBtn.textContent = '⛶ 꽉 찬 전체화면 (연속재생 유지)';
-  box.classList.remove('audio-mode');
-  aBtn.classList.remove('active-mode');
-  aBtn.textContent = '🎧 미니 오디오 모드';
 
   const isTheater = panel.classList.toggle('theater-mode');
   tBtn.classList.toggle('active-mode', isTheater);
@@ -1614,17 +1503,12 @@ function toggleTheaterMode() {
 
 function toggleFullscreenMode() {
   const panel = document.getElementById('jukeboxPanel');
-  const box = document.getElementById('jbVideoBox');
   const fBtn = document.getElementById('jbFullscreenBtn');
   const tBtn = document.getElementById('jbTheaterBtn');
-  const aBtn = document.getElementById('jbAudioModeBtn');
 
   panel.classList.remove('theater-mode');
   tBtn.classList.remove('active-mode');
   tBtn.textContent = '📺 크게 보기 (극장 모드)';
-  box.classList.remove('audio-mode');
-  aBtn.classList.remove('active-mode');
-  aBtn.textContent = '🎧 미니 오디오 모드';
 
   const isFs = panel.classList.toggle('fullscreen-mode');
   fBtn.classList.toggle('active-mode', isFs);
@@ -1652,24 +1536,6 @@ document.addEventListener('fullscreenchange', () => {
     fBtn.textContent = '⛶ 꽉 찬 전체화면 (연속재생 유지)';
   }
 });
-
-function toggleAudioCompactMode() {
-  const panel = document.getElementById('jukeboxPanel');
-  const box = document.getElementById('jbVideoBox');
-  const btn = document.getElementById('jbAudioModeBtn');
-  const tBtn = document.getElementById('jbTheaterBtn');
-  const fBtn = document.getElementById('jbFullscreenBtn');
-
-  panel.classList.remove('theater-mode', 'fullscreen-mode');
-  tBtn.classList.remove('active-mode');
-  tBtn.textContent = '📺 크게 보기 (극장 모드)';
-  fBtn.classList.remove('active-mode');
-  fBtn.textContent = '⛶ 꽉 찬 전체화면 (연속재생 유지)';
-
-  const isCompact = box.classList.toggle('audio-mode');
-  btn.classList.toggle('active-mode', isCompact);
-  btn.textContent = isCompact ? '📺 기본 화면 크기' : '🎧 미니 오디오 모드';
-}
 
 function scrollToCurrentPlaying() {
   const panel = document.getElementById('jukeboxPanel');
@@ -1906,9 +1772,6 @@ function applyFiltersAndRender(isInitialSync) {
   if (isFilterActive) {
     filterDeck = buildFisherYatesDeck(currentFiltered.length);
     filterDeckPos = 0;
-  }
-  if (!isInitialSync) {
-    nativeQueueStale = true;
   }
   if (currentVideoId) {
     currentIndex = currentFiltered.findIndex(r => r[1] === currentVideoId);
