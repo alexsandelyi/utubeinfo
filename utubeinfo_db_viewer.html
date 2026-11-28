@@ -399,6 +399,28 @@ thead th {
   font-weight: 700;
 }
 thead th.num, tbody td.num { text-align: right; font-variant-numeric: tabular-nums; }
+thead th.sortable {
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.12s, background 0.12s;
+}
+thead th.sortable:hover {
+  color: #fff;
+  background: #1e293b;
+}
+thead th.sortable.sort-active {
+  color: var(--accent);
+}
+.sort-arrow {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 10px;
+  opacity: 0.45;
+}
+thead th.sortable.sort-active .sort-arrow {
+  opacity: 1;
+  color: var(--accent);
+}
 tbody tr {
   border-bottom: 1px solid rgba(51, 65, 85, 0.55);
 }
@@ -569,7 +591,7 @@ tbody td {
 </style>
 </head>
 <body>
-<nav class="top-nav"><div class="nav-row"><span class="brand">🎬 YouTube 100M+ Census <span class="ver-badge">v16</span></span><a class="nav-link" href="index.html?v=16">🏠 공식 MV 홈 (10,202)</a><a class="nav-link" href="youtube_100m_mv_verified.html?v=16">음악 카테고리 1억+ (11,512)</a><a class="nav-link" href="youtube_100m_all_categories.html?v=16">전 카테고리 1억+ (12,101)</a><a class="nav-link active" href="utubeinfo_db_viewer.html?v=16">원본 DB 전체 (29,537)</a><a class="nav-link" href="video_sources.html?v=16">🔗 출처 사전 (29,537)</a></div><div class="nav-row nav-row-regions"><span class="nav-group-label">🌐 언어권별 순수 공식 MV:</span><a class="nav-link" href="index.html?v=16#tab=all">🌐 전체 (10,202)</a><a class="nav-link reg-ko" href="youtube_100m_region_ko.html?v=16">🇰🇷 한국어권 (391)</a><a class="nav-link reg-en" href="youtube_100m_region_en.html?v=16">🇺🇸 영어권 (4,244)</a><a class="nav-link reg-ja" href="youtube_100m_region_ja.html?v=16">🇯🇵 일본어권 (128)</a><a class="nav-link reg-es" href="youtube_100m_region_es.html?v=16">🇪🇸 스페인어권 (2,228)</a><a class="nav-link reg-other" href="youtube_100m_region_other.html?v=16">🌍 기타권 (3,211)</a></div></nav>
+<nav class="top-nav"><div class="nav-row"><span class="brand">🎬 YouTube 100M+ Census <span class="ver-badge">v17</span></span><a class="nav-link" href="index.html?v=17">🏠 공식 MV 홈 (10,202)</a><a class="nav-link" href="youtube_100m_mv_verified.html?v=17">음악 카테고리 1억+ (11,512)</a><a class="nav-link" href="youtube_100m_all_categories.html?v=17">전 카테고리 1억+ (12,101)</a><a class="nav-link active" href="utubeinfo_db_viewer.html?v=17">원본 DB 전체 (29,537)</a><a class="nav-link" href="video_sources.html?v=17">🔗 출처 사전 (29,537)</a></div><div class="nav-row nav-row-regions"><span class="nav-group-label">🌐 언어권별 순수 공식 MV:</span><a class="nav-link" href="index.html?v=17#tab=all">🌐 전체 (10,202)</a><a class="nav-link reg-ko" href="youtube_100m_region_ko.html?v=17">🇰🇷 한국어권 (391)</a><a class="nav-link reg-en" href="youtube_100m_region_en.html?v=17">🇺🇸 영어권 (4,244)</a><a class="nav-link reg-ja" href="youtube_100m_region_ja.html?v=17">🇯🇵 일본어권 (128)</a><a class="nav-link reg-es" href="youtube_100m_region_es.html?v=17">🇪🇸 스페인어권 (2,228)</a><a class="nav-link reg-other" href="youtube_100m_region_other.html?v=17">🌍 기타권 (3,211)</a></div></nav>
 <div class="container">
   <div class="page-header">
     <h1>원본 SQLite 데이터베이스 전체 뷰어 (<code>data/utubeinfo.db</code>)</h1>
