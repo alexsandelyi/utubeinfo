@@ -122,125 +122,6 @@ a:hover { text-decoration: underline; }
   font-size: 14px;
 }
 
-/* Clickable Hub Tabs in Combined index.html */
-.hub-tab-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  align-items: center;
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 10px 12px;
-  margin-bottom: 16px;
-}
-.hub-tab-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 9px 14px;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 700;
-  background: var(--bg);
-  color: var(--muted);
-  border: 1px solid var(--border);
-  cursor: pointer;
-  user-select: none;
-  touch-action: manipulation;
-  transition: all 0.14s;
-}
-.hub-tab-btn:hover { color: #fff; border-color: var(--accent); transform: translateY(-1px); }
-.hub-tab-btn .tab-cnt {
-  font-size: 11px;
-  font-weight: 700;
-  padding: 1px 6px;
-  border-radius: 999px;
-  background: rgba(148, 163, 184, 0.16);
-  color: var(--text);
-}
-.hub-tab-btn.active { background: #0284c7; color: #fff; border-color: #38bdf8; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35); }
-.hub-tab-btn.active .tab-cnt { background: rgba(255, 255, 255, 0.22); color: #fff; }
-.hub-tab-btn.tab-ko.active { background: #6d28d9; border-color: #a78bfa; box-shadow: 0 4px 12px rgba(109, 40, 217, 0.35); }
-.hub-tab-btn.tab-en.active { background: #0284c7; border-color: #38bdf8; }
-.hub-tab-btn.tab-ja.active { background: #be123c; border-color: #fb7185; box-shadow: 0 4px 12px rgba(190, 18, 60, 0.35); }
-.hub-tab-btn.tab-es.active { background: #b45309; border-color: #fbbf24; box-shadow: 0 4px 12px rgba(180, 83, 9, 0.35); }
-.hub-tab-btn.tab-other.active { background: #047857; border-color: #34d399; box-shadow: 0 4px 12px rgba(4, 120, 87, 0.35); }
-.hub-standalone-link {
-  margin-left: auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 7px 12px;
-  border-radius: 8px;
-  font-size: 12px;
-  font-weight: 700;
-  background: rgba(56, 189, 248, 0.14);
-  border: 1px solid rgba(56, 189, 248, 0.4);
-  color: #7dd3fc;
-}
-.hub-standalone-link:hover { background: #0284c7; color: #fff; text-decoration: none; }
-
-/* Region Share Bar */
-.share-bar-wrap {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 14px 16px;
-  margin-bottom: 18px;
-}
-.share-bar-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 10px;
-  font-size: 13px;
-  font-weight: 700;
-}
-.share-bar {
-  display: flex;
-  height: 26px;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-}
-.share-seg {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11.5px;
-  font-weight: 800;
-  color: #0f172a;
-  cursor: pointer;
-  white-space: nowrap;
-  overflow: hidden;
-  transition: filter 0.12s;
-}
-.share-seg:hover { filter: brightness(1.12); }
-.share-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 10px;
-  font-size: 12.5px;
-  color: var(--muted);
-}
-.share-legend-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-}
-.share-legend-item:hover { color: #fff; }
-.share-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 3px;
-  display: inline-block;
-}
-
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -656,13 +537,6 @@ tbody td {
     -webkit-overflow-scrolling: touch;
   }
   .top-nav .brand, .nav-link, .nav-group-label { flex-shrink: 0; }
-  .hub-tab-bar {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding: 8px;
-  }
-  .hub-tab-btn, .hub-standalone-link { flex-shrink: 0; white-space: nowrap; }
   .container { padding: 10px; }
   .jukebox-panel {
     position: relative;
@@ -695,7 +569,7 @@ tbody td {
 </style>
 </head>
 <body>
-<nav class="top-nav"><div class="nav-row"><span class="brand">🎬 YouTube 100M+ Census <span class="ver-badge">v15</span></span><a class="nav-link" href="index.html?v=15">🏠 종합 홈 & 탭</a><a class="nav-link" href="youtube_100m_official_mv_only.html?v=15">순수 공식 MV (10,202)</a><a class="nav-link" href="youtube_100m_mv_verified.html?v=15">음악 카테고리 1억+ (11,512)</a><a class="nav-link" href="youtube_100m_all_categories.html?v=15">전 카테고리 1억+ (12,101)</a><a class="nav-link" href="utubeinfo_db_viewer.html?v=15">원본 DB 전체 (29,537)</a><a class="nav-link" href="video_sources.html?v=15">🔗 출처 사전 (29,537)</a></div><div class="nav-row nav-row-regions"><span class="nav-group-label">🌐 언어권별 순수 공식 MV:</span><a class="nav-link" href="index.html?v=15#tab=all" title="종합 HTML에서 5개 언어권을 탭으로 전환">🗂️ 5개 언어권 탭 통합</a><a class="nav-link reg-ko active" href="youtube_100m_region_ko.html?v=15">🇰🇷 한국어권 (391)</a><a class="nav-link reg-en" href="youtube_100m_region_en.html?v=15">🇺🇸 영어권 (4,244)</a><a class="nav-link reg-ja" href="youtube_100m_region_ja.html?v=15">🇯🇵 일본어권 (128)</a><a class="nav-link reg-es" href="youtube_100m_region_es.html?v=15">🇪🇸 스페인어권 (2,228)</a><a class="nav-link reg-other" href="youtube_100m_region_other.html?v=15">🌍 기타권 (3,211)</a></div></nav>
+<nav class="top-nav"><div class="nav-row"><span class="brand">🎬 YouTube 100M+ Census <span class="ver-badge">v16</span></span><a class="nav-link" href="index.html?v=16">🏠 공식 MV 홈 (10,202)</a><a class="nav-link" href="youtube_100m_mv_verified.html?v=16">음악 카테고리 1억+ (11,512)</a><a class="nav-link" href="youtube_100m_all_categories.html?v=16">전 카테고리 1억+ (12,101)</a><a class="nav-link" href="utubeinfo_db_viewer.html?v=16">원본 DB 전체 (29,537)</a><a class="nav-link" href="video_sources.html?v=16">🔗 출처 사전 (29,537)</a></div><div class="nav-row nav-row-regions"><span class="nav-group-label">🌐 언어권별 순수 공식 MV:</span><a class="nav-link" href="index.html?v=16#tab=all">🌐 전체 (10,202)</a><a class="nav-link reg-ko active" href="youtube_100m_region_ko.html?v=16">🇰🇷 한국어권 (391)</a><a class="nav-link reg-en" href="youtube_100m_region_en.html?v=16">🇺🇸 영어권 (4,244)</a><a class="nav-link reg-ja" href="youtube_100m_region_ja.html?v=16">🇯🇵 일본어권 (128)</a><a class="nav-link reg-es" href="youtube_100m_region_es.html?v=16">🇪🇸 스페인어권 (2,228)</a><a class="nav-link reg-other" href="youtube_100m_region_other.html?v=16">🌍 기타권 (3,211)</a></div></nav>
 <div class="container">
   <div class="page-header">
     <h1>🇰🇷 한국어권 1억 뷰+ 순수 공식 MV 목록 &amp; 연속 주크박스</h1>
@@ -710,7 +584,7 @@ tbody td {
     </div>
     <div class="jukebox-info">
       <div class="jukebox-status-line">
-        <span class="ver-badge">v15</span>
+        <span class="ver-badge">v16</span>
         <span id="jbStateBadge" style="color:var(--green)">🎲 랜덤 첫 곡 준비 완료</span>
         <span>·</span>
         <span id="jbQueuePos">전체 391곡 목록</span>
@@ -736,29 +610,6 @@ tbody td {
       <div class="file-warn" id="fileProtocolWarn">
         💡 <strong>안내:</strong> 탐색기에서 <code>file://</code>로 직접 열면 VEVO 등 일부 공식 뮤직비디오가 보안 정책(오류 153)으로 차단될 수 있습니다. 웹 주소(<code>https://ilbbang.com/utubeinfo/</code>) 또는 폴더 안의 <strong><code>play_jukebox.bat</code></strong>로 여시면 정상 재생됩니다!
       </div>
-    </div>
-  </div>
-
-  <div class="stats-grid">
-    <div class="stat-card">
-      <div class="label">내장 전체 영상 수 (누락 0건)</div>
-      <div class="value">391개</div>
-      <div class="sub">셔플·검색 시 391곡 전체 대상 작동</div>
-    </div>
-    <div class="stat-card">
-      <div class="label">10억 뷰(Billion Club) 이상</div>
-      <div class="value" style="color:var(--gold)">14개</div>
-      <div class="sub">실시간 API 조회수 기준</div>
-    </div>
-    <div class="stat-card">
-      <div class="label">합산 누적 조회수</div>
-      <div class="value" style="color:var(--green)">117,964,769,064</div>
-      <div class="sub">약 1,179.6억 회</div>
-    </div>
-    <div class="stat-card">
-      <div class="label">합산 누적 좋아요</div>
-      <div class="value">1,600,576,455</div>
-      <div class="sub">YouTube Data API v3 검증</div>
     </div>
   </div>
 
